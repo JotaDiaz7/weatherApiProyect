@@ -1,0 +1,15 @@
+[2025-03-20T14:35:01.531+0000] {processor.py:186} INFO - Started process (PID=7323) to work on /opt/airflow/dags/airflow.py
+[2025-03-20T14:35:01.533+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2025-03-20T14:35:01.534+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.534+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2025-03-20T14:35:01.567+0000] {processor.py:925} INFO - DAG(s) 'mi_nuevo_dag' retrieved from /opt/airflow/dags/airflow.py
+[2025-03-20T14:35:01.733+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.731+0000] {override.py:1912} INFO - Created Permission View: can edit on DAG:mi_nuevo_dag
+[2025-03-20T14:35:01.750+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.750+0000] {override.py:1912} INFO - Created Permission View: can read on DAG:mi_nuevo_dag
+[2025-03-20T14:35:01.761+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.761+0000] {override.py:1912} INFO - Created Permission View: can delete on DAG:mi_nuevo_dag
+[2025-03-20T14:35:01.773+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.772+0000] {override.py:1912} INFO - Created Permission View: menu access on DAG Run:mi_nuevo_dag
+[2025-03-20T14:35:01.782+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.782+0000] {override.py:1912} INFO - Created Permission View: can read on DAG Run:mi_nuevo_dag
+[2025-03-20T14:35:01.792+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.791+0000] {override.py:1912} INFO - Created Permission View: can delete on DAG Run:mi_nuevo_dag
+[2025-03-20T14:35:01.801+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.800+0000] {override.py:1912} INFO - Created Permission View: can create on DAG Run:mi_nuevo_dag
+[2025-03-20T14:35:01.802+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.802+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-03-20T14:35:01.821+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.821+0000] {dag.py:3262} INFO - Creating ORM DAG for mi_nuevo_dag
+[2025-03-20T14:35:01.839+0000] {logging_mixin.py:190} INFO - [2025-03-20T14:35:01.838+0000] {dag.py:4180} INFO - Setting next_dagrun for mi_nuevo_dag to 2025-03-19 00:00:00+00:00, run_after=2025-03-20 00:00:00+00:00
+[2025-03-20T14:35:01.861+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/airflow.py took 0.337 seconds

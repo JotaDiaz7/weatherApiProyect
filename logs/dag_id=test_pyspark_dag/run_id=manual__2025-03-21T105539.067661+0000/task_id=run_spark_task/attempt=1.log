@@ -1,0 +1,32 @@
+[2025-03-21T10:55:40.660+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-21T10:55:40.812+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test_pyspark_dag.run_spark_task manual__2025-03-21T10:55:39.067661+00:00 [queued]>
+[2025-03-21T10:55:40.821+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test_pyspark_dag.run_spark_task manual__2025-03-21T10:55:39.067661+00:00 [queued]>
+[2025-03-21T10:55:40.822+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-03-21T10:55:40.836+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): run_spark_task> on 2025-03-21 10:55:39.067661+00:00
+[2025-03-21T10:55:40.841+0000] {standard_task_runner.py:72} INFO - Started process 260 to run task
+[2025-03-21T10:55:40.844+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'test_pyspark_dag', 'run_spark_task', 'manual__2025-03-21T10:55:39.067661+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/nuevo_dag.py', '--cfg-path', '/tmp/tmpvso7j48x']
+[2025-03-21T10:55:40.846+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask run_spark_task
+[2025-03-21T10:55:40.889+0000] {task_command.py:467} INFO - Running <TaskInstance: test_pyspark_dag.run_spark_task manual__2025-03-21T10:55:39.067661+00:00 [running]> on host a8f8d688f2c1
+[2025-03-21T10:55:40.962+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='test_pyspark_dag' AIRFLOW_CTX_TASK_ID='run_spark_task' AIRFLOW_CTX_EXECUTION_DATE='2025-03-21T10:55:39.067661+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-21T10:55:39.067661+00:00'
+[2025-03-21T10:55:40.964+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-21T10:55:40.966+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-21T10:55:40.966+0000] {logging_mixin.py:190} INFO - Current task name:run_spark_task state:running start_date:2025-03-21 10:55:40.813246+00:00
+[2025-03-21T10:55:40.967+0000] {logging_mixin.py:190} INFO - Dag name:test_pyspark_dag and current dag run status:running
+[2025-03-21T10:55:40.968+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-21T10:55:47.757+0000] {logging_mixin.py:190} INFO - +-------+
+|palabra|
++-------+
+|   Hola|
+|  desde|
+|Airflow|
++-------+
+[2025-03-21T10:55:48.051+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-21T10:55:48.059+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-21T10:55:48.060+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=test_pyspark_dag, task_id=run_spark_task, run_id=manual__2025-03-21T10:55:39.067661+00:00, execution_date=20250321T105539, start_date=20250321T105540, end_date=20250321T105548
+[2025-03-21T10:55:48.080+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-21T10:55:48.081+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-21T10:55:48.082+0000] {logging_mixin.py:190} INFO - Dag name:test_pyspark_dag queued_at:2025-03-21 10:55:39.079734+00:00
+[2025-03-21T10:55:48.083+0000] {logging_mixin.py:190} INFO - Task hostname:a8f8d688f2c1 operator:PythonOperator
+[2025-03-21T10:55:48.125+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-21T10:55:48.138+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-21T10:55:48.142+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
