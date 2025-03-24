@@ -173,6 +173,7 @@ services:
       - "7077:7077"  
     volumes:
       - ./spark-config:/opt/bitnami/spark/conf
+      - ./jar:/opt/spark/jars 
     environment:
       SPARK_MODE: master
 
@@ -188,6 +189,8 @@ services:
       MINIO_ENDPOINT: http://minio:9000
       MINIO_ACCESS_KEY: admin
       MINIO_SECRET_KEY: admin123
+    volumes:
+      - ./jar:/opt/spark/jars 
 
 volumes:
   postgres-db-volume:

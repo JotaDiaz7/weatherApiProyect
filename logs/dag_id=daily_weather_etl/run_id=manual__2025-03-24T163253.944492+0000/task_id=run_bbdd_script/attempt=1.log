@@ -1,0 +1,92 @@
+[2025-03-24T16:34:42.693+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T16:34:42.820+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_bbdd_script manual__2025-03-24T16:32:53.944492+00:00 [queued]>
+[2025-03-24T16:34:42.831+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_bbdd_script manual__2025-03-24T16:32:53.944492+00:00 [queued]>
+[2025-03-24T16:34:42.835+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-24T16:34:42.850+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_bbdd_script> on 2025-03-24 16:32:53.944492+00:00
+[2025-03-24T16:34:42.855+0000] {standard_task_runner.py:72} INFO - Started process 14805 to run task
+[2025-03-24T16:34:42.858+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_bbdd_script', 'manual__2025-03-24T16:32:53.944492+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmpbnyh1mff']
+[2025-03-24T16:34:42.861+0000] {standard_task_runner.py:105} INFO - Job 16: Subtask run_bbdd_script
+[2025-03-24T16:34:42.904+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_bbdd_script manual__2025-03-24T16:32:53.944492+00:00 [running]> on host a8f8d688f2c1
+[2025-03-24T16:34:42.973+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_bbdd_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T16:32:53.944492+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-24T16:32:53.944492+00:00'
+[2025-03-24T16:34:42.975+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-24T16:34:42.976+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-24T16:34:42.977+0000] {logging_mixin.py:190} INFO - Current task name:run_bbdd_script state:running start_date:2025-03-24 16:34:42.821591+00:00
+[2025-03-24T16:34:42.978+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-03-24T16:34:42.979+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T16:34:42.981+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-24T16:34:42.982+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/main_bbdd.py']
+[2025-03-24T16:34:42.991+0000] {subprocess.py:99} INFO - Output:
+[2025-03-24T16:34:45.357+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-24T16:34:45.358+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-24T16:34:45.558+0000] {subprocess.py:106} INFO - 25/03/24 16:34:45 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-24T16:34:51.063+0000] {subprocess.py:106} INFO - +-----+----------------+-----------+--------+--------+---------+---------+-------------+--------------------+
+[2025-03-24T16:34:51.064+0000] {subprocess.py:106} INFO - | city|       localtime|temperature|wind_kph|humidity|feelslike|precip_mm|         text|                icon|
+[2025-03-24T16:34:51.065+0000] {subprocess.py:106} INFO - +-----+----------------+-----------+--------+--------+---------+---------+-------------+--------------------+
+[2025-03-24T16:34:51.065+0000] {subprocess.py:106} INFO - |elche|2025-03-24 17:36|       18.2|    22.0|      45|     18.2|      0.0|Partly cloudy|//cdn.weatherapi....|
+[2025-03-24T16:34:51.066+0000] {subprocess.py:106} INFO - +-----+----------------+-----------+--------+--------+---------+---------+-------------+--------------------+
+[2025-03-24T16:34:51.066+0000] {subprocess.py:106} INFO - 
+[2025-03-24T16:34:51.067+0000] {subprocess.py:106} INFO - Error: An error occurred while calling o36.save.
+[2025-03-24T16:34:51.068+0000] {subprocess.py:106} INFO - : java.lang.ClassNotFoundException: org.postgresql.Driver
+[2025-03-24T16:34:51.068+0000] {subprocess.py:106} INFO - 	at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+[2025-03-24T16:34:51.069+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:592)
+[2025-03-24T16:34:51.070+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+[2025-03-24T16:34:51.070+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.DriverRegistry$.register(DriverRegistry.scala:46)
+[2025-03-24T16:34:51.071+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.$anonfun$driverClass$1(JDBCOptions.scala:103)
+[2025-03-24T16:34:51.072+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.$anonfun$driverClass$1$adapted(JDBCOptions.scala:103)
+[2025-03-24T16:34:51.073+0000] {subprocess.py:106} INFO - 	at scala.Option.foreach(Option.scala:407)
+[2025-03-24T16:34:51.074+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCOptions.<init>(JDBCOptions.scala:103)
+[2025-03-24T16:34:51.076+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcOptionsInWrite.<init>(JDBCOptions.scala:254)
+[2025-03-24T16:34:51.077+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcOptionsInWrite.<init>(JDBCOptions.scala:258)
+[2025-03-24T16:34:51.078+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:47)
+[2025-03-24T16:34:51.079+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:48)
+[2025-03-24T16:34:51.080+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+[2025-03-24T16:34:51.081+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+[2025-03-24T16:34:51.081+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+[2025-03-24T16:34:51.082+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:107)
+[2025-03-24T16:34:51.083+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2025-03-24T16:34:51.084+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2025-03-24T16:34:51.086+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2025-03-24T16:34:51.087+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2025-03-24T16:34:51.088+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2025-03-24T16:34:51.089+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:107)
+[2025-03-24T16:34:51.090+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2025-03-24T16:34:51.092+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:461)
+[2025-03-24T16:34:51.092+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:76)
+[2025-03-24T16:34:51.093+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:461)
+[2025-03-24T16:34:51.094+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:32)
+[2025-03-24T16:34:51.095+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2025-03-24T16:34:51.096+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2025-03-24T16:34:51.097+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2025-03-24T16:34:51.098+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2025-03-24T16:34:51.098+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:437)
+[2025-03-24T16:34:51.099+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:98)
+[2025-03-24T16:34:51.100+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:85)
+[2025-03-24T16:34:51.101+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:83)
+[2025-03-24T16:34:51.102+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:142)
+[2025-03-24T16:34:51.102+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:869)
+[2025-03-24T16:34:51.103+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:391)
+[2025-03-24T16:34:51.104+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:364)
+[2025-03-24T16:34:51.105+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:251)
+[2025-03-24T16:34:51.105+0000] {subprocess.py:106} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-03-24T16:34:51.107+0000] {subprocess.py:106} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-03-24T16:34:51.108+0000] {subprocess.py:106} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-03-24T16:34:51.109+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-03-24T16:34:51.110+0000] {subprocess.py:106} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-03-24T16:34:51.111+0000] {subprocess.py:106} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-03-24T16:34:51.111+0000] {subprocess.py:106} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2025-03-24T16:34:51.112+0000] {subprocess.py:106} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-03-24T16:34:51.113+0000] {subprocess.py:106} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-03-24T16:34:51.113+0000] {subprocess.py:106} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-03-24T16:34:51.114+0000] {subprocess.py:106} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-03-24T16:34:51.115+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-03-24T16:34:51.115+0000] {subprocess.py:106} INFO - 
+[2025-03-24T16:34:51.552+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-24T16:34:51.580+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T16:34:51.582+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_bbdd_script, run_id=manual__2025-03-24T16:32:53.944492+00:00, execution_date=20250324T163253, start_date=20250324T163442, end_date=20250324T163451
+[2025-03-24T16:34:51.611+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-24T16:34:51.612+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-24T16:34:51.614+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-03-24 16:32:53.974972+00:00
+[2025-03-24T16:34:51.615+0000] {logging_mixin.py:190} INFO - Task hostname:a8f8d688f2c1 operator:BashOperator
+[2025-03-24T16:34:51.662+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-24T16:34:51.676+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T16:34:51.679+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
