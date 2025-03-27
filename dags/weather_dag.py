@@ -19,13 +19,18 @@ with DAG(
 ) as dag:
 
     run_script = BashOperator(
-        task_id='run_weather_script',
+        task_id='run_main_script',
         bash_command='python /opt/airflow/dags/main.py',
     )
 
-    run_script_2 = BashOperator(
-        task_id='run_bbdd_script',
-        bash_command='python /opt/airflow/dags/main_bbdd.py',
+    run_script_minio = BashOperator(
+        task_id='run_minio_script',
+        bash_command='python /opt/airflow/dags/minio.py',
     )
 
-    run_script >> run_script_2
+    run_script_postgres = BashOperator(
+        task_id='run_postgres_script',
+        bash_command='python /opt/airflow/dags/postgres.py',
+    )
+
+    run_script >> run_script_minio >> run_script_postgres

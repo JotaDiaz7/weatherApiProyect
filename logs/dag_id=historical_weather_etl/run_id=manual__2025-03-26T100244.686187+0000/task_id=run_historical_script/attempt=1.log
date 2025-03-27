@@ -1,0 +1,41 @@
+[2025-03-26T10:02:47.215+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-26T10:02:47.355+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T10:02:44.686187+00:00 [queued]>
+[2025-03-26T10:02:47.364+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T10:02:44.686187+00:00 [queued]>
+[2025-03-26T10:02:47.367+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-26T10:02:47.383+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_historical_script> on 2025-03-26 10:02:44.686187+00:00
+[2025-03-26T10:02:47.391+0000] {standard_task_runner.py:72} INFO - Started process 40047 to run task
+[2025-03-26T10:02:47.395+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'historical_weather_etl', 'run_historical_script', 'manual__2025-03-26T10:02:44.686187+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/historical_dag.py', '--cfg-path', '/tmp/tmpmf_6oia3']
+[2025-03-26T10:02:47.397+0000] {standard_task_runner.py:105} INFO - Job 69: Subtask run_historical_script
+[2025-03-26T10:02:47.455+0000] {task_command.py:467} INFO - Running <TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T10:02:44.686187+00:00 [running]> on host 3c3c1f66214b
+[2025-03-26T10:02:47.543+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='historical_weather_etl' AIRFLOW_CTX_TASK_ID='run_historical_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-26T10:02:44.686187+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-26T10:02:44.686187+00:00'
+[2025-03-26T10:02:47.546+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-26T10:02:47.547+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-26T10:02:47.548+0000] {logging_mixin.py:190} INFO - Current task name:run_historical_script state:running start_date:2025-03-26 10:02:47.356277+00:00
+[2025-03-26T10:02:47.549+0000] {logging_mixin.py:190} INFO - Dag name:historical_weather_etl and current dag run status:running
+[2025-03-26T10:02:47.550+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-26T10:02:47.553+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-26T10:02:47.555+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/historical.py']
+[2025-03-26T10:02:47.567+0000] {subprocess.py:99} INFO - Output:
+[2025-03-26T10:02:50.440+0000] {subprocess.py:106} INFO - 25/03/26 10:02:50 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-26T10:02:50.601+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-26T10:02:50.603+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-26T10:02:59.308+0000] {subprocess.py:106} INFO - Error: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column or function parameter with name `localtime` cannot be resolved. Did you mean one of the following? [`local_time`, `city`, `feelslike`, `icon`, `text`].;
+[2025-03-26T10:02:59.309+0000] {subprocess.py:106} INFO - 'Sort ['localtime ASC NULLS FIRST], true
+[2025-03-26T10:02:59.310+0000] {subprocess.py:106} INFO - +- Project [city#12, regexp_replace(time#4, T,  , 1) AS local_time#51, temperature_2m#3 AS temperature#52, windspeed_10m#5 AS wind_kph#53, relativehumidity_2m#2L AS humidity#54L, feelslike#20, precipitation#1 AS precip_mm#55, text#30, icon#41]
+[2025-03-26T10:02:59.311+0000] {subprocess.py:106} INFO -    +- Project [map_to_icon_url(icon#0L)#40 AS icon#41, precipitation#1, relativehumidity_2m#2L, temperature_2m#3, time#4, windspeed_10m#5, city#12, feelslike#20, text#30]
+[2025-03-26T10:02:59.311+0000] {subprocess.py:106} INFO -       +- Project [icon#0L, precipitation#1, relativehumidity_2m#2L, temperature_2m#3, time#4, windspeed_10m#5, city#12, feelslike#20, map_to_description(icon#0L)#29 AS text#30]
+[2025-03-26T10:02:59.312+0000] {subprocess.py:106} INFO -          +- Project [icon#0L, precipitation#1, relativehumidity_2m#2L, temperature_2m#3, time#4, windspeed_10m#5, city#12, temperature_2m#3 AS feelslike#20]
+[2025-03-26T10:02:59.314+0000] {subprocess.py:106} INFO -             +- Project [icon#0L, precipitation#1, relativehumidity_2m#2L, temperature_2m#3, time#4, windspeed_10m#5, elche AS city#12]
+[2025-03-26T10:02:59.315+0000] {subprocess.py:106} INFO -                +- Filter EndsWith(time#4, 09:00)
+[2025-03-26T10:02:59.316+0000] {subprocess.py:106} INFO -                   +- LogicalRDD [icon#0L, precipitation#1, relativehumidity_2m#2L, temperature_2m#3, time#4, windspeed_10m#5], false
+[2025-03-26T10:02:59.317+0000] {subprocess.py:106} INFO - 
+[2025-03-26T10:02:59.788+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-26T10:02:59.824+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-26T10:02:59.825+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=historical_weather_etl, task_id=run_historical_script, run_id=manual__2025-03-26T10:02:44.686187+00:00, execution_date=20250326T100244, start_date=20250326T100247, end_date=20250326T100259
+[2025-03-26T10:02:59.856+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-26T10:02:59.858+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-26T10:02:59.859+0000] {logging_mixin.py:190} INFO - Dag name:historical_weather_etl queued_at:2025-03-26 10:02:44.701867+00:00
+[2025-03-26T10:02:59.860+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-03-26T10:02:59.874+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-26T10:02:59.894+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-26T10:02:59.896+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

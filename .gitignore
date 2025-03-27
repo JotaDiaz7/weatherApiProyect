@@ -1,2 +1,3 @@
-# Ignorar el archivo MinIO.txt
+# Ignorar los archivos
 MinIO.txt
+main_bbdd.py

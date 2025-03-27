@@ -1,0 +1,58 @@
+[2025-03-26T10:52:47.632+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-26T10:52:47.897+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_bbdd_script manual__2025-03-26T10:49:48.439717+00:00 [queued]>
+[2025-03-26T10:52:47.924+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_bbdd_script manual__2025-03-26T10:49:48.439717+00:00 [queued]>
+[2025-03-26T10:52:47.929+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-26T10:52:47.996+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_bbdd_script> on 2025-03-26 10:49:48.439717+00:00
+[2025-03-26T10:52:48.030+0000] {standard_task_runner.py:72} INFO - Started process 53728 to run task
+[2025-03-26T10:52:48.049+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_bbdd_script', 'manual__2025-03-26T10:49:48.439717+00:00', '--job-id', '77', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmp18f3uqii']
+[2025-03-26T10:52:48.053+0000] {standard_task_runner.py:105} INFO - Job 77: Subtask run_bbdd_script
+[2025-03-26T10:52:48.153+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_bbdd_script manual__2025-03-26T10:49:48.439717+00:00 [running]> on host 3c3c1f66214b
+[2025-03-26T10:52:48.400+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_bbdd_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-26T10:49:48.439717+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-26T10:49:48.439717+00:00'
+[2025-03-26T10:52:48.403+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-26T10:52:48.405+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-26T10:52:48.406+0000] {logging_mixin.py:190} INFO - Current task name:run_bbdd_script state:running start_date:2025-03-26 10:52:47.899711+00:00
+[2025-03-26T10:52:48.410+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-03-26T10:52:48.412+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-26T10:52:48.415+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-26T10:52:48.417+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/main_bbdd.py']
+[2025-03-26T10:52:48.436+0000] {subprocess.py:99} INFO - Output:
+[2025-03-26T10:52:54.878+0000] {subprocess.py:106} INFO - 25/03/26 10:52:54 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-26T10:52:55.360+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-26T10:52:55.366+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-26T10:53:13.998+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:>                                                          (0 + 1) / 1]                                                                                [Stage 2:>                                                          (0 + 1) / 1]                                                                                +-----+----------------+-----------+--------+--------+---------+---------+----------------+--------------------+
+[2025-03-26T10:53:14.001+0000] {subprocess.py:106} INFO - | city|      local_time|temperature|wind_kph|humidity|feelslike|precip_mm|            text|                icon|
+[2025-03-26T10:53:14.012+0000] {subprocess.py:106} INFO - +-----+----------------+-----------+--------+--------+---------+---------+----------------+--------------------+
+[2025-03-26T10:53:14.021+0000] {subprocess.py:106} INFO - |elche|2021-01-01 09:00|        7.1|    16.1|      67|      7.1|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.025+0000] {subprocess.py:106} INFO - |elche|2021-01-02 09:00|        4.9|    22.8|      55|      4.9|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.033+0000] {subprocess.py:106} INFO - |elche|2021-01-03 09:00|        5.3|    23.5|      46|      5.3|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.035+0000] {subprocess.py:106} INFO - |elche|2021-01-04 09:00|        4.2|     9.8|      63|      4.2|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.037+0000] {subprocess.py:106} INFO - |elche|2021-01-05 09:00|        3.5|    20.6|      69|      3.5|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.039+0000] {subprocess.py:106} INFO - |elche|2021-01-06 09:00|        5.2|    10.9|      52|      5.2|      0.0|    Mostly Clear|//cdn.weatherapi....|
+[2025-03-26T10:53:14.040+0000] {subprocess.py:106} INFO - |elche|2021-01-07 09:00|        6.3|     8.3|      84|      6.3|      0.7|Moderate Drizzle|//cdn.weatherapi....|
+[2025-03-26T10:53:14.045+0000] {subprocess.py:106} INFO - |elche|2021-01-08 09:00|        6.7|    11.8|      81|      6.7|      0.1|   Light Drizzle|//cdn.weatherapi....|
+[2025-03-26T10:53:14.048+0000] {subprocess.py:106} INFO - |elche|2021-01-09 09:00|        7.2|     8.2|      86|      7.2|      0.0|          Cloudy|//cdn.weatherapi....|
+[2025-03-26T10:53:14.050+0000] {subprocess.py:106} INFO - |elche|2021-01-10 09:00|        6.1|     9.0|      79|      6.1|      0.3|   Light Drizzle|//cdn.weatherapi....|
+[2025-03-26T10:53:14.052+0000] {subprocess.py:106} INFO - |elche|2021-01-11 09:00|        3.2|    12.6|      87|      3.2|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.054+0000] {subprocess.py:106} INFO - |elche|2021-01-12 09:00|        2.4|    18.0|      56|      2.4|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.056+0000] {subprocess.py:106} INFO - |elche|2021-01-13 09:00|        3.0|    15.3|      63|      3.0|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.058+0000] {subprocess.py:106} INFO - |elche|2021-01-14 09:00|        4.1|    17.9|      69|      4.1|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.062+0000] {subprocess.py:106} INFO - |elche|2021-01-15 09:00|        7.1|    20.5|      68|      7.1|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.065+0000] {subprocess.py:106} INFO - |elche|2021-01-16 09:00|        5.5|    12.4|      62|      5.5|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.068+0000] {subprocess.py:106} INFO - |elche|2021-01-17 09:00|        6.2|    15.0|      50|      6.2|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-26T10:53:14.071+0000] {subprocess.py:106} INFO - |elche|2021-01-18 09:00|        6.2|    11.1|      75|      6.2|      0.0|    Mostly Clear|//cdn.weatherapi....|
+[2025-03-26T10:53:14.074+0000] {subprocess.py:106} INFO - |elche|2021-01-19 09:00|        6.3|    10.3|      85|      6.3|      0.0|    Mostly Clear|//cdn.weatherapi....|
+[2025-03-26T10:53:14.078+0000] {subprocess.py:106} INFO - |elche|2021-01-20 09:00|        6.3|     2.7|      95|      6.3|      0.0|          Cloudy|//cdn.weatherapi....|
+[2025-03-26T10:53:14.081+0000] {subprocess.py:106} INFO - +-----+----------------+-----------+--------+--------+---------+---------+----------------+--------------------+
+[2025-03-26T10:53:14.084+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-03-26T10:53:14.086+0000] {subprocess.py:106} INFO - 
+[2025-03-26T10:53:14.088+0000] {subprocess.py:106} INFO - Datos registrados correctamente en la bbdd
+[2025-03-26T10:53:14.799+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-26T10:53:14.866+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-26T10:53:14.869+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_bbdd_script, run_id=manual__2025-03-26T10:49:48.439717+00:00, execution_date=20250326T104948, start_date=20250326T105247, end_date=20250326T105314
+[2025-03-26T10:53:14.921+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-26T10:53:14.923+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-26T10:53:14.926+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-03-26 10:49:48.464401+00:00
+[2025-03-26T10:53:14.929+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-03-26T10:53:14.977+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-26T10:53:15.008+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-26T10:53:15.016+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,58 @@
+[2025-03-27T15:22:26.362+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-27T15:22:26.534+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script manual__2025-03-27T15:22:16.949597+00:00 [queued]>
+[2025-03-27T15:22:26.553+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script manual__2025-03-27T15:22:16.949597+00:00 [queued]>
+[2025-03-27T15:22:26.555+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-27T15:22:26.572+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_minio_script> on 2025-03-27 15:22:16.949597+00:00
+[2025-03-27T15:22:26.580+0000] {standard_task_runner.py:72} INFO - Started process 41603 to run task
+[2025-03-27T15:22:26.583+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_minio_script', 'manual__2025-03-27T15:22:16.949597+00:00', '--job-id', '132', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmptd4lo7zf']
+[2025-03-27T15:22:26.586+0000] {standard_task_runner.py:105} INFO - Job 132: Subtask run_minio_script
+[2025-03-27T15:22:26.654+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_minio_script manual__2025-03-27T15:22:16.949597+00:00 [running]> on host 3c3c1f66214b
+[2025-03-27T15:22:26.765+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_minio_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-27T15:22:16.949597+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-27T15:22:16.949597+00:00'
+[2025-03-27T15:22:26.767+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-27T15:22:26.768+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-27T15:22:26.769+0000] {logging_mixin.py:190} INFO - Current task name:run_minio_script state:running start_date:2025-03-27 15:22:26.537935+00:00
+[2025-03-27T15:22:26.770+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-03-27T15:22:26.771+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-27T15:22:26.772+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-27T15:22:26.774+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/minio.py']
+[2025-03-27T15:22:26.786+0000] {subprocess.py:99} INFO - Output:
+[2025-03-27T15:22:29.073+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-27T15:22:29.075+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-27T15:22:29.237+0000] {subprocess.py:106} INFO - 25/03/27 15:22:29 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-27T15:22:34.180+0000] {subprocess.py:106} INFO - 25/03/27 15:22:34 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2025-03-27T15:23:14.216+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 2:=======================>                                  (8 + 8) / 20][Stage 2:======================================================>  (19 + 1) / 20]                                                                                [Stage 3:=============>                                          (24 + 8) / 100][Stage 3:====================>                                   (37 + 8) / 100][Stage 3:=========================>                              (46 + 8) / 100][Stage 3:===============================>                        (56 + 8) / 100][Stage 3:====================================>                   (66 + 8) / 100][Stage 3:==========================================>             (76 + 8) / 100][Stage 3:=================================================>      (88 + 8) / 100]                                                                                [Stage 4:=============>                                          (31 + 8) / 131][Stage 4:=================>                                      (42 + 8) / 131][Stage 4:=======================>                                (56 + 8) / 131][Stage 4:=============================>                          (68 + 8) / 131][Stage 4:=================================>                      (78 + 8) / 131][Stage 4:======================================>                 (89 + 8) / 131][Stage 4:===========================================>           (103 + 8) / 131][Stage 4:================================================>      (115 + 8) / 131][Stage 4:=====================================================> (128 + 3) / 131]                                                                                [Stage 8:=============>                                          (24 + 8) / 100][Stage 8:======================>                                 (40 + 8) / 100][Stage 8:===========================>                            (49 + 8) / 100][Stage 8:================================>                       (58 + 8) / 100][Stage 8:======================================>                 (69 + 8) / 100][Stage 8:===============================================>        (84 + 8) / 100][Stage 8:====================================================>   (93 + 7) / 100]                                                                                [Stage 9:>                                                          (0 + 1) / 1]                                                                                Ciudades encontradas en el bucket:
+[2025-03-27T15:23:14.221+0000] {subprocess.py:106} INFO - ['elche', 'madrid', 'san juan de alicante', 'torrevieja']
+[2025-03-27T15:23:14.225+0000] {subprocess.py:106} INFO - +--------------------+----------------+-----------+--------+--------+---------+---------+-----+--------------------+
+[2025-03-27T15:23:14.228+0000] {subprocess.py:106} INFO - |                city|      local_time|temperature|wind_kph|humidity|feelslike|precip_mm| text|                icon|
+[2025-03-27T15:23:14.231+0000] {subprocess.py:106} INFO - +--------------------+----------------+-----------+--------+--------+---------+---------+-----+--------------------+
+[2025-03-27T15:23:14.236+0000] {subprocess.py:106} INFO - |               elche|2025-03-26 04:00|       10.2|     3.2|      77|     10.6|      0.0|Clear|//cdn.weatherapi....|
+[2025-03-27T15:23:14.240+0000] {subprocess.py:106} INFO - |               elche|2025-03-26 09:00|       14.5|     4.0|      56|     15.1|      0.0|Sunny|//cdn.weatherapi....|
+[2025-03-27T15:23:14.244+0000] {subprocess.py:106} INFO - |               elche|2025-03-26 15:00|       19.0|     4.3|      38|     19.0|      0.0|Sunny|//cdn.weatherapi....|
+[2025-03-27T15:23:14.248+0000] {subprocess.py:106} INFO - |               elche|2025-03-26 22:00|       12.9|    10.1|      83|     12.1|      0.0|Clear|//cdn.weatherapi....|
+[2025-03-27T15:23:14.252+0000] {subprocess.py:106} INFO - |              madrid|2025-03-26 04:00|        6.8|     5.8|      70|      5.9|      0.0|Clear|//cdn.weatherapi....|
+[2025-03-27T15:23:14.256+0000] {subprocess.py:106} INFO - |              madrid|2025-03-26 09:00|        7.9|     5.4|      66|      7.2|      0.0|Sunny|//cdn.weatherapi....|
+[2025-03-27T15:23:14.260+0000] {subprocess.py:106} INFO - |              madrid|2025-03-26 15:00|       15.4|     5.4|      39|     15.4|      0.0|Sunny|//cdn.weatherapi....|
+[2025-03-27T15:23:14.263+0000] {subprocess.py:106} INFO - |              madrid|2025-03-26 22:00|       11.5|     6.5|      52|     11.1|      0.0|Clear|//cdn.weatherapi....|
+[2025-03-27T15:23:14.265+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-26 04:00|       11.6|     4.7|      68|     11.6|      0.0|Clear|//cdn.weatherapi....|
+[2025-03-27T15:23:14.268+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-26 09:00|       14.5|     4.7|      59|     15.0|      0.0|Sunny|//cdn.weatherapi....|
+[2025-03-27T15:23:14.271+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-26 15:00|       16.5|    16.6|      60|     16.5|      0.0|Sunny|//cdn.weatherapi....|
+[2025-03-27T15:23:14.273+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-26 22:00|       13.4|     6.5|      80|     13.3|      0.0|Clear|//cdn.weatherapi....|
+[2025-03-27T15:23:14.275+0000] {subprocess.py:106} INFO - |          torrevieja|2025-03-26 04:00|       11.9|     7.2|      79|     11.4|      0.0|Clear|//cdn.weatherapi....|
+[2025-03-27T15:23:14.277+0000] {subprocess.py:106} INFO - |          torrevieja|2025-03-26 09:00|       14.0|     6.8|      66|     14.0|      0.0|Sunny|//cdn.weatherapi....|
+[2025-03-27T15:23:14.279+0000] {subprocess.py:106} INFO - |          torrevieja|2025-03-26 15:00|       18.5|    15.1|      50|     18.5|      0.0|Sunny|//cdn.weatherapi....|
+[2025-03-27T15:23:14.281+0000] {subprocess.py:106} INFO - |          torrevieja|2025-03-26 22:00|       14.2|    11.5|      76|     13.5|      0.0|Clear|//cdn.weatherapi....|
+[2025-03-27T15:23:14.283+0000] {subprocess.py:106} INFO - +--------------------+----------------+-----------+--------+--------+---------+---------+-----+--------------------+
+[2025-03-27T15:23:14.285+0000] {subprocess.py:106} INFO - 
+[2025-03-27T15:23:14.287+0000] {subprocess.py:106} INFO - Nombre de la carpeta: 2025-03-26_04-00
+[2025-03-27T15:23:14.289+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmpdstecdd8/2025-03-26_04-00/part-00000-ce23b784-3efc-4c83-b369-862b9ed991b2-c000.snappy.parquet
+[2025-03-27T15:23:14.290+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: 2025-03-26_04-00/2025-03-26_04-00.parquet
+[2025-03-27T15:23:14.843+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-27T15:23:14.871+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-27T15:23:14.872+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_minio_script, run_id=manual__2025-03-27T15:22:16.949597+00:00, execution_date=20250327T152216, start_date=20250327T152226, end_date=20250327T152314
+[2025-03-27T15:23:14.894+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-27T15:23:14.896+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-27T15:23:14.897+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-03-27 15:22:16.961933+00:00
+[2025-03-27T15:23:14.898+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-03-27T15:23:14.931+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-27T15:23:14.945+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-27T15:23:14.948+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

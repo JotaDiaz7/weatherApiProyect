@@ -1,0 +1,62 @@
+[2025-03-26T16:06:48.971+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-26T16:06:49.094+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T16:06:46.527260+00:00 [queued]>
+[2025-03-26T16:06:49.105+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T16:06:46.527260+00:00 [queued]>
+[2025-03-26T16:06:49.108+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-26T16:06:49.123+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_historical_script> on 2025-03-26 16:06:46.527260+00:00
+[2025-03-26T16:06:49.128+0000] {standard_task_runner.py:72} INFO - Started process 88199 to run task
+[2025-03-26T16:06:49.132+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'historical_weather_etl', 'run_historical_script', 'manual__2025-03-26T16:06:46.527260+00:00', '--job-id', '94', '--raw', '--subdir', 'DAGS_FOLDER/historical_dag.py', '--cfg-path', '/tmp/tmprbijk211']
+[2025-03-26T16:06:49.134+0000] {standard_task_runner.py:105} INFO - Job 94: Subtask run_historical_script
+[2025-03-26T16:06:49.181+0000] {task_command.py:467} INFO - Running <TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T16:06:46.527260+00:00 [running]> on host 3c3c1f66214b
+[2025-03-26T16:06:49.254+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='historical_weather_etl' AIRFLOW_CTX_TASK_ID='run_historical_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-26T16:06:46.527260+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-26T16:06:46.527260+00:00'
+[2025-03-26T16:06:49.255+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-26T16:06:49.256+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-26T16:06:49.257+0000] {logging_mixin.py:190} INFO - Current task name:run_historical_script state:running start_date:2025-03-26 16:06:49.095936+00:00
+[2025-03-26T16:06:49.259+0000] {logging_mixin.py:190} INFO - Dag name:historical_weather_etl and current dag run status:running
+[2025-03-26T16:06:49.260+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-26T16:06:49.261+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-26T16:06:49.263+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/historical.py']
+[2025-03-26T16:06:49.273+0000] {subprocess.py:99} INFO - Output:
+[2025-03-26T16:06:51.611+0000] {subprocess.py:106} INFO - 25/03/26 16:06:51 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-26T16:06:51.759+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-26T16:06:51.760+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-26T16:07:10.141+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 8) / 8]                                                                                25/03/26 16:07:10 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2025-03-26T16:07:22.828+0000] {subprocess.py:106} INFO - [Stage 8:>                                                          (0 + 1) / 1]                                                                                [Stage 12:==========================>                             (31 + 8) / 65][Stage 12:==================================>                     (40 + 8) / 65][Stage 12:==============================================>         (54 + 8) / 65]                                                                                +----------+----------------+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-03-26T16:07:22.829+0000] {subprocess.py:106} INFO - |city      |local_time      |temperature|wind_kph|humidity|feelslike|precip_mm|text         |icon                                          |
+[2025-03-26T16:07:22.830+0000] {subprocess.py:106} INFO - +----------+----------------+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-03-26T16:07:22.831+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-01 04:00|7.6        |8.5     |68      |7.6      |0.1      |Light Drizzle|//cdn.weatherapi.com/weather/64x64/day/176.png|
+[2025-03-26T16:07:22.832+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-01 09:00|8.0        |21.3    |73      |8.0      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.833+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-01 15:00|14.0       |32.0    |34      |14.0     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.834+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-01 22:00|8.7        |19.9    |56      |8.7      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.834+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-02 04:00|6.5        |18.7    |63      |6.5      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.835+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-02 09:00|6.0        |22.1    |60      |6.0      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.836+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-02 15:00|11.8       |33.7    |31      |11.8     |0.0      |Partly Cloudy|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-26T16:07:22.837+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-02 22:00|7.6        |21.7    |44      |7.6      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.838+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-03 04:00|6.6        |27.6    |46      |6.6      |0.0      |Cloudy       |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-03-26T16:07:22.839+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-03 09:00|5.8        |21.3    |49      |5.8      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.839+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-03 15:00|13.4       |28.0    |27      |13.4     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.840+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-03 22:00|7.6        |12.7    |48      |7.6      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.841+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-04 04:00|5.4        |17.4    |54      |5.4      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.842+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-04 09:00|5.0        |20.7    |60      |5.0      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.843+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-04 15:00|13.8       |12.6    |29      |13.8     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.844+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-04 22:00|8.7        |6.0     |50      |8.7      |0.0      |Partly Cloudy|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-26T16:07:22.845+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-05 04:00|5.4        |11.5    |72      |5.4      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.846+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-05 09:00|4.1        |15.0    |75      |4.1      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.847+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-05 15:00|13.1       |5.5     |26      |13.1     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T16:07:22.848+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-05 22:00|7.0        |5.1     |56      |7.0      |0.0      |Cloudy       |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-03-26T16:07:22.849+0000] {subprocess.py:106} INFO - +----------+----------------+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-03-26T16:07:22.850+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-03-26T16:07:22.851+0000] {subprocess.py:106} INFO - 
+[2025-03-26T16:07:22.852+0000] {subprocess.py:106} INFO - Nombre de la carpeta: torrevieja_last_2_years
+[2025-03-26T16:07:22.853+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmp841bz41x/torrevieja_last_2_years/part-00000-fc182f5b-24db-4942-9fee-414ee78c6ff3-c000.snappy.parquet
+[2025-03-26T16:07:22.853+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: torrevieja_last_2_years/torrevieja_last_2_years.parquet
+[2025-03-26T16:07:22.854+0000] {subprocess.py:106} INFO - Datos registrados correctamente en la bbdd
+[2025-03-26T16:07:23.338+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-26T16:07:23.361+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-26T16:07:23.363+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=historical_weather_etl, task_id=run_historical_script, run_id=manual__2025-03-26T16:06:46.527260+00:00, execution_date=20250326T160646, start_date=20250326T160649, end_date=20250326T160723
+[2025-03-26T16:07:23.387+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-26T16:07:23.388+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-26T16:07:23.390+0000] {logging_mixin.py:190} INFO - Dag name:historical_weather_etl queued_at:2025-03-26 16:06:46.539010+00:00
+[2025-03-26T16:07:23.391+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-03-26T16:07:23.414+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-26T16:07:23.431+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-26T16:07:23.434+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

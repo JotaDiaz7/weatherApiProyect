@@ -1,0 +1,249 @@
+[2025-03-26T12:36:30.568+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-26T12:36:30.693+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T12:36:28.329394+00:00 [queued]>
+[2025-03-26T12:36:30.704+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T12:36:28.329394+00:00 [queued]>
+[2025-03-26T12:36:30.707+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-26T12:36:30.721+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_historical_script> on 2025-03-26 12:36:28.329394+00:00
+[2025-03-26T12:36:30.727+0000] {standard_task_runner.py:72} INFO - Started process 83155 to run task
+[2025-03-26T12:36:30.730+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'historical_weather_etl', 'run_historical_script', 'manual__2025-03-26T12:36:28.329394+00:00', '--job-id', '87', '--raw', '--subdir', 'DAGS_FOLDER/historical_dag.py', '--cfg-path', '/tmp/tmp1neovz2d']
+[2025-03-26T12:36:30.732+0000] {standard_task_runner.py:105} INFO - Job 87: Subtask run_historical_script
+[2025-03-26T12:36:30.775+0000] {task_command.py:467} INFO - Running <TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T12:36:28.329394+00:00 [running]> on host 3c3c1f66214b
+[2025-03-26T12:36:30.845+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='historical_weather_etl' AIRFLOW_CTX_TASK_ID='run_historical_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-26T12:36:28.329394+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-26T12:36:28.329394+00:00'
+[2025-03-26T12:36:30.847+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-26T12:36:30.848+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-26T12:36:30.848+0000] {logging_mixin.py:190} INFO - Current task name:run_historical_script state:running start_date:2025-03-26 12:36:30.694959+00:00
+[2025-03-26T12:36:30.849+0000] {logging_mixin.py:190} INFO - Dag name:historical_weather_etl and current dag run status:running
+[2025-03-26T12:36:30.850+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-26T12:36:30.851+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-26T12:36:30.852+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/historical.py']
+[2025-03-26T12:36:30.862+0000] {subprocess.py:99} INFO - Output:
+[2025-03-26T12:36:33.255+0000] {subprocess.py:106} INFO - 25/03/26 12:36:33 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-26T12:36:33.412+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-26T12:36:33.414+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-26T12:36:40.383+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 8) / 8]25/03/26 12:36:40 ERROR Executor: Exception in task 5.0 in stage 0.0 (TID 5)
+[2025-03-26T12:36:40.384+0000] {subprocess.py:106} INFO - org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+[2025-03-26T12:36:40.386+0000] {subprocess.py:106} INFO -   File "/opt/***/dags/historical.py", line 89, in map_to_description
+[2025-03-26T12:36:40.387+0000] {subprocess.py:106} INFO -     return icon_mapping[weathercode]['description']
+[2025-03-26T12:36:40.389+0000] {subprocess.py:106} INFO - KeyError: None
+[2025-03-26T12:36:40.390+0000] {subprocess.py:106} INFO - 
+[2025-03-26T12:36:40.392+0000] {subprocess.py:106} INFO - 	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.handlePythonException(PythonRunner.scala:572)
+[2025-03-26T12:36:40.396+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.python.BasePythonUDFRunner$$anon$1.read(PythonUDFRunner.scala:94)
+[2025-03-26T12:36:40.400+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.python.BasePythonUDFRunner$$anon$1.read(PythonUDFRunner.scala:75)
+[2025-03-26T12:36:40.401+0000] {subprocess.py:106} INFO - 	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:525)
+[2025-03-26T12:36:40.403+0000] {subprocess.py:106} INFO - 	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+[2025-03-26T12:36:40.405+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:491)
+[2025-03-26T12:36:40.407+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.410+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.411+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage2.processNext(Unknown Source)
+[2025-03-26T12:36:40.412+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2025-03-26T12:36:40.414+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+[2025-03-26T12:36:40.423+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.425+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator.isEmpty(Iterator.scala:387)
+[2025-03-26T12:36:40.427+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator.isEmpty$(Iterator.scala:387)
+[2025-03-26T12:36:40.428+0000] {subprocess.py:106} INFO - 	at scala.collection.AbstractIterator.isEmpty(Iterator.scala:1431)
+[2025-03-26T12:36:40.432+0000] {subprocess.py:106} INFO - 	at scala.collection.TraversableOnce.nonEmpty(TraversableOnce.scala:143)
+[2025-03-26T12:36:40.434+0000] {subprocess.py:106} INFO - 	at scala.collection.TraversableOnce.nonEmpty$(TraversableOnce.scala:143)
+[2025-03-26T12:36:40.436+0000] {subprocess.py:106} INFO - 	at scala.collection.AbstractIterator.nonEmpty(Iterator.scala:1431)
+[2025-03-26T12:36:40.439+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$takeOrdered$2(RDD.scala:1559)
+[2025-03-26T12:36:40.441+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$takeOrdered$2$adapted(RDD.scala:1558)
+[2025-03-26T12:36:40.443+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2(RDD.scala:910)
+[2025-03-26T12:36:40.444+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2$adapted(RDD.scala:910)
+[2025-03-26T12:36:40.447+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2025-03-26T12:36:40.449+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+[2025-03-26T12:36:40.450+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+[2025-03-26T12:36:40.451+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2025-03-26T12:36:40.452+0000] {subprocess.py:106} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2025-03-26T12:36:40.453+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2025-03-26T12:36:40.455+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2025-03-26T12:36:40.456+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2025-03-26T12:36:40.459+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2025-03-26T12:36:40.460+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2025-03-26T12:36:40.461+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2025-03-26T12:36:40.463+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2025-03-26T12:36:40.465+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2025-03-26T12:36:40.467+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-03-26T12:36:40.468+0000] {subprocess.py:106} INFO - 25/03/26 12:36:40 ERROR Executor: Exception in task 7.0 in stage 0.0 (TID 7)
+[2025-03-26T12:36:40.470+0000] {subprocess.py:106} INFO - org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+[2025-03-26T12:36:40.473+0000] {subprocess.py:106} INFO -   File "/opt/***/dags/historical.py", line 89, in map_to_description
+[2025-03-26T12:36:40.476+0000] {subprocess.py:106} INFO -     return icon_mapping[weathercode]['description']
+[2025-03-26T12:36:40.477+0000] {subprocess.py:106} INFO - KeyError: None
+[2025-03-26T12:36:40.479+0000] {subprocess.py:106} INFO - 
+[2025-03-26T12:36:40.480+0000] {subprocess.py:106} INFO - 	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.handlePythonException(PythonRunner.scala:572)
+[2025-03-26T12:36:40.482+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.python.BasePythonUDFRunner$$anon$1.read(PythonUDFRunner.scala:94)
+[2025-03-26T12:36:40.483+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.python.BasePythonUDFRunner$$anon$1.read(PythonUDFRunner.scala:75)
+[2025-03-26T12:36:40.484+0000] {subprocess.py:106} INFO - 	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:525)
+[2025-03-26T12:36:40.486+0000] {subprocess.py:106} INFO - 	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+[2025-03-26T12:36:40.489+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:491)
+[2025-03-26T12:36:40.490+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.491+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.493+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage2.processNext(Unknown Source)
+[2025-03-26T12:36:40.494+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2025-03-26T12:36:40.495+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+[2025-03-26T12:36:40.497+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.498+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator.isEmpty(Iterator.scala:387)
+[2025-03-26T12:36:40.500+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator.isEmpty$(Iterator.scala:387)
+[2025-03-26T12:36:40.501+0000] {subprocess.py:106} INFO - 	at scala.collection.AbstractIterator.isEmpty(Iterator.scala:1431)
+[2025-03-26T12:36:40.502+0000] {subprocess.py:106} INFO - 	at scala.collection.TraversableOnce.nonEmpty(TraversableOnce.scala:143)
+[2025-03-26T12:36:40.504+0000] {subprocess.py:106} INFO - 	at scala.collection.TraversableOnce.nonEmpty$(TraversableOnce.scala:143)
+[2025-03-26T12:36:40.505+0000] {subprocess.py:106} INFO - 	at scala.collection.AbstractIterator.nonEmpty(Iterator.scala:1431)
+[2025-03-26T12:36:40.507+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$takeOrdered$2(RDD.scala:1559)
+[2025-03-26T12:36:40.508+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$takeOrdered$2$adapted(RDD.scala:1558)
+[2025-03-26T12:36:40.510+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2(RDD.scala:910)
+[2025-03-26T12:36:40.511+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2$adapted(RDD.scala:910)
+[2025-03-26T12:36:40.512+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2025-03-26T12:36:40.513+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+[2025-03-26T12:36:40.514+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+[2025-03-26T12:36:40.515+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2025-03-26T12:36:40.516+0000] {subprocess.py:106} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2025-03-26T12:36:40.517+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2025-03-26T12:36:40.518+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2025-03-26T12:36:40.520+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2025-03-26T12:36:40.521+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2025-03-26T12:36:40.522+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2025-03-26T12:36:40.523+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2025-03-26T12:36:40.524+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2025-03-26T12:36:40.526+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2025-03-26T12:36:40.527+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-03-26T12:36:40.528+0000] {subprocess.py:106} INFO - 25/03/26 12:36:40 ERROR Executor: Exception in task 1.0 in stage 0.0 (TID 1)
+[2025-03-26T12:36:40.529+0000] {subprocess.py:106} INFO - org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+[2025-03-26T12:36:40.530+0000] {subprocess.py:106} INFO -   File "/opt/***/dags/historical.py", line 89, in map_to_description
+[2025-03-26T12:36:40.531+0000] {subprocess.py:106} INFO -     return icon_mapping[weathercode]['description']
+[2025-03-26T12:36:40.533+0000] {subprocess.py:106} INFO - KeyError: None
+[2025-03-26T12:36:40.534+0000] {subprocess.py:106} INFO - 
+[2025-03-26T12:36:40.535+0000] {subprocess.py:106} INFO - 	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.handlePythonException(PythonRunner.scala:572)
+[2025-03-26T12:36:40.536+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.python.BasePythonUDFRunner$$anon$1.read(PythonUDFRunner.scala:94)
+[2025-03-26T12:36:40.537+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.python.BasePythonUDFRunner$$anon$1.read(PythonUDFRunner.scala:75)
+[2025-03-26T12:36:40.538+0000] {subprocess.py:106} INFO - 	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:525)
+[2025-03-26T12:36:40.539+0000] {subprocess.py:106} INFO - 	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+[2025-03-26T12:36:40.540+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:491)
+[2025-03-26T12:36:40.541+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.542+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.543+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage2.processNext(Unknown Source)
+[2025-03-26T12:36:40.544+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2025-03-26T12:36:40.545+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+[2025-03-26T12:36:40.546+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.548+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator.isEmpty(Iterator.scala:387)
+[2025-03-26T12:36:40.549+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator.isEmpty$(Iterator.scala:387)
+[2025-03-26T12:36:40.550+0000] {subprocess.py:106} INFO - 	at scala.collection.AbstractIterator.isEmpty(Iterator.scala:1431)
+[2025-03-26T12:36:40.551+0000] {subprocess.py:106} INFO - 	at scala.collection.TraversableOnce.nonEmpty(TraversableOnce.scala:143)
+[2025-03-26T12:36:40.553+0000] {subprocess.py:106} INFO - 	at scala.collection.TraversableOnce.nonEmpty$(TraversableOnce.scala:143)
+[2025-03-26T12:36:40.554+0000] {subprocess.py:106} INFO - 	at scala.collection.AbstractIterator.nonEmpty(Iterator.scala:1431)
+[2025-03-26T12:36:40.555+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$takeOrdered$2(RDD.scala:1559)
+[2025-03-26T12:36:40.556+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$takeOrdered$2$adapted(RDD.scala:1558)
+[2025-03-26T12:36:40.557+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2(RDD.scala:910)
+[2025-03-26T12:36:40.558+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2$adapted(RDD.scala:910)
+[2025-03-26T12:36:40.559+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2025-03-26T12:36:40.560+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+[2025-03-26T12:36:40.561+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+[2025-03-26T12:36:40.562+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2025-03-26T12:36:40.564+0000] {subprocess.py:106} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2025-03-26T12:36:40.565+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2025-03-26T12:36:40.566+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2025-03-26T12:36:40.567+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2025-03-26T12:36:40.568+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2025-03-26T12:36:40.569+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2025-03-26T12:36:40.570+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2025-03-26T12:36:40.571+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2025-03-26T12:36:40.572+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2025-03-26T12:36:40.573+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-03-26T12:36:40.574+0000] {subprocess.py:106} INFO - 25/03/26 12:36:40 ERROR Executor: Exception in task 3.0 in stage 0.0 (TID 3)
+[2025-03-26T12:36:40.575+0000] {subprocess.py:106} INFO - org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+[2025-03-26T12:36:40.576+0000] {subprocess.py:106} INFO -   File "/opt/***/dags/historical.py", line 89, in map_to_description
+[2025-03-26T12:36:40.577+0000] {subprocess.py:106} INFO -     return icon_mapping[weathercode]['description']
+[2025-03-26T12:36:40.578+0000] {subprocess.py:106} INFO - KeyError: None
+[2025-03-26T12:36:40.579+0000] {subprocess.py:106} INFO - 
+[2025-03-26T12:36:40.581+0000] {subprocess.py:106} INFO - 	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.handlePythonException(PythonRunner.scala:572)
+[2025-03-26T12:36:40.582+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.python.BasePythonUDFRunner$$anon$1.read(PythonUDFRunner.scala:94)
+[2025-03-26T12:36:40.584+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.python.BasePythonUDFRunner$$anon$1.read(PythonUDFRunner.scala:75)
+[2025-03-26T12:36:40.585+0000] {subprocess.py:106} INFO - 	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:525)
+[2025-03-26T12:36:40.586+0000] {subprocess.py:106} INFO - 	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+[2025-03-26T12:36:40.587+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:491)
+[2025-03-26T12:36:40.588+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.590+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.591+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage2.processNext(Unknown Source)
+[2025-03-26T12:36:40.592+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2025-03-26T12:36:40.593+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+[2025-03-26T12:36:40.594+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.596+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator.isEmpty(Iterator.scala:387)
+[2025-03-26T12:36:40.597+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator.isEmpty$(Iterator.scala:387)
+[2025-03-26T12:36:40.599+0000] {subprocess.py:106} INFO - 	at scala.collection.AbstractIterator.isEmpty(Iterator.scala:1431)
+[2025-03-26T12:36:40.600+0000] {subprocess.py:106} INFO - 	at scala.collection.TraversableOnce.nonEmpty(TraversableOnce.scala:143)
+[2025-03-26T12:36:40.601+0000] {subprocess.py:106} INFO - 	at scala.collection.TraversableOnce.nonEmpty$(TraversableOnce.scala:143)
+[2025-03-26T12:36:40.603+0000] {subprocess.py:106} INFO - 	at scala.collection.AbstractIterator.nonEmpty(Iterator.scala:1431)
+[2025-03-26T12:36:40.605+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$takeOrdered$2(RDD.scala:1559)
+[2025-03-26T12:36:40.607+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$takeOrdered$2$adapted(RDD.scala:1558)
+[2025-03-26T12:36:40.608+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2(RDD.scala:910)
+[2025-03-26T12:36:40.610+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2$adapted(RDD.scala:910)
+[2025-03-26T12:36:40.613+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2025-03-26T12:36:40.614+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+[2025-03-26T12:36:40.617+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+[2025-03-26T12:36:40.619+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2025-03-26T12:36:40.621+0000] {subprocess.py:106} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2025-03-26T12:36:40.622+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2025-03-26T12:36:40.623+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2025-03-26T12:36:40.625+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2025-03-26T12:36:40.626+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2025-03-26T12:36:40.627+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2025-03-26T12:36:40.628+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2025-03-26T12:36:40.630+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2025-03-26T12:36:40.632+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2025-03-26T12:36:40.633+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-03-26T12:36:40.634+0000] {subprocess.py:106} INFO - 25/03/26 12:36:40 WARN TaskSetManager: Lost task 7.0 in stage 0.0 (TID 7) (3c3c1f66214b executor driver): org.apache.spark.api.python.PythonException: Traceback (most recent call last):
+[2025-03-26T12:36:40.636+0000] {subprocess.py:106} INFO -   File "/opt/***/dags/historical.py", line 89, in map_to_description
+[2025-03-26T12:36:40.638+0000] {subprocess.py:106} INFO -     return icon_mapping[weathercode]['description']
+[2025-03-26T12:36:40.639+0000] {subprocess.py:106} INFO - KeyError: None
+[2025-03-26T12:36:40.641+0000] {subprocess.py:106} INFO - 
+[2025-03-26T12:36:40.642+0000] {subprocess.py:106} INFO - 	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.handlePythonException(PythonRunner.scala:572)
+[2025-03-26T12:36:40.643+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.python.BasePythonUDFRunner$$anon$1.read(PythonUDFRunner.scala:94)
+[2025-03-26T12:36:40.644+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.python.BasePythonUDFRunner$$anon$1.read(PythonUDFRunner.scala:75)
+[2025-03-26T12:36:40.645+0000] {subprocess.py:106} INFO - 	at org.apache.spark.api.python.BasePythonRunner$ReaderIterator.hasNext(PythonRunner.scala:525)
+[2025-03-26T12:36:40.646+0000] {subprocess.py:106} INFO - 	at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:37)
+[2025-03-26T12:36:40.648+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:491)
+[2025-03-26T12:36:40.649+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.650+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.652+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage2.processNext(Unknown Source)
+[2025-03-26T12:36:40.653+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2025-03-26T12:36:40.653+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:43)
+[2025-03-26T12:36:40.654+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:460)
+[2025-03-26T12:36:40.655+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator.isEmpty(Iterator.scala:387)
+[2025-03-26T12:36:40.656+0000] {subprocess.py:106} INFO - 	at scala.collection.Iterator.isEmpty$(Iterator.scala:387)
+[2025-03-26T12:36:40.658+0000] {subprocess.py:106} INFO - 	at scala.collection.AbstractIterator.isEmpty(Iterator.scala:1431)
+[2025-03-26T12:36:40.659+0000] {subprocess.py:106} INFO - 	at scala.collection.TraversableOnce.nonEmpty(TraversableOnce.scala:143)
+[2025-03-26T12:36:40.661+0000] {subprocess.py:106} INFO - 	at scala.collection.TraversableOnce.nonEmpty$(TraversableOnce.scala:143)
+[2025-03-26T12:36:40.663+0000] {subprocess.py:106} INFO - 	at scala.collection.AbstractIterator.nonEmpty(Iterator.scala:1431)
+[2025-03-26T12:36:40.664+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$takeOrdered$2(RDD.scala:1559)
+[2025-03-26T12:36:40.667+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$takeOrdered$2$adapted(RDD.scala:1558)
+[2025-03-26T12:36:40.669+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2(RDD.scala:910)
+[2025-03-26T12:36:40.671+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsWithIndex$2$adapted(RDD.scala:910)
+[2025-03-26T12:36:40.672+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2025-03-26T12:36:40.672+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+[2025-03-26T12:36:40.673+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+[2025-03-26T12:36:40.674+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2025-03-26T12:36:40.675+0000] {subprocess.py:106} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2025-03-26T12:36:40.676+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2025-03-26T12:36:40.677+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2025-03-26T12:36:40.678+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2025-03-26T12:36:40.678+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2025-03-26T12:36:40.679+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2025-03-26T12:36:40.680+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2025-03-26T12:36:40.681+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2025-03-26T12:36:40.682+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2025-03-26T12:36:40.684+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-03-26T12:36:40.685+0000] {subprocess.py:106} INFO - 
+[2025-03-26T12:36:40.686+0000] {subprocess.py:106} INFO - 25/03/26 12:36:40 ERROR TaskSetManager: Task 7 in stage 0.0 failed 1 times; aborting job
+[2025-03-26T12:36:41.452+0000] {subprocess.py:106} INFO - Error:
+[2025-03-26T12:36:41.456+0000] {subprocess.py:106} INFO -   An exception was thrown from the Python worker. Please see the stack trace below.
+[2025-03-26T12:36:41.457+0000] {subprocess.py:106} INFO - Traceback (most recent call last):
+[2025-03-26T12:36:41.458+0000] {subprocess.py:106} INFO -   File "/opt/***/dags/historical.py", line 89, in map_to_description
+[2025-03-26T12:36:41.459+0000] {subprocess.py:106} INFO -     return icon_mapping[weathercode]['description']
+[2025-03-26T12:36:41.460+0000] {subprocess.py:106} INFO - KeyError: None
+[2025-03-26T12:36:41.460+0000] {subprocess.py:106} INFO - 
+[2025-03-26T12:36:41.902+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-26T12:36:41.927+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-26T12:36:41.929+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=historical_weather_etl, task_id=run_historical_script, run_id=manual__2025-03-26T12:36:28.329394+00:00, execution_date=20250326T123628, start_date=20250326T123630, end_date=20250326T123641
+[2025-03-26T12:36:41.960+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-26T12:36:41.961+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-26T12:36:41.962+0000] {logging_mixin.py:190} INFO - Dag name:historical_weather_etl queued_at:2025-03-26 12:36:28.340788+00:00
+[2025-03-26T12:36:41.964+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-03-26T12:36:41.974+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-26T12:36:41.992+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-26T12:36:41.995+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

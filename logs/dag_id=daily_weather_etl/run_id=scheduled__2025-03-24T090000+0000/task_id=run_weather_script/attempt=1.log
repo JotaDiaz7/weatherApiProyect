@@ -1,0 +1,209 @@
+[2025-03-25T09:00:03.596+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-25T09:00:03.800+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_weather_script scheduled__2025-03-24T09:00:00+00:00 [queued]>
+[2025-03-25T09:00:03.816+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_weather_script scheduled__2025-03-24T09:00:00+00:00 [queued]>
+[2025-03-25T09:00:03.819+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-25T09:00:03.842+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_weather_script> on 2025-03-24 09:00:00+00:00
+[2025-03-25T09:00:03.850+0000] {standard_task_runner.py:72} INFO - Started process 7582 to run task
+[2025-03-25T09:00:03.857+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_weather_script', 'scheduled__2025-03-24T09:00:00+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmpqiydtyfb']
+[2025-03-25T09:00:03.862+0000] {standard_task_runner.py:105} INFO - Job 53: Subtask run_weather_script
+[2025-03-25T09:00:03.939+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_weather_script scheduled__2025-03-24T09:00:00+00:00 [running]> on host ffaec1616c64
+[2025-03-25T09:00:04.106+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_weather_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T09:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-24T09:00:00+00:00'
+[2025-03-25T09:00:04.110+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-25T09:00:04.113+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-25T09:00:04.114+0000] {logging_mixin.py:190} INFO - Current task name:run_weather_script state:running start_date:2025-03-25 09:00:03.802700+00:00
+[2025-03-25T09:00:04.116+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-03-25T09:00:04.117+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-25T09:00:04.119+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-25T09:00:04.121+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/main.py']
+[2025-03-25T09:00:04.141+0000] {subprocess.py:99} INFO - Output:
+[2025-03-25T09:00:08.394+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-25T09:00:08.396+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-25T09:00:08.697+0000] {subprocess.py:106} INFO - 25/03/25 09:00:08 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-25T09:00:15.288+0000] {subprocess.py:106} INFO - 25/03/25 09:00:15 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2025-03-25T09:00:36.257+0000] {local_task_job_runner.py:127} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-03-25T09:00:36.294+0000] {process_utils.py:132} INFO - Sending 15 to group 7582. PIDs of all processes in the group: [7584, 7592, 7710, 7713, 7729, 7735, 7738, 7779, 7788, 7792, 7794, 7582]
+[2025-03-25T09:00:36.310+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 7582
+[2025-03-25T09:00:36.340+0000] {taskinstance.py:3094} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-03-25T09:00:36.470+0000] {taskinstance.py:3095} ERROR - Stacktrace: 
+  File "/home/***/.local/bin/***", line 8, in <module>
+    sys.exit(main())
+  File "/home/***/.local/lib/python3.9/site-packages/***/__main__.py", line 62, in main
+    args.func(args)
+  File "/home/***/.local/lib/python3.9/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/providers/celery/cli/celery_command.py", line 64, in wrapper
+    providers_configuration_loaded(func)(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/utils/providers_configuration_loader.py", line 55, in wrapped_function
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/providers/celery/cli/celery_command.py", line 237, in worker
+    _run_command_with_daemon_option(
+  File "/home/***/.local/lib/python3.9/site-packages/***/providers/celery/cli/celery_command.py", line 50, in _run_command_with_daemon_option
+    run_command_with_daemon_option(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/cli/commands/daemon_utils.py", line 86, in run_command_with_daemon_option
+    callback()
+  File "/home/***/.local/lib/python3.9/site-packages/***/providers/celery/cli/celery_command.py", line 230, in run_celery_worker
+    celery_app.worker_main(options)
+  File "/home/***/.local/lib/python3.9/site-packages/celery/app/base.py", line 391, in worker_main
+    self.start(argv=argv)
+  File "/home/***/.local/lib/python3.9/site-packages/celery/app/base.py", line 371, in start
+    celery.main(args=argv, standalone_mode=False)
+  File "/home/***/.local/lib/python3.9/site-packages/click/core.py", line 1082, in main
+    rv = self.invoke(ctx)
+  File "/home/***/.local/lib/python3.9/site-packages/click/core.py", line 1697, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/***/.local/lib/python3.9/site-packages/click/core.py", line 1443, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/***/.local/lib/python3.9/site-packages/click/core.py", line 788, in invoke
+    return __callback(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/celery/bin/base.py", line 135, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/celery/bin/worker.py", line 356, in worker
+    worker.start()
+  File "/home/***/.local/lib/python3.9/site-packages/celery/worker/worker.py", line 202, in start
+    self.blueprint.start(self)
+  File "/home/***/.local/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/***/.local/lib/python3.9/site-packages/celery/bootsteps.py", line 365, in start
+    return self.obj.start()
+  File "/home/***/.local/lib/python3.9/site-packages/celery/concurrency/base.py", line 130, in start
+    self.on_start()
+  File "/home/***/.local/lib/python3.9/site-packages/celery/concurrency/prefork.py", line 109, in on_start
+    P = self._pool = Pool(processes=self.limit,
+  File "/home/***/.local/lib/python3.9/site-packages/celery/concurrency/asynpool.py", line 464, in __init__
+    super().__init__(processes, *args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/billiard/pool.py", line 1046, in __init__
+    self._create_worker_process(i)
+  File "/home/***/.local/lib/python3.9/site-packages/celery/concurrency/asynpool.py", line 482, in _create_worker_process
+    return super()._create_worker_process(i)
+  File "/home/***/.local/lib/python3.9/site-packages/billiard/pool.py", line 1158, in _create_worker_process
+    w.start()
+  File "/home/***/.local/lib/python3.9/site-packages/billiard/process.py", line 120, in start
+    self._popen = self._Popen(self)
+  File "/home/***/.local/lib/python3.9/site-packages/billiard/context.py", line 331, in _Popen
+    return Popen(process_obj)
+  File "/home/***/.local/lib/python3.9/site-packages/billiard/popen_fork.py", line 22, in __init__
+    self._launch(process_obj)
+  File "/home/***/.local/lib/python3.9/site-packages/billiard/popen_fork.py", line 77, in _launch
+    code = process_obj._bootstrap()
+  File "/home/***/.local/lib/python3.9/site-packages/billiard/process.py", line 323, in _bootstrap
+    self.run()
+  File "/home/***/.local/lib/python3.9/site-packages/billiard/process.py", line 110, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/billiard/pool.py", line 292, in __call__
+    sys.exit(self.workloop(pid=pid))
+  File "/home/***/.local/lib/python3.9/site-packages/billiard/pool.py", line 362, in workloop
+    result = (True, prepare_result(fun(*args, **kwargs)))
+  File "/home/***/.local/lib/python3.9/site-packages/celery/app/trace.py", line 651, in fast_trace_task
+    R, I, T, Rstr = tasks[task].__trace__(
+  File "/home/***/.local/lib/python3.9/site-packages/celery/app/trace.py", line 453, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/celery/app/trace.py", line 736, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/providers/celery/executors/celery_executor_utils.py", line 139, in execute_command
+    _execute_in_fork(command_to_exec, celery_task_id)
+  File "/home/***/.local/lib/python3.9/site-packages/***/providers/celery/executors/celery_executor_utils.py", line 171, in _execute_in_fork
+    args.func(args)
+  File "/home/***/.local/lib/python3.9/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/***/.local/lib/python3.9/site-packages/***/cli/commands/task_command.py", line 254, in _run_task_by_selected_method
+    return _run_task_by_local_task_job(args, ti)
+  File "/home/***/.local/lib/python3.9/site-packages/***/cli/commands/task_command.py", line 322, in _run_task_by_local_task_job
+    ret = run_job(job=job_runner.job, execute_callable=job_runner._execute)
+  File "/home/***/.local/lib/python3.9/site-packages/***/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/jobs/job.py", line 421, in run_job
+    return execute_job(job, execute_callable=execute_callable)
+  File "/home/***/.local/lib/python3.9/site-packages/***/jobs/job.py", line 450, in execute_job
+    ret = execute_callable()
+  File "/home/***/.local/lib/python3.9/site-packages/***/jobs/local_task_job_runner.py", line 171, in _execute
+    self.task_runner.start()
+  File "/home/***/.local/lib/python3.9/site-packages/***/task/task_runner/standard_task_runner.py", line 55, in start
+    self.process = self._start_by_fork()
+  File "/home/***/.local/lib/python3.9/site-packages/***/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/***/.local/lib/python3.9/site-packages/***/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/***/.local/lib/python3.9/site-packages/***/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/***/.local/lib/python3.9/site-packages/***/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/***/.local/lib/python3.9/site-packages/***/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+  File "/home/***/.local/lib/python3.9/site-packages/***/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/***/.local/lib/python3.9/site-packages/***/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/***/.local/lib/python3.9/site-packages/***/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/***/.local/lib/python3.9/site-packages/***/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/***/.local/lib/python3.9/site-packages/***/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/***/.local/lib/python3.9/site-packages/***/operators/bash.py", line 257, in execute
+    result = self._run_inline_command(bash_path=bash_path, env=env)
+  File "/home/***/.local/lib/python3.9/site-packages/***/operators/bash.py", line 284, in _run_inline_command
+    return self.subprocess_hook.run_command(
+  File "/home/***/.local/lib/python3.9/site-packages/***/hooks/subprocess.py", line 104, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/***/.local/lib/python3.9/site-packages/***/models/taskinstance.py", line 3095, in signal_handler
+    self.log.error("Stacktrace: \n%s", "".join(traceback.format_stack()))
+
+[2025-03-25T09:00:36.475+0000] {subprocess.py:117} INFO - Sending SIGTERM signal to process group
+[2025-03-25T09:00:36.563+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 257, in execute
+    result = self._run_inline_command(bash_path=bash_path, env=env)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 284, in _run_inline_command
+    return self.subprocess_hook.run_command(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/hooks/subprocess.py", line 104, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3097, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2025-03-25T09:00:36.637+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-03-25T09:00:36.643+0000] {logging_mixin.py:190} INFO - Task start:2025-03-25 09:00:03.802700+00:00 end:2025-03-25 09:00:36.636229+00:00 duration:32.833529
+[2025-03-25T09:00:36.646+0000] {logging_mixin.py:190} INFO - Task:<Task(BashOperator): run_weather_script> dag:<DAG: daily_weather_etl> dagrun:<DagRun daily_weather_etl @ 2025-03-24 09:00:00+00:00: scheduled__2025-03-24T09:00:00+00:00, state:running, queued_at: 2025-03-25 09:00:01.041028+00:00. externally triggered: False>
+[2025-03-25T09:00:36.664+0000] {logging_mixin.py:190} INFO - Failure caused by Task received SIGTERM signal
+[2025-03-25T09:00:36.673+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_weather_etl, task_id=run_weather_script, run_id=scheduled__2025-03-24T09:00:00+00:00, execution_date=20250324T090000, start_date=20250325T090003, end_date=20250325T090036
+[2025-03-25T09:00:37.007+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-25T09:00:37.103+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7794, status='terminated', started='09:00:18') (7794) terminated with exit code None
+[2025-03-25T09:00:37.110+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7729, status='terminated', started='09:00:18') (7729) terminated with exit code None
+[2025-03-25T09:00:37.113+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7735, status='terminated', started='09:00:18') (7735) terminated with exit code None
+[2025-03-25T09:00:37.213+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7779, status='terminated', started='09:00:18') (7779) terminated with exit code None
+[2025-03-25T09:00:37.222+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7584, status='terminated', started='09:00:04') (7584) terminated with exit code None
+[2025-03-25T09:00:37.229+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7713, status='terminated', started='09:00:17') (7713) terminated with exit code None
+[2025-03-25T09:00:37.231+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7582, status='terminated', exitcode=2, started='09:00:03') (7582) terminated with exit code 2
+[2025-03-25T09:00:37.234+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7792, status='terminated', started='09:00:18') (7792) terminated with exit code None
+[2025-03-25T09:00:37.237+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7738, status='terminated', started='09:00:18') (7738) terminated with exit code None
+[2025-03-25T09:00:37.240+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7710, status='terminated', started='09:00:16') (7710) terminated with exit code None
+[2025-03-25T09:00:37.247+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7788, status='terminated', started='09:00:18') (7788) terminated with exit code None
+[2025-03-25T09:00:38.092+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=7592, status='terminated', started='09:00:05') (7592) terminated with exit code None
+[2025-03-25T09:00:38.095+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 143
+[2025-03-25T09:00:38.159+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-25T09:00:38.884+0000] {standard_task_runner.py:217} INFO - Process not found (most likely exited), stop collecting metrics

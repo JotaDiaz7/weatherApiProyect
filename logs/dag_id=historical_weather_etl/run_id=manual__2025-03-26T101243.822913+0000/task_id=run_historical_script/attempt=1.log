@@ -1,0 +1,68 @@
+[2025-03-26T10:12:46.726+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-26T10:12:47.016+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T10:12:43.822913+00:00 [queued]>
+[2025-03-26T10:12:47.053+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T10:12:43.822913+00:00 [queued]>
+[2025-03-26T10:12:47.058+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-26T10:12:47.081+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_historical_script> on 2025-03-26 10:12:43.822913+00:00
+[2025-03-26T10:12:47.090+0000] {standard_task_runner.py:72} INFO - Started process 41348 to run task
+[2025-03-26T10:12:47.096+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'historical_weather_etl', 'run_historical_script', 'manual__2025-03-26T10:12:43.822913+00:00', '--job-id', '74', '--raw', '--subdir', 'DAGS_FOLDER/historical_dag.py', '--cfg-path', '/tmp/tmp4cpmi76h']
+[2025-03-26T10:12:47.099+0000] {standard_task_runner.py:105} INFO - Job 74: Subtask run_historical_script
+[2025-03-26T10:12:47.169+0000] {task_command.py:467} INFO - Running <TaskInstance: historical_weather_etl.run_historical_script manual__2025-03-26T10:12:43.822913+00:00 [running]> on host 3c3c1f66214b
+[2025-03-26T10:12:47.290+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='historical_weather_etl' AIRFLOW_CTX_TASK_ID='run_historical_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-26T10:12:43.822913+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-26T10:12:43.822913+00:00'
+[2025-03-26T10:12:47.293+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-26T10:12:47.295+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-26T10:12:47.296+0000] {logging_mixin.py:190} INFO - Current task name:run_historical_script state:running start_date:2025-03-26 10:12:47.032357+00:00
+[2025-03-26T10:12:47.298+0000] {logging_mixin.py:190} INFO - Dag name:historical_weather_etl and current dag run status:running
+[2025-03-26T10:12:47.299+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-26T10:12:47.301+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-26T10:12:47.303+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/historical.py']
+[2025-03-26T10:12:47.321+0000] {subprocess.py:99} INFO - Output:
+[2025-03-26T10:12:51.782+0000] {subprocess.py:106} INFO - 25/03/26 10:12:51 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-26T10:12:52.003+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-26T10:12:52.005+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-26T10:13:08.911+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 8) / 8]                                                                                +-----+----------------+-----------+--------+--------+---------+---------+----------------+----------------------------------------------+
+[2025-03-26T10:13:08.933+0000] {subprocess.py:106} INFO - |city |local_time      |temperature|wind_kph|humidity|feelslike|precip_mm|text            |icon                                          |
+[2025-03-26T10:13:08.945+0000] {subprocess.py:106} INFO - +-----+----------------+-----------+--------+--------+---------+---------+----------------+----------------------------------------------+
+[2025-03-26T10:13:08.950+0000] {subprocess.py:106} INFO - |elche|2021-01-01 09:00|7.1        |16.1    |67      |7.1      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:08.968+0000] {subprocess.py:106} INFO - |elche|2021-01-02 09:00|4.9        |22.8    |55      |4.9      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:08.970+0000] {subprocess.py:106} INFO - |elche|2021-01-03 09:00|5.3        |23.5    |46      |5.3      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:08.971+0000] {subprocess.py:106} INFO - |elche|2021-01-04 09:00|4.2        |9.8     |63      |4.2      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:08.973+0000] {subprocess.py:106} INFO - |elche|2021-01-05 09:00|3.5        |20.6    |69      |3.5      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:08.975+0000] {subprocess.py:106} INFO - |elche|2021-01-06 09:00|5.2        |10.9    |52      |5.2      |0.0      |Mostly Clear    |//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-26T10:13:08.976+0000] {subprocess.py:106} INFO - |elche|2021-01-07 09:00|6.3        |8.3     |84      |6.3      |0.7      |Moderate Drizzle|//cdn.weatherapi.com/weather/64x64/day/176.png|
+[2025-03-26T10:13:08.979+0000] {subprocess.py:106} INFO - |elche|2021-01-08 09:00|6.7        |11.8    |81      |6.7      |0.1      |Light Drizzle   |//cdn.weatherapi.com/weather/64x64/day/176.png|
+[2025-03-26T10:13:08.985+0000] {subprocess.py:106} INFO - |elche|2021-01-09 09:00|7.2        |8.2     |86      |7.2      |0.0      |Cloudy          |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-03-26T10:13:08.990+0000] {subprocess.py:106} INFO - |elche|2021-01-10 09:00|6.1        |9.0     |79      |6.1      |0.3      |Light Drizzle   |//cdn.weatherapi.com/weather/64x64/day/176.png|
+[2025-03-26T10:13:08.993+0000] {subprocess.py:106} INFO - |elche|2021-01-11 09:00|3.2        |12.6    |87      |3.2      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:08.995+0000] {subprocess.py:106} INFO - |elche|2021-01-12 09:00|2.4        |18.0    |56      |2.4      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:08.997+0000] {subprocess.py:106} INFO - |elche|2021-01-13 09:00|3.0        |15.3    |63      |3.0      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:09.000+0000] {subprocess.py:106} INFO - |elche|2021-01-14 09:00|4.1        |17.9    |69      |4.1      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:09.003+0000] {subprocess.py:106} INFO - |elche|2021-01-15 09:00|7.1        |20.5    |68      |7.1      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:09.006+0000] {subprocess.py:106} INFO - |elche|2021-01-16 09:00|5.5        |12.4    |62      |5.5      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:09.012+0000] {subprocess.py:106} INFO - |elche|2021-01-17 09:00|6.2        |15.0    |50      |6.2      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-26T10:13:09.013+0000] {subprocess.py:106} INFO - |elche|2021-01-18 09:00|6.2        |11.1    |75      |6.2      |0.0      |Mostly Clear    |//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-26T10:13:09.014+0000] {subprocess.py:106} INFO - |elche|2021-01-19 09:00|6.3        |10.3    |85      |6.3      |0.0      |Mostly Clear    |//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-26T10:13:09.016+0000] {subprocess.py:106} INFO - |elche|2021-01-20 09:00|6.3        |2.7     |95      |6.3      |0.0      |Cloudy          |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-03-26T10:13:09.018+0000] {subprocess.py:106} INFO - +-----+----------------+-----------+--------+--------+---------+---------+----------------+----------------------------------------------+
+[2025-03-26T10:13:09.019+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-03-26T10:13:09.020+0000] {subprocess.py:106} INFO - 
+[2025-03-26T10:13:09.021+0000] {subprocess.py:106} INFO - Error: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column or function parameter with name `localtime` cannot be resolved. Did you mean one of the following? [`local_time`, `city`, `feelslike`, `icon`, `text`].;
+[2025-03-26T10:13:09.023+0000] {subprocess.py:106} INFO - 'Project [lower(city#12) AS lower(city)#104, 'localtime]
+[2025-03-26T10:13:09.024+0000] {subprocess.py:106} INFO - +- Sort [local_time#51 ASC NULLS FIRST], true
+[2025-03-26T10:13:09.025+0000] {subprocess.py:106} INFO -    +- Project [city#12, regexp_replace(time#4, T,  , 1) AS local_time#51, temperature_2m#3 AS temperature#52, windspeed_10m#5 AS wind_kph#53, relativehumidity_2m#2L AS humidity#54L, feelslike#20, precipitation#1 AS precip_mm#55, text#30, icon#41]
+[2025-03-26T10:13:09.026+0000] {subprocess.py:106} INFO -       +- Project [map_to_icon_url(icon#0L)#40 AS icon#41, precipitation#1, relativehumidity_2m#2L, temperature_2m#3, time#4, windspeed_10m#5, city#12, feelslike#20, text#30]
+[2025-03-26T10:13:09.027+0000] {subprocess.py:106} INFO -          +- Project [icon#0L, precipitation#1, relativehumidity_2m#2L, temperature_2m#3, time#4, windspeed_10m#5, city#12, feelslike#20, map_to_description(icon#0L)#29 AS text#30]
+[2025-03-26T10:13:09.028+0000] {subprocess.py:106} INFO -             +- Project [icon#0L, precipitation#1, relativehumidity_2m#2L, temperature_2m#3, time#4, windspeed_10m#5, city#12, temperature_2m#3 AS feelslike#20]
+[2025-03-26T10:13:09.029+0000] {subprocess.py:106} INFO -                +- Project [icon#0L, precipitation#1, relativehumidity_2m#2L, temperature_2m#3, time#4, windspeed_10m#5, elche AS city#12]
+[2025-03-26T10:13:09.030+0000] {subprocess.py:106} INFO -                   +- Filter EndsWith(time#4, 09:00)
+[2025-03-26T10:13:09.032+0000] {subprocess.py:106} INFO -                      +- LogicalRDD [icon#0L, precipitation#1, relativehumidity_2m#2L, temperature_2m#3, time#4, windspeed_10m#5], false
+[2025-03-26T10:13:09.034+0000] {subprocess.py:106} INFO - 
+[2025-03-26T10:13:09.541+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-26T10:13:09.622+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-26T10:13:09.627+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=historical_weather_etl, task_id=run_historical_script, run_id=manual__2025-03-26T10:12:43.822913+00:00, execution_date=20250326T101243, start_date=20250326T101247, end_date=20250326T101309
+[2025-03-26T10:13:09.709+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-26T10:13:09.712+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-26T10:13:09.716+0000] {logging_mixin.py:190} INFO - Dag name:historical_weather_etl queued_at:2025-03-26 10:12:43.842048+00:00
+[2025-03-26T10:13:09.721+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-03-26T10:13:09.781+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-26T10:13:09.833+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-26T10:13:09.843+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
