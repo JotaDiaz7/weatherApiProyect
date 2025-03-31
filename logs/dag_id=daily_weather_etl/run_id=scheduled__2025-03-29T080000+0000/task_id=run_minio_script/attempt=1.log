@@ -1,0 +1,237 @@
+[2025-03-30T10:31:24.319+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-30T10:31:24.601+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-03-29T08:00:00+00:00 [queued]>
+[2025-03-30T10:31:24.624+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-03-29T08:00:00+00:00 [queued]>
+[2025-03-30T10:31:24.630+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-30T10:31:24.661+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_minio_script> on 2025-03-29 08:00:00+00:00
+[2025-03-30T10:31:24.673+0000] {standard_task_runner.py:72} INFO - Started process 412 to run task
+[2025-03-30T10:31:24.684+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_minio_script', 'scheduled__2025-03-29T08:00:00+00:00', '--job-id', '145', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmpstnbat_6']
+[2025-03-30T10:31:24.688+0000] {standard_task_runner.py:105} INFO - Job 145: Subtask run_minio_script
+[2025-03-30T10:31:24.774+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-03-29T08:00:00+00:00 [running]> on host 3c3c1f66214b
+[2025-03-30T10:31:24.939+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_minio_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-29T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-29T08:00:00+00:00'
+[2025-03-30T10:31:24.941+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-30T10:31:24.943+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-30T10:31:24.945+0000] {logging_mixin.py:190} INFO - Current task name:run_minio_script state:running start_date:2025-03-30 10:31:24.603502+00:00
+[2025-03-30T10:31:24.946+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-03-30T10:31:24.948+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-30T10:31:24.950+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-30T10:31:24.952+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/minio.py']
+[2025-03-30T10:31:24.968+0000] {subprocess.py:99} INFO - Output:
+[2025-03-30T10:31:30.365+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-30T10:31:30.369+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-30T10:31:30.937+0000] {subprocess.py:106} INFO - 25/03/30 10:31:30 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-30T10:31:35.093+0000] {subprocess.py:106} INFO - Error: name 'latitude' is not defined
+[2025-03-30T10:31:35.756+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-30T10:31:35.789+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-30T10:31:35.791+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_minio_script, run_id=scheduled__2025-03-29T08:00:00+00:00, execution_date=20250329T080000, start_date=20250330T103124, end_date=20250330T103135
+[2025-03-30T10:31:35.832+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-30T10:31:35.834+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-30T10:31:35.835+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-03-30 10:25:52.225372+00:00
+[2025-03-30T10:31:35.836+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-03-30T10:31:35.881+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-30T10:31:35.913+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-30T10:31:35.917+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-31T06:29:13.643+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-31T06:29:13.677+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-03-29T08:00:00+00:00 [queued]>
+[2025-03-31T06:29:13.692+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-03-29T08:00:00+00:00 [queued]>
+[2025-03-31T06:29:13.693+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-31T06:29:13.709+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_minio_script> on 2025-03-29 08:00:00+00:00
+[2025-03-31T06:29:13.717+0000] {standard_task_runner.py:72} INFO - Started process 1088 to run task
+[2025-03-31T06:29:13.723+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_minio_script', 'scheduled__2025-03-29T08:00:00+00:00', '--job-id', '167', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmp1y7j3huf']
+[2025-03-31T06:29:13.725+0000] {standard_task_runner.py:105} INFO - Job 167: Subtask run_minio_script
+[2025-03-31T06:29:13.784+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-03-29T08:00:00+00:00 [running]> on host 3c3c1f66214b
+[2025-03-31T06:29:14.119+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_minio_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-29T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-29T08:00:00+00:00'
+[2025-03-31T06:29:14.121+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-31T06:29:14.122+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-31T06:29:14.123+0000] {logging_mixin.py:190} INFO - Current task name:run_minio_script state:running start_date:2025-03-31 06:29:13.678630+00:00
+[2025-03-31T06:29:14.124+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-03-31T06:29:14.125+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-31T06:29:14.127+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-31T06:29:14.129+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/minio.py']
+[2025-03-31T06:29:14.144+0000] {subprocess.py:99} INFO - Output:
+[2025-03-31T06:29:14.302+0000] {subprocess.py:106} INFO -   File "/opt/***/dags/minio.py", line 15
+[2025-03-31T06:29:14.303+0000] {subprocess.py:106} INFO -     print(f"Ciudad: {city.get("city")}, latitud: {city.get("lat")}, longitud: {city.get("long")}")
+[2025-03-31T06:29:14.304+0000] {subprocess.py:106} INFO -                                ^
+[2025-03-31T06:29:14.306+0000] {subprocess.py:106} INFO - SyntaxError: f-string: unmatched '('
+[2025-03-31T06:29:14.309+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2025-03-31T06:29:14.321+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-31T06:29:14.332+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-03-31T06:29:14.334+0000] {logging_mixin.py:190} INFO - Task start:2025-03-31 06:29:13.678630+00:00 end:2025-03-31 06:29:14.331946+00:00 duration:0.653316
+[2025-03-31T06:29:14.335+0000] {logging_mixin.py:190} INFO - Task:<Task(BashOperator): run_minio_script> dag:<DAG: daily_weather_etl> dagrun:<DagRun daily_weather_etl @ 2025-03-29 08:00:00+00:00: scheduled__2025-03-29T08:00:00+00:00, state:running, queued_at: 2025-03-31 06:28:18.571526+00:00. externally triggered: False>
+[2025-03-31T06:29:14.337+0000] {logging_mixin.py:190} INFO - Failure caused by Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-31T06:29:14.338+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_weather_etl, task_id=run_minio_script, run_id=scheduled__2025-03-29T08:00:00+00:00, execution_date=20250329T080000, start_date=20250331T062913, end_date=20250331T062914
+[2025-03-31T06:29:14.402+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-31T06:29:14.406+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 167 for task run_minio_script (Bash command failed. The command returned a non-zero exit code 1.; 1088)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-31T06:29:14.465+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-31T06:29:14.509+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-31T06:29:14.512+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-03-31T07:14:00.030+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-31T07:14:00.076+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-03-29T08:00:00+00:00 [queued]>
+[2025-03-31T07:14:00.096+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-03-29T08:00:00+00:00 [queued]>
+[2025-03-31T07:14:00.097+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-31T07:14:00.121+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_minio_script> on 2025-03-29 08:00:00+00:00
+[2025-03-31T07:14:00.129+0000] {standard_task_runner.py:72} INFO - Started process 9055 to run task
+[2025-03-31T07:14:00.135+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_minio_script', 'scheduled__2025-03-29T08:00:00+00:00', '--job-id', '197', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmpmpeqcb_w']
+[2025-03-31T07:14:00.138+0000] {standard_task_runner.py:105} INFO - Job 197: Subtask run_minio_script
+[2025-03-31T07:14:00.207+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-03-29T08:00:00+00:00 [running]> on host 3c3c1f66214b
+[2025-03-31T07:14:00.665+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_minio_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-29T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-29T08:00:00+00:00'
+[2025-03-31T07:14:00.667+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-31T07:14:00.670+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-31T07:14:00.672+0000] {logging_mixin.py:190} INFO - Current task name:run_minio_script state:running start_date:2025-03-31 07:14:00.078185+00:00
+[2025-03-31T07:14:00.674+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-03-31T07:14:00.675+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-31T07:14:00.677+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-31T07:14:00.679+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/minio.py']
+[2025-03-31T07:14:00.699+0000] {subprocess.py:99} INFO - Output:
+[2025-03-31T07:14:05.470+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-31T07:14:05.472+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-31T07:14:05.783+0000] {subprocess.py:106} INFO - 25/03/31 07:14:05 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-31T07:14:24.057+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 8) / 8]                                                                                +-----+----------+-----+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-03-31T07:14:24.059+0000] {subprocess.py:106} INFO - |city |date      |time |temperature|wind_kph|humidity|feelslike|precip_mm|text         |icon                                          |
+[2025-03-31T07:14:24.061+0000] {subprocess.py:106} INFO - +-----+----------+-----+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-03-31T07:14:24.063+0000] {subprocess.py:106} INFO - |elche|2025-03-28|09:00|12.0       |14.2    |61      |12.0     |0.0      |Partly Cloudy|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-31T07:14:24.064+0000] {subprocess.py:106} INFO - |elche|2025-03-28|04:00|10.7       |9.1     |83      |10.7     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.066+0000] {subprocess.py:106} INFO - |elche|2025-03-28|15:00|23.0       |14.8    |25      |23.0     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.067+0000] {subprocess.py:106} INFO - |elche|2025-03-28|22:00|11.9       |5.5     |91      |11.9     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.069+0000] {subprocess.py:106} INFO - |elche|2025-03-29|22:00|13.3       |3.6     |59      |13.3     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.070+0000] {subprocess.py:106} INFO - |elche|2025-03-29|04:00|14.1       |14.7    |45      |14.1     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.072+0000] {subprocess.py:106} INFO - |elche|2025-03-29|15:00|24.1       |17.2    |16      |24.1     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.074+0000] {subprocess.py:106} INFO - |elche|2025-03-29|09:00|13.4       |20.8    |40      |13.4     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.076+0000] {subprocess.py:106} INFO - +-----+----------+-----+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-03-31T07:14:24.078+0000] {subprocess.py:106} INFO - 
+[2025-03-31T07:14:24.079+0000] {subprocess.py:106} INFO - +------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-03-31T07:14:24.081+0000] {subprocess.py:106} INFO - |city  |date      |time |temperature|wind_kph|humidity|feelslike|precip_mm|text        |icon                                          |
+[2025-03-31T07:14:24.082+0000] {subprocess.py:106} INFO - +------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-03-31T07:14:24.084+0000] {subprocess.py:106} INFO - |madrid|2025-03-28|15:00|15.6       |1.6     |48      |15.6     |0.0      |Mostly Clear|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-31T07:14:24.086+0000] {subprocess.py:106} INFO - |madrid|2025-03-28|09:00|4.6        |7.3     |89      |4.6      |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.087+0000] {subprocess.py:106} INFO - |madrid|2025-03-28|22:00|11.0       |2.7     |68      |11.0     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.089+0000] {subprocess.py:106} INFO - |madrid|2025-03-28|04:00|7.6        |4.6     |80      |7.6      |0.0      |Mostly Clear|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-31T07:14:24.090+0000] {subprocess.py:106} INFO - |madrid|2025-03-29|15:00|15.8       |4.6     |47      |15.8     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.092+0000] {subprocess.py:106} INFO - |madrid|2025-03-29|22:00|10.0       |16.2    |53      |10.0     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.093+0000] {subprocess.py:106} INFO - |madrid|2025-03-29|09:00|5.5        |5.1     |79      |5.5      |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.095+0000] {subprocess.py:106} INFO - |madrid|2025-03-29|04:00|7.7        |5.7     |75      |7.7      |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.096+0000] {subprocess.py:106} INFO - +------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-03-31T07:14:24.097+0000] {subprocess.py:106} INFO - 
+[2025-03-31T07:14:24.098+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+----------------+----------------------------------------------+
+[2025-03-31T07:14:24.099+0000] {subprocess.py:106} INFO - |city                |date      |time |temperature|wind_kph|humidity|feelslike|precip_mm|text            |icon                                          |
+[2025-03-31T07:14:24.100+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+----------------+----------------------------------------------+
+[2025-03-31T07:14:24.101+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-28|22:00|12.0       |3.7     |85      |12.0     |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.103+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-28|15:00|18.4       |12.3    |67      |18.4     |0.5      |Moderate Drizzle|//cdn.weatherapi.com/weather/64x64/day/176.png|
+[2025-03-31T07:14:24.104+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-28|04:00|9.5        |8.2     |74      |9.5      |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.105+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-28|09:00|9.9        |5.6     |76      |9.9      |0.0      |Cloudy          |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-03-31T07:14:24.107+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-29|22:00|12.8       |3.4     |68      |12.8     |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.110+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-29|09:00|12.7       |15.7    |45      |12.7     |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.111+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-29|15:00|22.7       |4.5     |23      |22.7     |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.113+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-29|04:00|10.1       |8.4     |67      |10.1     |0.0      |Sunny           |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.115+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+----------------+----------------------------------------------+
+[2025-03-31T07:14:24.116+0000] {subprocess.py:106} INFO - 
+[2025-03-31T07:14:24.118+0000] {subprocess.py:106} INFO - +----------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-03-31T07:14:24.119+0000] {subprocess.py:106} INFO - |city      |date      |time |temperature|wind_kph|humidity|feelslike|precip_mm|text        |icon                                          |
+[2025-03-31T07:14:24.121+0000] {subprocess.py:106} INFO - +----------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-03-31T07:14:24.122+0000] {subprocess.py:106} INFO - |torrevieja|2025-03-28|15:00|21.8       |10.5    |36      |21.8     |0.0      |Mostly Clear|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-31T07:14:24.124+0000] {subprocess.py:106} INFO - |torrevieja|2025-03-28|22:00|13.7       |7.6     |89      |13.7     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.125+0000] {subprocess.py:106} INFO - |torrevieja|2025-03-28|09:00|11.4       |15.9    |79      |11.4     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.126+0000] {subprocess.py:106} INFO - |torrevieja|2025-03-28|04:00|12.1       |10.0    |94      |12.1     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.127+0000] {subprocess.py:106} INFO - |torrevieja|2025-03-29|04:00|13.7       |17.9    |57      |13.7     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.129+0000] {subprocess.py:106} INFO - |torrevieja|2025-03-29|09:00|12.5       |17.7    |60      |12.5     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.130+0000] {subprocess.py:106} INFO - |torrevieja|2025-03-29|22:00|13.9       |4.7     |75      |13.9     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.131+0000] {subprocess.py:106} INFO - |torrevieja|2025-03-29|15:00|22.5       |11.0    |32      |22.5     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:24.133+0000] {subprocess.py:106} INFO - +----------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-03-31T07:14:24.134+0000] {subprocess.py:106} INFO - 
+[2025-03-31T07:14:31.982+0000] {subprocess.py:106} INFO - [Stage 58:>                                                         (0 + 1) / 1]                                                                                +--------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-03-31T07:14:31.983+0000] {subprocess.py:106} INFO - |city    |date      |time |temperature|wind_kph|humidity|feelslike|precip_mm|text        |icon                                          |
+[2025-03-31T07:14:31.985+0000] {subprocess.py:106} INFO - +--------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-03-31T07:14:31.987+0000] {subprocess.py:106} INFO - |valencia|2025-03-28|04:00|10.3       |7.3     |86      |10.3     |0.0      |Mostly Clear|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-31T07:14:31.988+0000] {subprocess.py:106} INFO - |valencia|2025-03-28|09:00|10.0       |8.1     |75      |10.0     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:31.990+0000] {subprocess.py:106} INFO - |valencia|2025-03-28|15:00|17.9       |6.5     |41      |17.9     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:31.992+0000] {subprocess.py:106} INFO - |valencia|2025-03-28|22:00|13.1       |6.8     |71      |13.1     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:31.993+0000] {subprocess.py:106} INFO - |valencia|2025-03-29|22:00|14.2       |6.6     |31      |14.2     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:31.995+0000] {subprocess.py:106} INFO - |valencia|2025-03-29|04:00|10.9       |7.4     |60      |10.9     |0.0      |Mostly Clear|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-31T07:14:31.997+0000] {subprocess.py:106} INFO - |valencia|2025-03-29|09:00|10.6       |8.6     |60      |10.6     |0.0      |Mostly Clear|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-31T07:14:31.998+0000] {subprocess.py:106} INFO - |valencia|2025-03-29|15:00|21.5       |18.2    |24      |21.5     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-31T07:14:32.000+0000] {subprocess.py:106} INFO - +--------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-03-31T07:14:32.001+0000] {subprocess.py:106} INFO - 
+[2025-03-31T07:14:32.003+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+----------------+--------------------+
+[2025-03-31T07:14:32.005+0000] {subprocess.py:106} INFO - |                city|      date| time|temperature|wind_kph|humidity|feelslike|precip_mm|            text|                icon|
+[2025-03-31T07:14:32.006+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+----------------+--------------------+
+[2025-03-31T07:14:32.008+0000] {subprocess.py:106} INFO - |               elche|2025-03-28|04:00|       10.7|     9.1|      83|     10.7|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.010+0000] {subprocess.py:106} INFO - |               elche|2025-03-28|09:00|       12.0|    14.2|      61|     12.0|      0.0|   Partly Cloudy|//cdn.weatherapi....|
+[2025-03-31T07:14:32.011+0000] {subprocess.py:106} INFO - |               elche|2025-03-28|15:00|       23.0|    14.8|      25|     23.0|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.013+0000] {subprocess.py:106} INFO - |               elche|2025-03-28|22:00|       11.9|     5.5|      91|     11.9|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.014+0000] {subprocess.py:106} INFO - |               elche|2025-03-29|04:00|       14.1|    14.7|      45|     14.1|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.016+0000] {subprocess.py:106} INFO - |               elche|2025-03-29|09:00|       13.4|    20.8|      40|     13.4|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.017+0000] {subprocess.py:106} INFO - |               elche|2025-03-29|15:00|       24.1|    17.2|      16|     24.1|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.019+0000] {subprocess.py:106} INFO - |               elche|2025-03-29|22:00|       13.3|     3.6|      59|     13.3|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.021+0000] {subprocess.py:106} INFO - |              madrid|2025-03-28|04:00|        7.6|     4.6|      80|      7.6|      0.0|    Mostly Clear|//cdn.weatherapi....|
+[2025-03-31T07:14:32.022+0000] {subprocess.py:106} INFO - |              madrid|2025-03-28|09:00|        4.6|     7.3|      89|      4.6|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.024+0000] {subprocess.py:106} INFO - |              madrid|2025-03-28|15:00|       15.6|     1.6|      48|     15.6|      0.0|    Mostly Clear|//cdn.weatherapi....|
+[2025-03-31T07:14:32.025+0000] {subprocess.py:106} INFO - |              madrid|2025-03-28|22:00|       11.0|     2.7|      68|     11.0|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.027+0000] {subprocess.py:106} INFO - |              madrid|2025-03-29|04:00|        7.7|     5.7|      75|      7.7|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.029+0000] {subprocess.py:106} INFO - |              madrid|2025-03-29|09:00|        5.5|     5.1|      79|      5.5|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.030+0000] {subprocess.py:106} INFO - |              madrid|2025-03-29|15:00|       15.8|     4.6|      47|     15.8|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.032+0000] {subprocess.py:106} INFO - |              madrid|2025-03-29|22:00|       10.0|    16.2|      53|     10.0|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.033+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-28|04:00|        9.5|     8.2|      74|      9.5|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.035+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-28|09:00|        9.9|     5.6|      76|      9.9|      0.0|          Cloudy|//cdn.weatherapi....|
+[2025-03-31T07:14:32.037+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-28|15:00|       18.4|    12.3|      67|     18.4|      0.5|Moderate Drizzle|//cdn.weatherapi....|
+[2025-03-31T07:14:32.038+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-03-28|22:00|       12.0|     3.7|      85|     12.0|      0.0|           Sunny|//cdn.weatherapi....|
+[2025-03-31T07:14:32.040+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+----------------+--------------------+
+[2025-03-31T07:14:32.041+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-03-31T07:14:32.043+0000] {subprocess.py:106} INFO - 
+[2025-03-31T07:14:32.044+0000] {subprocess.py:106} INFO - Nombre de la carpeta: 2025-03-28
+[2025-03-31T07:14:32.046+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmp2d92ywsg/2025-03-28/part-00000-b0e1a02f-2528-4f1c-96bd-14c095ca4e3e-c000.snappy.parquet
+[2025-03-31T07:14:32.047+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: 2025-03-28/2025-03-28.parquet
+[2025-03-31T07:14:32.580+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-31T07:14:32.612+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-31T07:14:32.614+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_minio_script, run_id=scheduled__2025-03-29T08:00:00+00:00, execution_date=20250329T080000, start_date=20250331T071400, end_date=20250331T071432
+[2025-03-31T07:14:32.645+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-31T07:14:32.647+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-31T07:14:32.648+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-03-31 07:13:46.991613+00:00
+[2025-03-31T07:14:32.650+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-03-31T07:14:32.689+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-31T07:14:32.719+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-31T07:14:32.723+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

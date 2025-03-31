@@ -12,7 +12,7 @@ def main(name):
 
         df = None
         for city in cities:
-            df_city = set_df_last_records(city, spark)
+            df_city = set_df_last_records(city.get("city"), spark, city.get("lat"), city.get("long"))
             if df is None:
                 df = df_city
             else:
@@ -20,7 +20,7 @@ def main(name):
 
         df.show()
 
-        set_data_minio(df, bucket)
+        set_data_minio(df, bucket, '', '')
 
     except Exception as e:
         print("Error:", e)

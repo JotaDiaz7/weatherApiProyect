@@ -1,0 +1,63 @@
+[2025-03-28T08:13:08.823+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-28T08:13:08.959+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_main_script scheduled__2025-03-27T08:00:00+00:00 [queued]>
+[2025-03-28T08:13:08.970+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_main_script scheduled__2025-03-27T08:00:00+00:00 [queued]>
+[2025-03-28T08:13:08.971+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-28T08:13:08.989+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_main_script> on 2025-03-27 08:00:00+00:00
+[2025-03-28T08:13:08.995+0000] {standard_task_runner.py:72} INFO - Started process 54 to run task
+[2025-03-28T08:13:09.000+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_main_script', 'scheduled__2025-03-27T08:00:00+00:00', '--job-id', '137', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmpu6ysd_p7']
+[2025-03-28T08:13:09.003+0000] {standard_task_runner.py:105} INFO - Job 137: Subtask run_main_script
+[2025-03-28T08:13:09.051+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_main_script scheduled__2025-03-27T08:00:00+00:00 [running]> on host 3c3c1f66214b
+[2025-03-28T08:13:09.127+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_main_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-27T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-27T08:00:00+00:00'
+[2025-03-28T08:13:09.129+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-28T08:13:09.129+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-28T08:13:09.130+0000] {logging_mixin.py:190} INFO - Current task name:run_main_script state:running start_date:2025-03-28 08:13:08.960256+00:00
+[2025-03-28T08:13:09.131+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-03-28T08:13:09.133+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-28T08:13:09.135+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-28T08:13:09.137+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/main.py']
+[2025-03-28T08:13:09.146+0000] {subprocess.py:99} INFO - Output:
+[2025-03-28T08:13:14.205+0000] {subprocess.py:106} INFO - 25/03/28 08:13:14 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-28T08:13:14.725+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-28T08:13:14.726+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-28T08:13:31.461+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 8) / 8]                                                                                [Stage 5:>                                                          (0 + 1) / 1]                                                                                Ciudades registradas:
+[2025-03-28T08:13:31.463+0000] {subprocess.py:106} INFO - Vamos a crear un histórico de valencia
+[2025-03-28T08:13:31.464+0000] {subprocess.py:106} INFO - +--------+----------------+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-03-28T08:13:31.465+0000] {subprocess.py:106} INFO - |city    |local_time      |temperature|wind_kph|humidity|feelslike|precip_mm|text         |icon                                          |
+[2025-03-28T08:13:31.466+0000] {subprocess.py:106} INFO - +--------+----------------+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-03-28T08:13:31.467+0000] {subprocess.py:106} INFO - |valencia|2021-01-01 04:00|6.9        |8.4     |79      |6.9      |0.0      |Cloudy       |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-03-28T08:13:31.469+0000] {subprocess.py:106} INFO - |valencia|2021-01-01 09:00|7.6        |16.1    |73      |7.6      |0.1      |Light Drizzle|//cdn.weatherapi.com/weather/64x64/day/176.png|
+[2025-03-28T08:13:31.470+0000] {subprocess.py:106} INFO - |valencia|2021-01-01 15:00|12.9       |16.2    |36      |12.9     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.470+0000] {subprocess.py:106} INFO - |valencia|2021-01-01 22:00|7.5        |18.6    |53      |7.5      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.471+0000] {subprocess.py:106} INFO - |valencia|2021-01-02 04:00|5.5        |15.1    |53      |5.5      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.472+0000] {subprocess.py:106} INFO - |valencia|2021-01-02 09:00|4.9        |17.0    |45      |4.9      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.473+0000] {subprocess.py:106} INFO - |valencia|2021-01-02 15:00|11.1       |16.3    |33      |11.1     |0.0      |Partly Cloudy|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-28T08:13:31.474+0000] {subprocess.py:106} INFO - |valencia|2021-01-02 22:00|6.3        |16.6    |35      |6.3      |0.0      |Cloudy       |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-03-28T08:13:31.474+0000] {subprocess.py:106} INFO - |valencia|2021-01-03 04:00|5.2        |13.7    |49      |5.2      |0.0      |Mostly Clear |//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-28T08:13:31.475+0000] {subprocess.py:106} INFO - |valencia|2021-01-03 09:00|4.4        |15.5    |46      |4.4      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.476+0000] {subprocess.py:106} INFO - |valencia|2021-01-03 15:00|13.0       |18.8    |29      |13.0     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.477+0000] {subprocess.py:106} INFO - |valencia|2021-01-03 22:00|6.9        |12.7    |49      |6.9      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.477+0000] {subprocess.py:106} INFO - |valencia|2021-01-04 04:00|5.7        |14.1    |59      |5.7      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.478+0000] {subprocess.py:106} INFO - |valencia|2021-01-04 09:00|5.5        |18.8    |65      |5.5      |0.0      |Partly Cloudy|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-03-28T08:13:31.479+0000] {subprocess.py:106} INFO - |valencia|2021-01-04 15:00|12.1       |18.4    |32      |12.1     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.480+0000] {subprocess.py:106} INFO - |valencia|2021-01-04 22:00|5.4        |13.4    |61      |5.4      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.480+0000] {subprocess.py:106} INFO - |valencia|2021-01-05 04:00|3.2        |11.1    |62      |3.2      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.481+0000] {subprocess.py:106} INFO - |valencia|2021-01-05 09:00|1.5        |9.7     |65      |1.5      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.482+0000] {subprocess.py:106} INFO - |valencia|2021-01-05 15:00|11.4       |6.3     |35      |11.4     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.483+0000] {subprocess.py:106} INFO - |valencia|2021-01-05 22:00|3.7        |7.6     |70      |3.7      |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-03-28T08:13:31.484+0000] {subprocess.py:106} INFO - +--------+----------------+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-03-28T08:13:31.485+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-03-28T08:13:31.486+0000] {subprocess.py:106} INFO - 
+[2025-03-28T08:13:31.487+0000] {subprocess.py:106} INFO - Nombre de la carpeta: valencia_last_2_years
+[2025-03-28T08:13:31.488+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmp_t29focu/valencia_last_2_years/part-00000-dd64f16e-ea3e-4ba9-987d-d16337c7652b-c000.snappy.parquet
+[2025-03-28T08:13:31.488+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: valencia_last_2_years/valencia_last_2_years.parquet
+[2025-03-28T08:13:31.489+0000] {subprocess.py:106} INFO - Datos registrados correctamente en la bbdd
+[2025-03-28T08:13:32.017+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-28T08:13:32.041+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-28T08:13:32.042+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_main_script, run_id=scheduled__2025-03-27T08:00:00+00:00, execution_date=20250327T080000, start_date=20250328T081308, end_date=20250328T081332
+[2025-03-28T08:13:32.065+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-28T08:13:32.066+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-28T08:13:32.066+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-03-28 08:13:06.901413+00:00
+[2025-03-28T08:13:32.067+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-03-28T08:13:32.093+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-28T08:13:32.120+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-28T08:13:32.122+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

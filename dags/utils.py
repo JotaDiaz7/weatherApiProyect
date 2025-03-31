@@ -5,7 +5,6 @@ import boto3
 from pyspark.sql.functions import *
 from datetime import *
 import requests
-from config import API_KEY
 
 def connect_minio():
     MINIO_ENDPOINT = "http://minio:9000"
@@ -21,17 +20,18 @@ def connect_minio():
 
     return s3
 
-def set_data_minio(df, bucket):
+def set_data_minio(df, bucket, latitude, longitude):
     connect_minio()
 
     #Vamos a crear el nombre de la carpeta que va a contener nuestro archivo parquet
-    city, localtime = df.select(lower("city"), "local_time").first()
+    city, date = df.select(lower("city"), "date").first()
     if bucket == "dailyweather":
-        localtime = localtime.replace("04:00", "")
-        folder_name = f"{localtime}"
+        folder_name = f"{date}"
     else:
         city = city.replace(" ", "_")
-        folder_name = f"{city}_last_2_years"
+        latitude = str(latitude).replace(".", "_")
+        longitude = str(longitude).replace(".", "_").replace("-", "")
+        folder_name = f"{city}__{latitude}__{longitude}"
     print("Nombre de la carpeta:", folder_name)
 
     temp_dir = tempfile.mkdtemp() # Esto lo que te hace es crear un directorio en memoria para no generarlo en local 
@@ -59,7 +59,7 @@ def set_data_postgres(df):
     df.write \
         .format("jdbc") \
         .option("url", "jdbc:postgresql://postgres:5432/airflow") \
-        .option("dbtable", 'daily_weather') \
+        .option("dbtable", 'pro_raw_api.daily_weather') \
         .option("user", "airflow") \
         .option("password", "airflow") \
         .option("driver", "org.postgresql.Driver") \
@@ -68,51 +68,10 @@ def set_data_postgres(df):
 
     print("Datos registrados correctamente en la bbdd")
 
-def set_df_last_records(city, spark): 
-    yesterday = (date.today() - timedelta(days=1)).strftime("%Y-%m-%d")
+def set_df_last_records(city, spark, latitude, longitude): 
+    start_date = (date.today() - timedelta(days=2)).strftime("%Y-%m-%d")
 
-    url = "http://api.weatherapi.com/v1/history.json"
-
-    params = {
-        "key": API_KEY,
-        "q": city,
-        "dt": yesterday
-    }
-
-    response = requests.get(url, params=params)
-    data = response.json()
-
-    # Definir las horas deseadas
-    desired_hours = ["04:00", "09:00", "15:00", "22:00"]
-
-    # Filtramos la lista para obtener sólo los registros cuya hora final coincide con alguna de las deseadas
-    hourly = [
-        record
-        for forecast_day in data["forecast"]["forecastday"]
-        for record in forecast_day["hour"]
-        if any(record["time"].endswith(hour) for hour in desired_hours)
-    ]
-
-    df = spark.createDataFrame(hourly)
-
-    df = df.select(
-        date_format(col("time"), "yyyy-MM-dd HH:mm").alias("local_time"),
-        col("temp_c").alias("temperature"),
-        col("wind_kph"),
-        col("humidity"),
-        col("feelslike_c").alias("feelslike"),
-        col("precip_mm"),
-        col("condition.text").alias("text"),
-        col("condition.icon").alias("icon")
-    )
-
-    # Crear un DataFrame para la información de ubicación (por ejemplo, la ciudad)
-    df_location = spark.createDataFrame([data["location"]]).select(
-        lower(col("name")).alias("city")
-    )
-
-    # Realizar un cross join para añadir la ciudad a cada registro horario
-    df = df_location.crossJoin(df)
+    df = df_data(2, spark, city, latitude, longitude, start_date)
 
     return df
 
@@ -125,22 +84,28 @@ def get_cities_minio():
     cities = []
     if 'CommonPrefixes' in response:
         folders = [prefix['Prefix'] for prefix in response['CommonPrefixes']]
-        cities = [folder.replace("_last_2_years/", "").replace("_", " ") for folder in folders]
+        cities = [
+            {
+                "city": parts[0].replace("_", " "),
+                "lat": str(parts[1]).replace("_", "."),
+                "long": -float(str(parts[2]).replace("_", ".").replace("/",""))
+            }
+            for parts in (f.split("__") for f in folders)
+        ]
 
     return cities
 
 def check_city_minio(city):
     cities = get_cities_minio() 
-    return city.lower() in cities
+    return city.lower() in (c.get("city", "").lower() for c in cities) 
 
-def create_historical(spark, city, latitude, longitude):
-    bucket = 'historicalweather'
+def df_data(days, spark, city, latitude, longitude, start_date):
     url = "https://archive-api.open-meteo.com/v1/archive"
-    current_date = (date.today() - timedelta(days=2)).strftime("%Y-%m-%d")
+    current_date = (date.today() - timedelta(days=days)).strftime("%Y-%m-%d")
     params = {
         "latitude": latitude,            
         "longitude": longitude,           
-        "start_date": "2021-01-01",     
+        "start_date": start_date,     
         "end_date": current_date,       
         "hourly": "temperature_2m,relativehumidity_2m,windspeed_10m,precipitation,weathercode",
         "timezone": "Europe/Madrid"  
@@ -154,7 +119,8 @@ def create_historical(spark, city, latitude, longitude):
     # Construir una lista de diccionarios, cada uno representando un registro
     records = [
         {
-            "local_time": t,
+            "date": t.split("T")[0],
+            "time": t.split("T")[1],            
             "temperature": temp,
             "humidity": rhum,
             "wind_kph": wspd,
@@ -216,19 +182,15 @@ def create_historical(spark, city, latitude, longitude):
     map_to_icon_url_udf = udf(map_to_icon_url, StringType())
     map_to_description = udf(map_to_description, StringType())
     
-    df = df.filter(
-            col("local_time").endswith("04:00") |
-            col("local_time").endswith("09:00") |
-            col("local_time").endswith("15:00") |
-            col("local_time").endswith("22:00")
-        ) \
+    df = df.filter(col("time").isin("04:00", "09:00", "15:00", "22:00")) \
         .withColumn("city", lit(city)) \
         .withColumn("feelslike", col("temperature")) \
         .withColumn("text", map_to_description(col("icon"))) \
         .withColumn("icon", map_to_icon_url_udf(col("icon"))) \
         .select(
             col("city"),
-            regexp_replace(col("local_time"), "T", " ").alias("local_time"),
+            col("date"),
+            col("time"),            
             col("temperature"),
             col("wind_kph"),
             col("humidity"),
@@ -236,14 +198,18 @@ def create_historical(spark, city, latitude, longitude):
             col("precip_mm"),
             col("text"),
             col("icon")
-        ).orderBy("local_time")
+        ).orderBy("date")
     
     # Mostrar el DataFrame
     df.show(truncate=False)
 
-    # last_reports = set_df_last_records(city, spark)
+    return df
 
-    # df = data.union(last_reports)
+def create_historical(spark, city, latitude, longitude):
+    bucket = 'historicalweather'
+    start_date = '2021-01-01'
 
-    set_data_minio(df, bucket)
+    df = df_data(3, spark, city, latitude, longitude, start_date)
+
+    set_data_minio(df, bucket, latitude, longitude)
     set_data_postgres(df)

@@ -1,0 +1,36 @@
+[2025-03-31T06:35:31.817+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-31T06:35:31.840+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script manual__2025-03-31T06:35:08.138597+00:00 [queued]>
+[2025-03-31T06:35:31.850+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script manual__2025-03-31T06:35:08.138597+00:00 [queued]>
+[2025-03-31T06:35:31.851+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-03-31T06:35:31.865+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_minio_script> on 2025-03-31 06:35:08.138597+00:00
+[2025-03-31T06:35:31.871+0000] {standard_task_runner.py:72} INFO - Started process 1617 to run task
+[2025-03-31T06:35:31.876+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_minio_script', 'manual__2025-03-31T06:35:08.138597+00:00', '--job-id', '172', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmpc81uiyvq']
+[2025-03-31T06:35:31.877+0000] {standard_task_runner.py:105} INFO - Job 172: Subtask run_minio_script
+[2025-03-31T06:35:31.916+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_minio_script manual__2025-03-31T06:35:08.138597+00:00 [running]> on host 3c3c1f66214b
+[2025-03-31T06:35:32.156+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_minio_script' AIRFLOW_CTX_EXECUTION_DATE='2025-03-31T06:35:08.138597+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-31T06:35:08.138597+00:00'
+[2025-03-31T06:35:32.158+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-31T06:35:32.159+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-31T06:35:32.160+0000] {logging_mixin.py:190} INFO - Current task name:run_minio_script state:running start_date:2025-03-31 06:35:31.841787+00:00
+[2025-03-31T06:35:32.160+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-03-31T06:35:32.161+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-31T06:35:32.163+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-03-31T06:35:32.164+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/minio.py']
+[2025-03-31T06:35:32.178+0000] {subprocess.py:99} INFO - Output:
+[2025-03-31T06:35:34.839+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-03-31T06:35:34.840+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-03-31T06:35:35.025+0000] {subprocess.py:106} INFO - 25/03/31 06:35:35 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-03-31T06:35:36.426+0000] {subprocess.py:106} INFO - Ciudad: elche, latitud: 38.26, longitud: -0.7
+[2025-03-31T06:35:36.427+0000] {subprocess.py:106} INFO - Ciudad: madrid, latitud: 40.41, longitud: -3.7
+[2025-03-31T06:35:36.428+0000] {subprocess.py:106} INFO - Ciudad: san_juan_de_alicante, latitud: 38.4, longitud: -0.43
+[2025-03-31T06:35:36.429+0000] {subprocess.py:106} INFO - Ciudad: torrevieja, latitud: 37.97, longitud: -0.68
+[2025-03-31T06:35:36.430+0000] {subprocess.py:106} INFO - Ciudad: valencia, latitud: 39.47, longitud: -0.37
+[2025-03-31T06:35:36.915+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-03-31T06:35:36.935+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-31T06:35:36.937+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_minio_script, run_id=manual__2025-03-31T06:35:08.138597+00:00, execution_date=20250331T063508, start_date=20250331T063531, end_date=20250331T063536
+[2025-03-31T06:35:36.958+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-31T06:35:36.959+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-31T06:35:36.960+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-03-31 06:35:08.149716+00:00
+[2025-03-31T06:35:36.961+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-03-31T06:35:36.979+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-31T06:35:36.993+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-31T06:35:36.996+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

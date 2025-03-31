@@ -193,6 +193,18 @@ services:
       MINIO_SECRET_KEY: admin123
     volumes:
       - ./jar:/opt/spark/jars 
+      
+  dbt:
+    build:
+      context: .
+      dockerfile: Dockerfile.dbt
+    volumes:
+      - ./dbt_project:/usr/app/dbt_project
+      - ./dbt_project/.dbt:/usr/app/dbt_project/.dbt
+    environment:
+      DBT_PROFILES_DIR: /usr/app/dbt_project/.dbt
+    depends_on:
+      - postgres
 
 volumes:
   postgres-db-volume:

@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: my_source        
+    schema: pro_raw_api     
+    tables:
+      - name: daily_weather  
+
+
+# docker-compose exec dbt dbt run --select model

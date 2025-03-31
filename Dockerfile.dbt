@@ -1,0 +1,10 @@
+FROM python:3.9-slim
+
+# Instala dbt junto con el adaptador que necesites (por ejemplo, para Postgres)
+RUN pip install dbt-core dbt-postgres
+
+# Define el directorio de trabajo donde estará tu proyecto dbt
+WORKDIR /usr/app/dbt_project
+
+# Comando por defecto (lo puedes modificar según tus necesidades)
+CMD ["dbt", "run"]
