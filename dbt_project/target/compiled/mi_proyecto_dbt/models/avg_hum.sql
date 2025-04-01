@@ -6,7 +6,7 @@ WITH base AS (
         city,
         CAST(date AS DATE) AS date_day,
         CAST(humidity AS INT) AS humidity
-    FROM "airflow"."pro_raw_api"."daily_weather"  -- Usa la fuente declarada
+    FROM "airflow"."pro_raw_api"."daily_weather"  
 )
 
 SELECT

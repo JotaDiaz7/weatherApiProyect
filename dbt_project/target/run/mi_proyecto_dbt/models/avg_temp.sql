@@ -16,7 +16,7 @@ WITH base AS (
         city,
         CAST(date AS DATE) AS date_day,
         CAST(temperature AS FLOAT) AS temperature
-    FROM "airflow"."pro_raw_api"."daily_weather"  -- Usa la fuente declarada
+    FROM "airflow"."pro_raw_api"."daily_weather" 
 )
 
 SELECT
