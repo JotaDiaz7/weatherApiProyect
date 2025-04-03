@@ -32,5 +32,10 @@ with DAG(
         task_id='run_postgres_script',
         bash_command='python /opt/airflow/dags/postgres.py',
     )
+    
+    run_script_prediction = BashOperator(
+        task_id='run_prediction_script',
+        bash_command='python /opt/airflow/dags/ml_prediction.py',
+    )
 
-    run_script >> run_script_minio >> run_script_postgres
+    run_script >> run_script_minio >> run_script_postgres >> run_script_prediction

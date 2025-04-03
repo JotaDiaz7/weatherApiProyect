@@ -25,7 +25,7 @@ def set_data_minio(df, bucket, latitude, longitude):
 
     #Vamos a crear el nombre de la carpeta que va a contener nuestro archivo parquet
     city, date = df.select(lower("city"), "date").first()
-    if bucket == "dailyweather":
+    if bucket != "historicalweather":
         folder_name = f"{date}"
     else:
         city = city.replace(" ", "_")
@@ -55,11 +55,11 @@ def set_data_minio(df, bucket, latitude, longitude):
     s3.put_object(Bucket=bucket, Key=object_key, Body=parquet_content)
     print("Archivo subido correctamente a MinIO en:", object_key)
 
-def set_data_postgres(df):
+def set_data_postgres(df, table):
     df.write \
         .format("jdbc") \
         .option("url", "jdbc:postgresql://postgres:5432/airflow") \
-        .option("dbtable", 'pro_raw_api.daily_weather') \
+        .option("dbtable", f"pro_raw_api.{table}") \
         .option("user", "airflow") \
         .option("password", "airflow") \
         .option("driver", "org.postgresql.Driver") \
@@ -212,4 +212,4 @@ def create_historical(spark, city, latitude, longitude):
     df = df_data(3, spark, city, latitude, longitude, start_date)
 
     set_data_minio(df, bucket, latitude, longitude)
-    set_data_postgres(df)
+    set_data_postgres(df, "daily_weather")

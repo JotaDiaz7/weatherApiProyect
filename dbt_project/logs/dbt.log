@@ -3853,3 +3853,1681 @@ drop table if exists "airflow"."pro_raw_api"."precip_day__dbt_backup" cascade
 [0m06:24:53.031820 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f2fb8e170a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f2fb72dbe20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f2fb6ac0f10>]}
 [0m06:24:53.033252 [debug] [MainThread]: Flushing usage events
 [0m06:24:53.829492 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m06:02:30.861171 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a706670d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6f7a6640>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6f7a65e0>]}
+
+
+============================== 06:02:30.875216 | 06f85405-504b-4745-96a9-5f5f63ea027a ==============================
+[0m06:02:30.875216 [info ] [MainThread]: Running with dbt=1.9.3
+[0m06:02:30.878847 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt_project/.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': '/usr/app/dbt_project/logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt run', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m06:02:31.942826 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a716049d0>]}
+[0m06:02:32.204809 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6ef40f70>]}
+[0m06:02:32.210540 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m06:02:32.565564 [debug] [MainThread]: checksum: 5671c00892cdbcef29c3b00cc5ba7510c3d18a35c883caeb9ab9ee266dc29c8f, vars: {}, profile: , target: , version: 1.9.3
+[0m06:02:33.476706 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m06:02:33.479735 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m06:02:33.645178 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6e35bf40>]}
+[0m06:02:34.031424 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m06:02:34.048282 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m06:02:34.138610 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6e35bf70>]}
+[0m06:02:34.141465 [info ] [MainThread]: Found 6 models, 1 source, 433 macros
+[0m06:02:34.144856 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a70b9a460>]}
+[0m06:02:34.153106 [info ] [MainThread]: 
+[0m06:02:34.156308 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m06:02:34.159494 [info ] [MainThread]: 
+[0m06:02:34.162777 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m06:02:34.185825 [debug] [ThreadPool]: Acquiring new postgres connection 'list_airflow'
+[0m06:02:34.351789 [debug] [ThreadPool]: Using postgres connection "list_airflow"
+[0m06:02:34.354020 [debug] [ThreadPool]: On list_airflow: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "connection_name": "list_airflow"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m06:02:34.355968 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m06:02:34.381420 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.025 seconds
+[0m06:02:34.388252 [debug] [ThreadPool]: On list_airflow: Close
+[0m06:02:34.393538 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_airflow, now list_airflow_pro_raw_api)
+[0m06:02:34.417588 [debug] [ThreadPool]: Using postgres connection "list_airflow_pro_raw_api"
+[0m06:02:34.420260 [debug] [ThreadPool]: On list_airflow_pro_raw_api: BEGIN
+[0m06:02:34.422113 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m06:02:34.429437 [debug] [ThreadPool]: SQL status: BEGIN in 0.007 seconds
+[0m06:02:34.432712 [debug] [ThreadPool]: Using postgres connection "list_airflow_pro_raw_api"
+[0m06:02:34.436961 [debug] [ThreadPool]: On list_airflow_pro_raw_api: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "connection_name": "list_airflow_pro_raw_api"} */
+select
+      'airflow' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'pro_raw_api'
+    union all
+    select
+      'airflow' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'pro_raw_api'
+    union all
+    select
+      'airflow' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'pro_raw_api'
+  
+[0m06:02:34.455587 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.016 seconds
+[0m06:02:34.460250 [debug] [ThreadPool]: On list_airflow_pro_raw_api: ROLLBACK
+[0m06:02:34.462036 [debug] [ThreadPool]: On list_airflow_pro_raw_api: Close
+[0m06:02:34.486574 [debug] [MainThread]: Using postgres connection "master"
+[0m06:02:34.488562 [debug] [MainThread]: On master: BEGIN
+[0m06:02:34.490416 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m06:02:34.498055 [debug] [MainThread]: SQL status: BEGIN in 0.007 seconds
+[0m06:02:34.501111 [debug] [MainThread]: Using postgres connection "master"
+[0m06:02:34.503863 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m06:02:34.514436 [debug] [MainThread]: SQL status: SELECT 0 in 0.009 seconds
+[0m06:02:34.519793 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6e365d60>]}
+[0m06:02:34.522241 [debug] [MainThread]: On master: ROLLBACK
+[0m06:02:34.524427 [debug] [MainThread]: Using postgres connection "master"
+[0m06:02:34.526054 [debug] [MainThread]: On master: BEGIN
+[0m06:02:34.528548 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m06:02:34.530952 [debug] [MainThread]: On master: COMMIT
+[0m06:02:34.540493 [debug] [MainThread]: Using postgres connection "master"
+[0m06:02:34.542536 [debug] [MainThread]: On master: COMMIT
+[0m06:02:34.544783 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m06:02:34.546752 [debug] [MainThread]: On master: Close
+[0m06:02:34.561248 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.avg_hum
+[0m06:02:34.563936 [info ] [Thread-1  ]: 1 of 6 START sql table model pro_raw_api.avg_hum ............................... [RUN]
+[0m06:02:34.568586 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_airflow_pro_raw_api, now model.mi_proyecto_dbt.avg_hum)
+[0m06:02:34.573477 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.avg_hum
+[0m06:02:34.611106 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.avg_hum"
+[0m06:02:34.627419 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.avg_hum
+[0m06:02:34.809924 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.avg_hum"
+[0m06:02:34.905458 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:02:34.907727 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: BEGIN
+[0m06:02:34.909880 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:02:34.917984 [debug] [Thread-1  ]: SQL status: BEGIN in 0.008 seconds
+[0m06:02:34.920769 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:02:34.923090 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."avg_hum__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+
+WITH base AS (
+    SELECT
+        city,
+        CAST(date AS DATE) AS date_day,
+        CAST(humidity AS INT) AS humidity
+    FROM "airflow"."pro_raw_api"."daily_weather"  
+)
+
+SELECT
+    city,
+    date_day AS date,
+    AVG(humidity) AS humidity
+FROM base
+GROUP BY
+    city,
+    date_day
+  );
+  
+[0m06:02:35.064284 [debug] [Thread-1  ]: SQL status: SELECT 7750 in 0.139 seconds
+[0m06:02:35.093828 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:02:35.097221 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+alter table "airflow"."pro_raw_api"."avg_hum" rename to "avg_hum__dbt_backup"
+[0m06:02:35.102849 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.002 seconds
+[0m06:02:35.114263 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:02:35.120309 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+alter table "airflow"."pro_raw_api"."avg_hum__dbt_tmp" rename to "avg_hum"
+[0m06:02:35.123172 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:02:35.206170 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: COMMIT
+[0m06:02:35.208740 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:02:35.210678 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: COMMIT
+[0m06:02:35.216529 [debug] [Thread-1  ]: SQL status: COMMIT in 0.004 seconds
+[0m06:02:35.241560 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."avg_hum__dbt_backup"
+[0m06:02:35.260450 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:02:35.271522 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+drop table if exists "airflow"."pro_raw_api"."avg_hum__dbt_backup" cascade
+[0m06:02:35.280973 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.007 seconds
+[0m06:02:35.292507 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: Close
+[0m06:02:35.302370 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6da96c10>]}
+[0m06:02:35.305678 [info ] [Thread-1  ]: 1 of 6 OK created sql table model pro_raw_api.avg_hum .......................... [[32mSELECT 7750[0m in 0.73s]
+[0m06:02:35.309757 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.avg_hum
+[0m06:02:35.312105 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.avg_temp
+[0m06:02:35.314394 [info ] [Thread-1  ]: 2 of 6 START sql table model pro_raw_api.avg_temp .............................. [RUN]
+[0m06:02:35.320538 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.avg_hum, now model.mi_proyecto_dbt.avg_temp)
+[0m06:02:35.322434 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.avg_temp
+[0m06:02:35.334722 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.avg_temp"
+[0m06:02:35.345453 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.avg_temp
+[0m06:02:35.360505 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.avg_temp"
+[0m06:02:35.373209 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:02:35.375231 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: BEGIN
+[0m06:02:35.377006 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:02:35.383591 [debug] [Thread-1  ]: SQL status: BEGIN in 0.006 seconds
+[0m06:02:35.387203 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:02:35.389721 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."avg_temp__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+
+WITH base AS (
+    SELECT
+        city,
+        CAST(date AS DATE) AS date_day,
+        CAST(temperature AS FLOAT) AS temperature
+    FROM "airflow"."pro_raw_api"."daily_weather" 
+)
+
+SELECT
+    city,
+    date_day AS date,
+    AVG(temperature) AS avg_temperature
+FROM base
+GROUP BY
+    city,
+    date_day
+  );
+  
+[0m06:02:35.508415 [debug] [Thread-1  ]: SQL status: SELECT 7750 in 0.116 seconds
+[0m06:02:35.520653 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:02:35.522776 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+alter table "airflow"."pro_raw_api"."avg_temp" rename to "avg_temp__dbt_backup"
+[0m06:02:35.525301 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:02:35.536976 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:02:35.538652 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+alter table "airflow"."pro_raw_api"."avg_temp__dbt_tmp" rename to "avg_temp"
+[0m06:02:35.540687 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:02:35.544578 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: COMMIT
+[0m06:02:35.546344 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:02:35.547908 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: COMMIT
+[0m06:02:35.554569 [debug] [Thread-1  ]: SQL status: COMMIT in 0.004 seconds
+[0m06:02:35.563814 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."avg_temp__dbt_backup"
+[0m06:02:35.567558 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:02:35.570571 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+drop table if exists "airflow"."pro_raw_api"."avg_temp__dbt_backup" cascade
+[0m06:02:35.576177 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.004 seconds
+[0m06:02:35.579793 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: Close
+[0m06:02:35.583082 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6da81490>]}
+[0m06:02:35.587536 [info ] [Thread-1  ]: 2 of 6 OK created sql table model pro_raw_api.avg_temp ......................... [[32mSELECT 7750[0m in 0.26s]
+[0m06:02:35.590639 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.avg_temp
+[0m06:02:35.592850 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.max_temp_summer
+[0m06:02:35.594946 [info ] [Thread-1  ]: 3 of 6 START sql table model pro_raw_api.max_temp_summer ....................... [RUN]
+[0m06:02:35.597550 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.avg_temp, now model.mi_proyecto_dbt.max_temp_summer)
+[0m06:02:35.601944 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.max_temp_summer
+[0m06:02:35.617352 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:02:35.629119 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.max_temp_summer
+[0m06:02:35.725011 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:02:35.738491 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:02:35.740939 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: BEGIN
+[0m06:02:35.743098 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:02:35.754626 [debug] [Thread-1  ]: SQL status: BEGIN in 0.012 seconds
+[0m06:02:35.756716 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:02:35.758629 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."max_temp_summer__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM "airflow"."pro_raw_api"."daily_weather"
+    WHERE EXTRACT(MONTH FROM CAST(date AS timestamp)) IN (6, 7, 8)
+),
+max_temp AS (
+    SELECT 
+        city,
+        EXTRACT(YEAR FROM CAST(date AS timestamp)) AS year,
+        MAX(temperature) AS max_temp
+    FROM base
+    GROUP BY city, EXTRACT(YEAR FROM CAST(date AS timestamp))
+)
+
+SELECT b.*
+FROM base b
+JOIN max_temp m 
+    ON b.city = m.city 
+    AND EXTRACT(YEAR FROM CAST(b.date AS timestamp)) = m.year
+    AND b.temperature = m.max_temp
+  );
+  
+[0m06:02:35.831170 [debug] [Thread-1  ]: SQL status: SELECT 20 in 0.070 seconds
+[0m06:02:35.847587 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:02:35.854791 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+alter table "airflow"."pro_raw_api"."max_temp_summer" rename to "max_temp_summer__dbt_backup"
+[0m06:02:35.857738 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:02:35.872685 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:02:35.875648 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+alter table "airflow"."pro_raw_api"."max_temp_summer__dbt_tmp" rename to "max_temp_summer"
+[0m06:02:35.878740 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:02:35.885658 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: COMMIT
+[0m06:02:35.889148 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:02:35.891253 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: COMMIT
+[0m06:02:35.895050 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m06:02:35.906062 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."max_temp_summer__dbt_backup"
+[0m06:02:35.908902 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:02:35.911097 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+drop table if exists "airflow"."pro_raw_api"."max_temp_summer__dbt_backup" cascade
+[0m06:02:35.925798 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.012 seconds
+[0m06:02:35.931108 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: Close
+[0m06:02:35.938109 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6d7259d0>]}
+[0m06:02:35.941785 [info ] [Thread-1  ]: 3 of 6 OK created sql table model pro_raw_api.max_temp_summer .................. [[32mSELECT 20[0m in 0.34s]
+[0m06:02:35.945265 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.max_temp_summer
+[0m06:02:35.950985 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.max_wind
+[0m06:02:35.955445 [info ] [Thread-1  ]: 4 of 6 START sql table model pro_raw_api.max_wind .............................. [RUN]
+[0m06:02:35.959176 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.max_temp_summer, now model.mi_proyecto_dbt.max_wind)
+[0m06:02:35.961700 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.max_wind
+[0m06:02:35.974177 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.max_wind"
+[0m06:02:35.987359 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.max_wind
+[0m06:02:36.003965 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.max_wind"
+[0m06:02:36.016299 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:02:36.019579 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: BEGIN
+[0m06:02:36.021720 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:02:36.028505 [debug] [Thread-1  ]: SQL status: BEGIN in 0.007 seconds
+[0m06:02:36.030889 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:02:36.035952 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."max_wind__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM "airflow"."pro_raw_api"."daily_weather"
+),
+max_wind AS (
+    SELECT city, MAX(wind_kph) AS max_wind
+    FROM base
+    GROUP BY city
+)
+
+SELECT b.*
+FROM base b
+JOIN max_wind m 
+    ON b.city = m.city 
+    AND b.wind_kph = m.max_wind
+  );
+  
+[0m06:02:36.102624 [debug] [Thread-1  ]: SQL status: SELECT 5 in 0.064 seconds
+[0m06:02:36.116914 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:02:36.119341 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+alter table "airflow"."pro_raw_api"."max_wind" rename to "max_wind__dbt_backup"
+[0m06:02:36.121789 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:02:36.133774 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:02:36.137074 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+alter table "airflow"."pro_raw_api"."max_wind__dbt_tmp" rename to "max_wind"
+[0m06:02:36.139650 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:02:36.143732 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: COMMIT
+[0m06:02:36.145349 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:02:36.147087 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: COMMIT
+[0m06:02:36.151723 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m06:02:36.158583 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."max_wind__dbt_backup"
+[0m06:02:36.161096 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:02:36.162809 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+drop table if exists "airflow"."pro_raw_api"."max_wind__dbt_backup" cascade
+[0m06:02:36.168454 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.004 seconds
+[0m06:02:36.173377 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: Close
+[0m06:02:36.175725 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6d7259d0>]}
+[0m06:02:36.178015 [info ] [Thread-1  ]: 4 of 6 OK created sql table model pro_raw_api.max_wind ......................... [[32mSELECT 5[0m in 0.22s]
+[0m06:02:36.181048 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.max_wind
+[0m06:02:36.185207 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.min_temp
+[0m06:02:36.187625 [info ] [Thread-1  ]: 5 of 6 START sql table model pro_raw_api.min_temp .............................. [RUN]
+[0m06:02:36.190113 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.max_wind, now model.mi_proyecto_dbt.min_temp)
+[0m06:02:36.192064 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.min_temp
+[0m06:02:36.204622 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.min_temp"
+[0m06:02:36.216395 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.min_temp
+[0m06:02:36.230973 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.min_temp"
+[0m06:02:36.243544 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:02:36.245714 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: BEGIN
+[0m06:02:36.248019 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:02:36.256858 [debug] [Thread-1  ]: SQL status: BEGIN in 0.009 seconds
+[0m06:02:36.259499 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:02:36.261717 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."min_temp__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM "airflow"."pro_raw_api"."daily_weather"
+),
+min_temp AS (
+    SELECT city, MIN(temperature) AS min_temp
+    FROM base
+    GROUP BY city
+)
+
+SELECT b.*
+FROM base b
+JOIN min_temp m 
+    ON b.city = m.city 
+    AND b.temperature = m.min_temp
+  );
+  
+[0m06:02:36.327031 [debug] [Thread-1  ]: SQL status: SELECT 5 in 0.062 seconds
+[0m06:02:36.337917 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:02:36.339613 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+alter table "airflow"."pro_raw_api"."min_temp" rename to "min_temp__dbt_backup"
+[0m06:02:36.342316 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:02:36.352523 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:02:36.354061 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+alter table "airflow"."pro_raw_api"."min_temp__dbt_tmp" rename to "min_temp"
+[0m06:02:36.355939 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m06:02:36.362577 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: COMMIT
+[0m06:02:36.365086 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:02:36.368162 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: COMMIT
+[0m06:02:36.371853 [debug] [Thread-1  ]: SQL status: COMMIT in 0.001 seconds
+[0m06:02:36.384693 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."min_temp__dbt_backup"
+[0m06:02:36.387845 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:02:36.390027 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+drop table if exists "airflow"."pro_raw_api"."min_temp__dbt_backup" cascade
+[0m06:02:36.394420 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.002 seconds
+[0m06:02:36.397968 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: Close
+[0m06:02:36.401819 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6d7259d0>]}
+[0m06:02:36.404742 [info ] [Thread-1  ]: 5 of 6 OK created sql table model pro_raw_api.min_temp ......................... [[32mSELECT 5[0m in 0.21s]
+[0m06:02:36.407880 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.min_temp
+[0m06:02:36.409827 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.precip_day
+[0m06:02:36.411928 [info ] [Thread-1  ]: 6 of 6 START sql table model pro_raw_api.precip_day ............................ [RUN]
+[0m06:02:36.414712 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.min_temp, now model.mi_proyecto_dbt.precip_day)
+[0m06:02:36.418026 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.precip_day
+[0m06:02:36.427289 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.precip_day"
+[0m06:02:36.444247 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.precip_day
+[0m06:02:36.459895 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.precip_day"
+[0m06:02:36.473893 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:02:36.476084 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: BEGIN
+[0m06:02:36.477876 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:02:36.485839 [debug] [Thread-1  ]: SQL status: BEGIN in 0.008 seconds
+[0m06:02:36.488326 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:02:36.491211 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."precip_day__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+
+WITH base AS (
+    SELECT
+        *
+    FROM "airflow"."pro_raw_api"."daily_weather"  
+)
+
+SELECT
+    *
+FROM base
+WHERE precip_mm > 0
+  );
+  
+[0m06:02:36.519995 [debug] [Thread-1  ]: SQL status: SELECT 2415 in 0.026 seconds
+[0m06:02:36.528276 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:02:36.530109 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+alter table "airflow"."pro_raw_api"."precip_day" rename to "precip_day__dbt_backup"
+[0m06:02:36.532868 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:02:36.545681 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:02:36.548749 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+alter table "airflow"."pro_raw_api"."precip_day__dbt_tmp" rename to "precip_day"
+[0m06:02:36.552751 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m06:02:36.557674 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: COMMIT
+[0m06:02:36.559543 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:02:36.560966 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: COMMIT
+[0m06:02:36.567317 [debug] [Thread-1  ]: SQL status: COMMIT in 0.005 seconds
+[0m06:02:36.574550 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."precip_day__dbt_backup"
+[0m06:02:36.576873 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:02:36.578698 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+drop table if exists "airflow"."pro_raw_api"."precip_day__dbt_backup" cascade
+[0m06:02:36.585339 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.004 seconds
+[0m06:02:36.591118 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: Close
+[0m06:02:36.594368 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '06f85405-504b-4745-96a9-5f5f63ea027a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6d7364f0>]}
+[0m06:02:36.597609 [info ] [Thread-1  ]: 6 of 6 OK created sql table model pro_raw_api.precip_day ....................... [[32mSELECT 2415[0m in 0.18s]
+[0m06:02:36.603628 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.precip_day
+[0m06:02:36.608401 [debug] [MainThread]: Using postgres connection "master"
+[0m06:02:36.610213 [debug] [MainThread]: On master: BEGIN
+[0m06:02:36.611559 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m06:02:36.621354 [debug] [MainThread]: SQL status: BEGIN in 0.010 seconds
+[0m06:02:36.623450 [debug] [MainThread]: On master: COMMIT
+[0m06:02:36.625179 [debug] [MainThread]: Using postgres connection "master"
+[0m06:02:36.626798 [debug] [MainThread]: On master: COMMIT
+[0m06:02:36.628585 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m06:02:36.630006 [debug] [MainThread]: On master: Close
+[0m06:02:36.631854 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m06:02:36.636377 [debug] [MainThread]: Connection 'model.mi_proyecto_dbt.precip_day' was properly closed.
+[0m06:02:36.638467 [info ] [MainThread]: 
+[0m06:02:36.641623 [info ] [MainThread]: Finished running 6 table models in 0 hours 0 minutes and 2.48 seconds (2.48s).
+[0m06:02:36.647766 [debug] [MainThread]: Command end result
+[0m06:02:36.758126 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m06:02:36.769595 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m06:02:36.850731 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dbt_project/target/run_results.json
+[0m06:02:36.864541 [info ] [MainThread]: 
+[0m06:02:36.871929 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m06:02:36.874855 [info ] [MainThread]: 
+[0m06:02:36.877388 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[0m06:02:36.885905 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 6.358324, "process_in_blocks": "84160", "process_kernel_time": 1.857013, "process_mem_max_rss": "110384", "process_out_blocks": "0", "process_user_time": 9.084308}
+[0m06:02:36.888931 [debug] [MainThread]: Command `dbt run` succeeded at 06:02:36.888524 after 6.36 seconds
+[0m06:02:36.891066 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a706670d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6e35bf70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3a6e35cd30>]}
+[0m06:02:36.893243 [debug] [MainThread]: Flushing usage events
+[0m06:02:37.585951 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m06:43:32.928444 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a7394c130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a72a906a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a72a90640>]}
+
+
+============================== 06:43:32.941232 | 1bad2245-2d5a-4276-bbc4-0496107f6ba3 ==============================
+[0m06:43:32.941232 [info ] [MainThread]: Running with dbt=1.9.3
+[0m06:43:32.945196 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt_project/.dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/usr/app/dbt_project/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt run', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m06:43:34.133935 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a74a36220>]}
+[0m06:43:34.615152 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a730eba30>]}
+[0m06:43:34.679569 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m06:43:35.043416 [debug] [MainThread]: checksum: 5671c00892cdbcef29c3b00cc5ba7510c3d18a35c883caeb9ab9ee266dc29c8f, vars: {}, profile: , target: , version: 1.9.3
+[0m06:43:36.097394 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m06:43:36.099305 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m06:43:36.266875 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a7189bfa0>]}
+[0m06:43:36.604714 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m06:43:36.618627 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m06:43:36.675707 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a718db340>]}
+[0m06:43:36.678167 [info ] [MainThread]: Found 6 models, 1 source, 433 macros
+[0m06:43:36.681584 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a7318b460>]}
+[0m06:43:36.689369 [info ] [MainThread]: 
+[0m06:43:36.692310 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m06:43:36.695396 [info ] [MainThread]: 
+[0m06:43:36.698818 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m06:43:36.716552 [debug] [ThreadPool]: Acquiring new postgres connection 'list_airflow'
+[0m06:43:36.859729 [debug] [ThreadPool]: Using postgres connection "list_airflow"
+[0m06:43:36.862936 [debug] [ThreadPool]: On list_airflow: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "connection_name": "list_airflow"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m06:43:36.865183 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m06:43:36.888268 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.023 seconds
+[0m06:43:36.891552 [debug] [ThreadPool]: On list_airflow: Close
+[0m06:43:36.900291 [debug] [ThreadPool]: Acquiring new postgres connection 'list_airflow_pro_raw_api'
+[0m06:43:36.924073 [debug] [ThreadPool]: Using postgres connection "list_airflow_pro_raw_api"
+[0m06:43:36.926999 [debug] [ThreadPool]: On list_airflow_pro_raw_api: BEGIN
+[0m06:43:36.929934 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m06:43:36.942217 [debug] [ThreadPool]: SQL status: BEGIN in 0.012 seconds
+[0m06:43:36.945610 [debug] [ThreadPool]: Using postgres connection "list_airflow_pro_raw_api"
+[0m06:43:36.947733 [debug] [ThreadPool]: On list_airflow_pro_raw_api: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "connection_name": "list_airflow_pro_raw_api"} */
+select
+      'airflow' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'pro_raw_api'
+    union all
+    select
+      'airflow' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'pro_raw_api'
+    union all
+    select
+      'airflow' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'pro_raw_api'
+  
+[0m06:43:36.963555 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.014 seconds
+[0m06:43:36.968407 [debug] [ThreadPool]: On list_airflow_pro_raw_api: ROLLBACK
+[0m06:43:36.970782 [debug] [ThreadPool]: On list_airflow_pro_raw_api: Close
+[0m06:43:36.989967 [debug] [MainThread]: Using postgres connection "master"
+[0m06:43:36.992162 [debug] [MainThread]: On master: BEGIN
+[0m06:43:36.994041 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m06:43:37.002343 [debug] [MainThread]: SQL status: BEGIN in 0.008 seconds
+[0m06:43:37.004556 [debug] [MainThread]: Using postgres connection "master"
+[0m06:43:37.006934 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m06:43:37.016654 [debug] [MainThread]: SQL status: SELECT 0 in 0.007 seconds
+[0m06:43:37.020295 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a72188460>]}
+[0m06:43:37.022447 [debug] [MainThread]: On master: ROLLBACK
+[0m06:43:37.024461 [debug] [MainThread]: Using postgres connection "master"
+[0m06:43:37.026116 [debug] [MainThread]: On master: BEGIN
+[0m06:43:37.028637 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m06:43:37.030746 [debug] [MainThread]: On master: COMMIT
+[0m06:43:37.032800 [debug] [MainThread]: Using postgres connection "master"
+[0m06:43:37.034496 [debug] [MainThread]: On master: COMMIT
+[0m06:43:37.040745 [debug] [MainThread]: SQL status: COMMIT in 0.002 seconds
+[0m06:43:37.045025 [debug] [MainThread]: On master: Close
+[0m06:43:37.055519 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.avg_hum
+[0m06:43:37.057907 [info ] [Thread-1  ]: 1 of 6 START sql table model pro_raw_api.avg_hum ............................... [RUN]
+[0m06:43:37.061130 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_airflow_pro_raw_api, now model.mi_proyecto_dbt.avg_hum)
+[0m06:43:37.063768 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.avg_hum
+[0m06:43:37.092296 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.avg_hum"
+[0m06:43:37.107695 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.avg_hum
+[0m06:43:37.264335 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.avg_hum"
+[0m06:43:37.282012 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:43:37.284970 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: BEGIN
+[0m06:43:37.287491 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:43:37.298032 [debug] [Thread-1  ]: SQL status: BEGIN in 0.009 seconds
+[0m06:43:37.300407 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:43:37.302864 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."avg_hum__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+
+WITH base AS (
+    SELECT
+        city,
+        CAST(date AS DATE) AS date_day,
+        CAST(humidity AS INT) AS humidity
+    FROM "airflow"."pro_raw_api"."daily_weather"  
+)
+
+SELECT
+    city,
+    date_day AS date,
+    AVG(humidity) AS humidity
+FROM base
+GROUP BY
+    city,
+    date_day
+  );
+  
+[0m06:43:37.414715 [debug] [Thread-1  ]: SQL status: SELECT 7755 in 0.110 seconds
+[0m06:43:37.438237 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:43:37.440526 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+alter table "airflow"."pro_raw_api"."avg_hum" rename to "avg_hum__dbt_backup"
+[0m06:43:37.447802 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.005 seconds
+[0m06:43:37.458118 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:43:37.460297 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+alter table "airflow"."pro_raw_api"."avg_hum__dbt_tmp" rename to "avg_hum"
+[0m06:43:37.463468 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:43:37.554762 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: COMMIT
+[0m06:43:37.563755 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:43:37.566115 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: COMMIT
+[0m06:43:37.577136 [debug] [Thread-1  ]: SQL status: COMMIT in 0.007 seconds
+[0m06:43:37.597514 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."avg_hum__dbt_backup"
+[0m06:43:37.613890 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m06:43:37.616262 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+drop table if exists "airflow"."pro_raw_api"."avg_hum__dbt_backup" cascade
+[0m06:43:37.623821 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.006 seconds
+[0m06:43:37.632812 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: Close
+[0m06:43:37.639638 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a70d98ca0>]}
+[0m06:43:37.642601 [info ] [Thread-1  ]: 1 of 6 OK created sql table model pro_raw_api.avg_hum .......................... [[32mSELECT 7755[0m in 0.57s]
+[0m06:43:37.646973 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.avg_hum
+[0m06:43:37.649782 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.avg_temp
+[0m06:43:37.652165 [info ] [Thread-1  ]: 2 of 6 START sql table model pro_raw_api.avg_temp .............................. [RUN]
+[0m06:43:37.655059 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.avg_hum, now model.mi_proyecto_dbt.avg_temp)
+[0m06:43:37.657238 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.avg_temp
+[0m06:43:37.669011 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.avg_temp"
+[0m06:43:37.679866 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.avg_temp
+[0m06:43:37.696034 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.avg_temp"
+[0m06:43:37.708608 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:43:37.710942 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: BEGIN
+[0m06:43:37.713154 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:43:37.722219 [debug] [Thread-1  ]: SQL status: BEGIN in 0.009 seconds
+[0m06:43:37.724880 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:43:37.726967 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."avg_temp__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+
+WITH base AS (
+    SELECT
+        city,
+        CAST(date AS DATE) AS date_day,
+        CAST(temperature AS FLOAT) AS temperature
+    FROM "airflow"."pro_raw_api"."daily_weather" 
+)
+
+SELECT
+    city,
+    date_day AS date,
+    AVG(temperature) AS avg_temperature
+FROM base
+GROUP BY
+    city,
+    date_day
+  );
+  
+[0m06:43:37.786465 [debug] [Thread-1  ]: SQL status: SELECT 7755 in 0.057 seconds
+[0m06:43:37.798167 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:43:37.800346 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+alter table "airflow"."pro_raw_api"."avg_temp" rename to "avg_temp__dbt_backup"
+[0m06:43:37.803494 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:43:37.813668 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:43:37.815361 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+alter table "airflow"."pro_raw_api"."avg_temp__dbt_tmp" rename to "avg_temp"
+[0m06:43:37.817521 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m06:43:37.822804 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: COMMIT
+[0m06:43:37.824911 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:43:37.826905 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: COMMIT
+[0m06:43:37.835279 [debug] [Thread-1  ]: SQL status: COMMIT in 0.006 seconds
+[0m06:43:37.843019 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."avg_temp__dbt_backup"
+[0m06:43:37.846059 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m06:43:37.847687 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+drop table if exists "airflow"."pro_raw_api"."avg_temp__dbt_backup" cascade
+[0m06:43:37.853237 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.004 seconds
+[0m06:43:37.857855 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: Close
+[0m06:43:37.860849 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a70d85250>]}
+[0m06:43:37.863907 [info ] [Thread-1  ]: 2 of 6 OK created sql table model pro_raw_api.avg_temp ......................... [[32mSELECT 7755[0m in 0.21s]
+[0m06:43:37.867312 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.avg_temp
+[0m06:43:37.869652 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.max_temp_summer
+[0m06:43:37.872143 [info ] [Thread-1  ]: 3 of 6 START sql table model pro_raw_api.max_temp_summer ....................... [RUN]
+[0m06:43:37.874640 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.avg_temp, now model.mi_proyecto_dbt.max_temp_summer)
+[0m06:43:37.876454 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.max_temp_summer
+[0m06:43:37.889693 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:43:37.902454 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.max_temp_summer
+[0m06:43:37.993314 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:43:38.006806 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:43:38.009403 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: BEGIN
+[0m06:43:38.011982 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:43:38.020566 [debug] [Thread-1  ]: SQL status: BEGIN in 0.009 seconds
+[0m06:43:38.023721 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:43:38.026466 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."max_temp_summer__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM "airflow"."pro_raw_api"."daily_weather"
+    WHERE EXTRACT(MONTH FROM CAST(date AS timestamp)) IN (6, 7, 8)
+),
+max_temp AS (
+    SELECT 
+        city,
+        EXTRACT(YEAR FROM CAST(date AS timestamp)) AS year,
+        MAX(temperature) AS max_temp
+    FROM base
+    GROUP BY city, EXTRACT(YEAR FROM CAST(date AS timestamp))
+)
+
+SELECT b.*
+FROM base b
+JOIN max_temp m 
+    ON b.city = m.city 
+    AND EXTRACT(YEAR FROM CAST(b.date AS timestamp)) = m.year
+    AND b.temperature = m.max_temp
+  );
+  
+[0m06:43:38.092984 [debug] [Thread-1  ]: SQL status: SELECT 20 in 0.063 seconds
+[0m06:43:38.102091 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:43:38.103988 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+alter table "airflow"."pro_raw_api"."max_temp_summer" rename to "max_temp_summer__dbt_backup"
+[0m06:43:38.106691 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:43:38.116847 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:43:38.119296 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+alter table "airflow"."pro_raw_api"."max_temp_summer__dbt_tmp" rename to "max_temp_summer"
+[0m06:43:38.122163 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m06:43:38.126123 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: COMMIT
+[0m06:43:38.128470 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:43:38.130771 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: COMMIT
+[0m06:43:38.134638 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m06:43:38.142269 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."max_temp_summer__dbt_backup"
+[0m06:43:38.145981 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m06:43:38.148023 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+drop table if exists "airflow"."pro_raw_api"."max_temp_summer__dbt_backup" cascade
+[0m06:43:38.152211 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.002 seconds
+[0m06:43:38.156198 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: Close
+[0m06:43:38.158712 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a70c70190>]}
+[0m06:43:38.161546 [info ] [Thread-1  ]: 3 of 6 OK created sql table model pro_raw_api.max_temp_summer .................. [[32mSELECT 20[0m in 0.28s]
+[0m06:43:38.164674 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.max_temp_summer
+[0m06:43:38.167256 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.max_wind
+[0m06:43:38.169228 [info ] [Thread-1  ]: 4 of 6 START sql table model pro_raw_api.max_wind .............................. [RUN]
+[0m06:43:38.171496 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.max_temp_summer, now model.mi_proyecto_dbt.max_wind)
+[0m06:43:38.173164 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.max_wind
+[0m06:43:38.180864 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.max_wind"
+[0m06:43:38.191342 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.max_wind
+[0m06:43:38.204360 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.max_wind"
+[0m06:43:38.214847 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:43:38.217381 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: BEGIN
+[0m06:43:38.219676 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:43:38.227184 [debug] [Thread-1  ]: SQL status: BEGIN in 0.007 seconds
+[0m06:43:38.229986 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:43:38.232157 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."max_wind__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM "airflow"."pro_raw_api"."daily_weather"
+),
+max_wind AS (
+    SELECT city, MAX(wind_kph) AS max_wind
+    FROM base
+    GROUP BY city
+)
+
+SELECT b.*
+FROM base b
+JOIN max_wind m 
+    ON b.city = m.city 
+    AND b.wind_kph = m.max_wind
+  );
+  
+[0m06:43:38.277594 [debug] [Thread-1  ]: SQL status: SELECT 5 in 0.043 seconds
+[0m06:43:38.287259 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:43:38.288999 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+alter table "airflow"."pro_raw_api"."max_wind" rename to "max_wind__dbt_backup"
+[0m06:43:38.291284 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:43:38.298592 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:43:38.300167 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+alter table "airflow"."pro_raw_api"."max_wind__dbt_tmp" rename to "max_wind"
+[0m06:43:38.302261 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m06:43:38.306347 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: COMMIT
+[0m06:43:38.308146 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:43:38.309850 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: COMMIT
+[0m06:43:38.319977 [debug] [Thread-1  ]: SQL status: COMMIT in 0.008 seconds
+[0m06:43:38.331059 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."max_wind__dbt_backup"
+[0m06:43:38.334095 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m06:43:38.335794 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+drop table if exists "airflow"."pro_raw_api"."max_wind__dbt_backup" cascade
+[0m06:43:38.344622 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.007 seconds
+[0m06:43:38.350006 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: Close
+[0m06:43:38.352274 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a70c70190>]}
+[0m06:43:38.354722 [info ] [Thread-1  ]: 4 of 6 OK created sql table model pro_raw_api.max_wind ......................... [[32mSELECT 5[0m in 0.18s]
+[0m06:43:38.357976 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.max_wind
+[0m06:43:38.359820 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.min_temp
+[0m06:43:38.362140 [info ] [Thread-1  ]: 5 of 6 START sql table model pro_raw_api.min_temp .............................. [RUN]
+[0m06:43:38.364353 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.max_wind, now model.mi_proyecto_dbt.min_temp)
+[0m06:43:38.366137 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.min_temp
+[0m06:43:38.376239 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.min_temp"
+[0m06:43:38.385832 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.min_temp
+[0m06:43:38.398180 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.min_temp"
+[0m06:43:38.407794 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:43:38.411392 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: BEGIN
+[0m06:43:38.415025 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:43:38.428992 [debug] [Thread-1  ]: SQL status: BEGIN in 0.014 seconds
+[0m06:43:38.436310 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:43:38.441115 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."min_temp__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM "airflow"."pro_raw_api"."daily_weather"
+),
+min_temp AS (
+    SELECT city, MIN(temperature) AS min_temp
+    FROM base
+    GROUP BY city
+)
+
+SELECT b.*
+FROM base b
+JOIN min_temp m 
+    ON b.city = m.city 
+    AND b.temperature = m.min_temp
+  );
+  
+[0m06:43:38.579887 [debug] [Thread-1  ]: SQL status: SELECT 5 in 0.136 seconds
+[0m06:43:38.618197 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:43:38.620664 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+alter table "airflow"."pro_raw_api"."min_temp" rename to "min_temp__dbt_backup"
+[0m06:43:38.623973 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:43:38.638979 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:43:38.641092 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+alter table "airflow"."pro_raw_api"."min_temp__dbt_tmp" rename to "min_temp"
+[0m06:43:38.643872 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:43:38.652732 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: COMMIT
+[0m06:43:38.655067 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:43:38.657216 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: COMMIT
+[0m06:43:38.661134 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m06:43:38.678273 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."min_temp__dbt_backup"
+[0m06:43:38.682743 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m06:43:38.685694 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+drop table if exists "airflow"."pro_raw_api"."min_temp__dbt_backup" cascade
+[0m06:43:38.691272 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.003 seconds
+[0m06:43:38.696974 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: Close
+[0m06:43:38.702246 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a70c6c820>]}
+[0m06:43:38.705810 [info ] [Thread-1  ]: 5 of 6 OK created sql table model pro_raw_api.min_temp ......................... [[32mSELECT 5[0m in 0.34s]
+[0m06:43:38.709115 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.min_temp
+[0m06:43:38.711872 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.precip_day
+[0m06:43:38.719426 [info ] [Thread-1  ]: 6 of 6 START sql table model pro_raw_api.precip_day ............................ [RUN]
+[0m06:43:38.722747 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.min_temp, now model.mi_proyecto_dbt.precip_day)
+[0m06:43:38.724762 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.precip_day
+[0m06:43:38.737377 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.precip_day"
+[0m06:43:38.752606 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.precip_day
+[0m06:43:38.766242 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.precip_day"
+[0m06:43:38.779873 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:43:38.782654 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: BEGIN
+[0m06:43:38.785236 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m06:43:38.791384 [debug] [Thread-1  ]: SQL status: BEGIN in 0.006 seconds
+[0m06:43:38.793735 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:43:38.797427 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."precip_day__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+
+WITH base AS (
+    SELECT
+        *
+    FROM "airflow"."pro_raw_api"."daily_weather"  
+)
+
+SELECT
+    *
+FROM base
+WHERE precip_mm > 0
+  );
+  
+[0m06:43:38.820358 [debug] [Thread-1  ]: SQL status: SELECT 2415 in 0.020 seconds
+[0m06:43:38.833916 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:43:38.835864 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+alter table "airflow"."pro_raw_api"."precip_day" rename to "precip_day__dbt_backup"
+[0m06:43:38.838422 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:43:38.850466 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:43:38.852566 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+alter table "airflow"."pro_raw_api"."precip_day__dbt_tmp" rename to "precip_day"
+[0m06:43:38.855250 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m06:43:38.861020 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: COMMIT
+[0m06:43:38.864373 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:43:38.867315 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: COMMIT
+[0m06:43:38.876950 [debug] [Thread-1  ]: SQL status: COMMIT in 0.007 seconds
+[0m06:43:38.888629 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."precip_day__dbt_backup"
+[0m06:43:38.891203 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m06:43:38.893080 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+drop table if exists "airflow"."pro_raw_api"."precip_day__dbt_backup" cascade
+[0m06:43:38.902400 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.007 seconds
+[0m06:43:38.906418 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: Close
+[0m06:43:38.908586 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1bad2245-2d5a-4276-bbc4-0496107f6ba3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a70d5fe80>]}
+[0m06:43:38.911037 [info ] [Thread-1  ]: 6 of 6 OK created sql table model pro_raw_api.precip_day ....................... [[32mSELECT 2415[0m in 0.19s]
+[0m06:43:38.914990 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.precip_day
+[0m06:43:38.918469 [debug] [MainThread]: Using postgres connection "master"
+[0m06:43:38.920112 [debug] [MainThread]: On master: BEGIN
+[0m06:43:38.921743 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m06:43:38.929217 [debug] [MainThread]: SQL status: BEGIN in 0.007 seconds
+[0m06:43:38.931658 [debug] [MainThread]: On master: COMMIT
+[0m06:43:38.933359 [debug] [MainThread]: Using postgres connection "master"
+[0m06:43:38.935073 [debug] [MainThread]: On master: COMMIT
+[0m06:43:38.937663 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m06:43:38.939981 [debug] [MainThread]: On master: Close
+[0m06:43:38.942083 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m06:43:38.944432 [debug] [MainThread]: Connection 'list_airflow' was properly closed.
+[0m06:43:38.946878 [debug] [MainThread]: Connection 'model.mi_proyecto_dbt.precip_day' was properly closed.
+[0m06:43:38.949240 [info ] [MainThread]: 
+[0m06:43:38.951767 [info ] [MainThread]: Finished running 6 table models in 0 hours 0 minutes and 2.25 seconds (2.25s).
+[0m06:43:38.957601 [debug] [MainThread]: Command end result
+[0m06:43:39.038122 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m06:43:39.050305 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m06:43:39.081020 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dbt_project/target/run_results.json
+[0m06:43:39.083002 [info ] [MainThread]: 
+[0m06:43:39.085537 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m06:43:39.088105 [info ] [MainThread]: 
+[0m06:43:39.091297 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[0m06:43:39.096244 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 6.458528, "process_in_blocks": "84264", "process_kernel_time": 0.88783, "process_mem_max_rss": "108180", "process_out_blocks": "0", "process_user_time": 8.545364}
+[0m06:43:39.098660 [debug] [MainThread]: Command `dbt run` succeeded at 06:43:39.098366 after 6.46 seconds
+[0m06:43:39.101253 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a7394c130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a74a36220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1a718982b0>]}
+[0m06:43:39.103137 [debug] [MainThread]: Flushing usage events
+[0m06:43:40.599899 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:09:04.706970 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63e1dfefd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63e0f47af0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63e0f47b50>]}
+
+
+============================== 11:09:04.714705 | 66b879ef-1471-47fc-a985-6582844c67c3 ==============================
+[0m11:09:04.714705 [info ] [MainThread]: Running with dbt=1.9.3
+[0m11:09:04.716042 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/usr/app/dbt_project/.dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/usr/app/dbt_project/logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'invocation_command': 'dbt run', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:09:04.966919 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63e096fe20>]}
+[0m11:09:05.043507 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63e15e5760>]}
+[0m11:09:05.045496 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m11:09:05.151508 [debug] [MainThread]: checksum: 5671c00892cdbcef29c3b00cc5ba7510c3d18a35c883caeb9ab9ee266dc29c8f, vars: {}, profile: , target: , version: 1.9.3
+[0m11:09:05.467120 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:09:05.468560 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:09:05.521855 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63dfd5ae80>]}
+[0m11:09:05.649097 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m11:09:05.654926 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m11:09:05.682501 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63dfd9b3d0>]}
+[0m11:09:05.683724 [info ] [MainThread]: Found 6 models, 1 source, 433 macros
+[0m11:09:05.685020 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63e05c07c0>]}
+[0m11:09:05.688390 [info ] [MainThread]: 
+[0m11:09:05.689714 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:09:05.691127 [info ] [MainThread]: 
+[0m11:09:05.693022 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m11:09:05.701060 [debug] [ThreadPool]: Acquiring new postgres connection 'list_airflow'
+[0m11:09:05.790125 [debug] [ThreadPool]: Using postgres connection "list_airflow"
+[0m11:09:05.791532 [debug] [ThreadPool]: On list_airflow: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "connection_name": "list_airflow"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m11:09:05.792751 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:09:05.850743 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.058 seconds
+[0m11:09:05.853647 [debug] [ThreadPool]: On list_airflow: Close
+[0m11:09:05.856928 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_airflow, now list_airflow_pro_raw_api)
+[0m11:09:05.868379 [debug] [ThreadPool]: Using postgres connection "list_airflow_pro_raw_api"
+[0m11:09:05.869914 [debug] [ThreadPool]: On list_airflow_pro_raw_api: BEGIN
+[0m11:09:05.871105 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:09:05.876141 [debug] [ThreadPool]: SQL status: BEGIN in 0.005 seconds
+[0m11:09:05.878324 [debug] [ThreadPool]: Using postgres connection "list_airflow_pro_raw_api"
+[0m11:09:05.879768 [debug] [ThreadPool]: On list_airflow_pro_raw_api: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "connection_name": "list_airflow_pro_raw_api"} */
+select
+      'airflow' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'pro_raw_api'
+    union all
+    select
+      'airflow' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'pro_raw_api'
+    union all
+    select
+      'airflow' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'pro_raw_api'
+  
+[0m11:09:05.890803 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.010 seconds
+[0m11:09:05.893705 [debug] [ThreadPool]: On list_airflow_pro_raw_api: ROLLBACK
+[0m11:09:05.895337 [debug] [ThreadPool]: On list_airflow_pro_raw_api: Close
+[0m11:09:05.904014 [debug] [MainThread]: Using postgres connection "master"
+[0m11:09:05.904900 [debug] [MainThread]: On master: BEGIN
+[0m11:09:05.905676 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:09:05.910922 [debug] [MainThread]: SQL status: BEGIN in 0.005 seconds
+[0m11:09:05.912293 [debug] [MainThread]: Using postgres connection "master"
+[0m11:09:05.913409 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m11:09:05.921040 [debug] [MainThread]: SQL status: SELECT 0 in 0.007 seconds
+[0m11:09:05.922889 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63dfd7b580>]}
+[0m11:09:05.923776 [debug] [MainThread]: On master: ROLLBACK
+[0m11:09:05.924616 [debug] [MainThread]: Using postgres connection "master"
+[0m11:09:05.925314 [debug] [MainThread]: On master: BEGIN
+[0m11:09:05.926650 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m11:09:05.928434 [debug] [MainThread]: On master: COMMIT
+[0m11:09:05.929563 [debug] [MainThread]: Using postgres connection "master"
+[0m11:09:05.930328 [debug] [MainThread]: On master: COMMIT
+[0m11:09:05.931232 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:09:05.931975 [debug] [MainThread]: On master: Close
+[0m11:09:05.936197 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.avg_hum
+[0m11:09:05.937295 [info ] [Thread-1  ]: 1 of 6 START sql table model pro_raw_api.avg_hum ............................... [RUN]
+[0m11:09:05.938541 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_airflow_pro_raw_api, now model.mi_proyecto_dbt.avg_hum)
+[0m11:09:05.939504 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.avg_hum
+[0m11:09:05.951032 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.avg_hum"
+[0m11:09:05.957329 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.avg_hum
+[0m11:09:06.006603 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.avg_hum"
+[0m11:09:06.014761 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m11:09:06.015723 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: BEGIN
+[0m11:09:06.016616 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m11:09:06.024339 [debug] [Thread-1  ]: SQL status: BEGIN in 0.008 seconds
+[0m11:09:06.025491 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m11:09:06.027048 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."avg_hum__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+
+WITH base AS (
+    SELECT
+        city,
+        CAST(date AS DATE) AS date_day,
+        CAST(humidity AS INT) AS humidity
+    FROM "airflow"."pro_raw_api"."daily_weather"  
+)
+
+SELECT
+    city,
+    date_day AS date,
+    AVG(humidity) AS humidity
+FROM base
+GROUP BY
+    city,
+    date_day
+  );
+  
+[0m11:09:06.153524 [debug] [Thread-1  ]: SQL status: SELECT 7760 in 0.125 seconds
+[0m11:09:06.162987 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m11:09:06.164469 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+alter table "airflow"."pro_raw_api"."avg_hum" rename to "avg_hum__dbt_backup"
+[0m11:09:06.167914 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.002 seconds
+[0m11:09:06.172735 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m11:09:06.173949 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+alter table "airflow"."pro_raw_api"."avg_hum__dbt_tmp" rename to "avg_hum"
+[0m11:09:06.175466 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.204977 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: COMMIT
+[0m11:09:06.206226 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m11:09:06.207371 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: COMMIT
+[0m11:09:06.209957 [debug] [Thread-1  ]: SQL status: COMMIT in 0.001 seconds
+[0m11:09:06.218243 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."avg_hum__dbt_backup"
+[0m11:09:06.224352 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_hum"
+[0m11:09:06.225662 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_hum"} */
+drop table if exists "airflow"."pro_raw_api"."avg_hum__dbt_backup" cascade
+[0m11:09:06.232208 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.005 seconds
+[0m11:09:06.235703 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_hum: Close
+[0m11:09:06.238322 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63df496b50>]}
+[0m11:09:06.239764 [info ] [Thread-1  ]: 1 of 6 OK created sql table model pro_raw_api.avg_hum .......................... [[32mSELECT 7760[0m in 0.30s]
+[0m11:09:06.241423 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.avg_hum
+[0m11:09:06.242609 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.avg_temp
+[0m11:09:06.243945 [info ] [Thread-1  ]: 2 of 6 START sql table model pro_raw_api.avg_temp .............................. [RUN]
+[0m11:09:06.245371 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.avg_hum, now model.mi_proyecto_dbt.avg_temp)
+[0m11:09:06.246266 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.avg_temp
+[0m11:09:06.250517 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.avg_temp"
+[0m11:09:06.255249 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.avg_temp
+[0m11:09:06.261684 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.avg_temp"
+[0m11:09:06.266944 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m11:09:06.267917 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: BEGIN
+[0m11:09:06.268883 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m11:09:06.275179 [debug] [Thread-1  ]: SQL status: BEGIN in 0.006 seconds
+[0m11:09:06.276774 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m11:09:06.278016 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."avg_temp__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+
+WITH base AS (
+    SELECT
+        city,
+        CAST(date AS DATE) AS date_day,
+        CAST(temperature AS FLOAT) AS temperature
+    FROM "airflow"."pro_raw_api"."daily_weather" 
+)
+
+SELECT
+    city,
+    date_day AS date,
+    AVG(temperature) AS avg_temperature
+FROM base
+GROUP BY
+    city,
+    date_day
+  );
+  
+[0m11:09:06.313350 [debug] [Thread-1  ]: SQL status: SELECT 7760 in 0.034 seconds
+[0m11:09:06.318426 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m11:09:06.319854 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+alter table "airflow"."pro_raw_api"."avg_temp" rename to "avg_temp__dbt_backup"
+[0m11:09:06.321447 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.326407 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m11:09:06.328112 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+alter table "airflow"."pro_raw_api"."avg_temp__dbt_tmp" rename to "avg_temp"
+[0m11:09:06.329868 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.332720 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: COMMIT
+[0m11:09:06.333930 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m11:09:06.334889 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: COMMIT
+[0m11:09:06.341384 [debug] [Thread-1  ]: SQL status: COMMIT in 0.006 seconds
+[0m11:09:06.346099 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."avg_temp__dbt_backup"
+[0m11:09:06.347651 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.avg_temp"
+[0m11:09:06.348669 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.avg_temp"} */
+drop table if exists "airflow"."pro_raw_api"."avg_temp__dbt_backup" cascade
+[0m11:09:06.352546 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.003 seconds
+[0m11:09:06.354703 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.avg_temp: Close
+[0m11:09:06.355971 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63df49be20>]}
+[0m11:09:06.357318 [info ] [Thread-1  ]: 2 of 6 OK created sql table model pro_raw_api.avg_temp ......................... [[32mSELECT 7760[0m in 0.11s]
+[0m11:09:06.358956 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.avg_temp
+[0m11:09:06.361354 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.max_temp_summer
+[0m11:09:06.363033 [info ] [Thread-1  ]: 3 of 6 START sql table model pro_raw_api.max_temp_summer ....................... [RUN]
+[0m11:09:06.365849 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.avg_temp, now model.mi_proyecto_dbt.max_temp_summer)
+[0m11:09:06.366907 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.max_temp_summer
+[0m11:09:06.372430 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.max_temp_summer"
+[0m11:09:06.379826 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.max_temp_summer
+[0m11:09:06.443398 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.max_temp_summer"
+[0m11:09:06.453127 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m11:09:06.454517 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: BEGIN
+[0m11:09:06.455780 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m11:09:06.461343 [debug] [Thread-1  ]: SQL status: BEGIN in 0.005 seconds
+[0m11:09:06.463120 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m11:09:06.464723 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."max_temp_summer__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM "airflow"."pro_raw_api"."daily_weather"
+    WHERE EXTRACT(MONTH FROM CAST(date AS timestamp)) IN (6, 7, 8)
+),
+max_temp AS (
+    SELECT 
+        city,
+        EXTRACT(YEAR FROM CAST(date AS timestamp)) AS year,
+        MAX(temperature) AS max_temp
+    FROM base
+    GROUP BY city, EXTRACT(YEAR FROM CAST(date AS timestamp))
+)
+
+SELECT b.*
+FROM base b
+JOIN max_temp m 
+    ON b.city = m.city 
+    AND EXTRACT(YEAR FROM CAST(b.date AS timestamp)) = m.year
+    AND b.temperature = m.max_temp
+  );
+  
+[0m11:09:06.508362 [debug] [Thread-1  ]: SQL status: SELECT 20 in 0.042 seconds
+[0m11:09:06.513476 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m11:09:06.514615 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+alter table "airflow"."pro_raw_api"."max_temp_summer" rename to "max_temp_summer__dbt_backup"
+[0m11:09:06.516057 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.520377 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m11:09:06.521451 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+alter table "airflow"."pro_raw_api"."max_temp_summer__dbt_tmp" rename to "max_temp_summer"
+[0m11:09:06.522616 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.524750 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: COMMIT
+[0m11:09:06.525692 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m11:09:06.527150 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: COMMIT
+[0m11:09:06.529809 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m11:09:06.533947 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."max_temp_summer__dbt_backup"
+[0m11:09:06.535367 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_temp_summer"
+[0m11:09:06.536245 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_temp_summer"} */
+drop table if exists "airflow"."pro_raw_api"."max_temp_summer__dbt_backup" cascade
+[0m11:09:06.539278 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.002 seconds
+[0m11:09:06.541200 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_temp_summer: Close
+[0m11:09:06.542426 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63e1c90c10>]}
+[0m11:09:06.544239 [info ] [Thread-1  ]: 3 of 6 OK created sql table model pro_raw_api.max_temp_summer .................. [[32mSELECT 20[0m in 0.18s]
+[0m11:09:06.546131 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.max_temp_summer
+[0m11:09:06.547424 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.max_wind
+[0m11:09:06.548466 [info ] [Thread-1  ]: 4 of 6 START sql table model pro_raw_api.max_wind .............................. [RUN]
+[0m11:09:06.549723 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.max_temp_summer, now model.mi_proyecto_dbt.max_wind)
+[0m11:09:06.550685 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.max_wind
+[0m11:09:06.555079 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.max_wind"
+[0m11:09:06.561168 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.max_wind
+[0m11:09:06.567569 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.max_wind"
+[0m11:09:06.573236 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m11:09:06.574188 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: BEGIN
+[0m11:09:06.575007 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m11:09:06.581853 [debug] [Thread-1  ]: SQL status: BEGIN in 0.007 seconds
+[0m11:09:06.583294 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m11:09:06.584458 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."max_wind__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM "airflow"."pro_raw_api"."daily_weather"
+),
+max_wind AS (
+    SELECT city, MAX(wind_kph) AS max_wind
+    FROM base
+    GROUP BY city
+)
+
+SELECT b.*
+FROM base b
+JOIN max_wind m 
+    ON b.city = m.city 
+    AND b.wind_kph = m.max_wind
+  );
+  
+[0m11:09:06.636917 [debug] [Thread-1  ]: SQL status: SELECT 5 in 0.051 seconds
+[0m11:09:06.644732 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m11:09:06.646596 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+alter table "airflow"."pro_raw_api"."max_wind" rename to "max_wind__dbt_backup"
+[0m11:09:06.648492 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.653532 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m11:09:06.655156 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+alter table "airflow"."pro_raw_api"."max_wind__dbt_tmp" rename to "max_wind"
+[0m11:09:06.657257 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.661887 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: COMMIT
+[0m11:09:06.663691 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m11:09:06.664978 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: COMMIT
+[0m11:09:06.667730 [debug] [Thread-1  ]: SQL status: COMMIT in 0.001 seconds
+[0m11:09:06.671920 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."max_wind__dbt_backup"
+[0m11:09:06.673555 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.max_wind"
+[0m11:09:06.674772 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.max_wind"} */
+drop table if exists "airflow"."pro_raw_api"."max_wind__dbt_backup" cascade
+[0m11:09:06.680181 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.004 seconds
+[0m11:09:06.682808 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.max_wind: Close
+[0m11:09:06.684248 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63df125970>]}
+[0m11:09:06.685537 [info ] [Thread-1  ]: 4 of 6 OK created sql table model pro_raw_api.max_wind ......................... [[32mSELECT 5[0m in 0.13s]
+[0m11:09:06.687039 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.max_wind
+[0m11:09:06.688077 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.min_temp
+[0m11:09:06.689118 [info ] [Thread-1  ]: 5 of 6 START sql table model pro_raw_api.min_temp .............................. [RUN]
+[0m11:09:06.690366 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.max_wind, now model.mi_proyecto_dbt.min_temp)
+[0m11:09:06.691518 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.min_temp
+[0m11:09:06.696689 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.min_temp"
+[0m11:09:06.701705 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.min_temp
+[0m11:09:06.707082 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.min_temp"
+[0m11:09:06.713163 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m11:09:06.714277 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: BEGIN
+[0m11:09:06.715344 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m11:09:06.719848 [debug] [Thread-1  ]: SQL status: BEGIN in 0.004 seconds
+[0m11:09:06.721306 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m11:09:06.722476 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."min_temp__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH base AS (
+    SELECT *
+    FROM "airflow"."pro_raw_api"."daily_weather"
+),
+min_temp AS (
+    SELECT city, MIN(temperature) AS min_temp
+    FROM base
+    GROUP BY city
+)
+
+SELECT b.*
+FROM base b
+JOIN min_temp m 
+    ON b.city = m.city 
+    AND b.temperature = m.min_temp
+  );
+  
+[0m11:09:06.772064 [debug] [Thread-1  ]: SQL status: SELECT 5 in 0.048 seconds
+[0m11:09:06.779220 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m11:09:06.780478 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+alter table "airflow"."pro_raw_api"."min_temp" rename to "min_temp__dbt_backup"
+[0m11:09:06.782026 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.787668 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m11:09:06.789238 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+alter table "airflow"."pro_raw_api"."min_temp__dbt_tmp" rename to "min_temp"
+[0m11:09:06.790923 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.795410 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: COMMIT
+[0m11:09:06.797058 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m11:09:06.798626 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: COMMIT
+[0m11:09:06.803454 [debug] [Thread-1  ]: SQL status: COMMIT in 0.003 seconds
+[0m11:09:06.809860 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."min_temp__dbt_backup"
+[0m11:09:06.811769 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.min_temp"
+[0m11:09:06.813119 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.min_temp"} */
+drop table if exists "airflow"."pro_raw_api"."min_temp__dbt_backup" cascade
+[0m11:09:06.817141 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.003 seconds
+[0m11:09:06.819645 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.min_temp: Close
+[0m11:09:06.820904 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63df125970>]}
+[0m11:09:06.822316 [info ] [Thread-1  ]: 5 of 6 OK created sql table model pro_raw_api.min_temp ......................... [[32mSELECT 5[0m in 0.13s]
+[0m11:09:06.823749 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.min_temp
+[0m11:09:06.824754 [debug] [Thread-1  ]: Began running node model.mi_proyecto_dbt.precip_day
+[0m11:09:06.825886 [info ] [Thread-1  ]: 6 of 6 START sql table model pro_raw_api.precip_day ............................ [RUN]
+[0m11:09:06.827379 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.mi_proyecto_dbt.min_temp, now model.mi_proyecto_dbt.precip_day)
+[0m11:09:06.828492 [debug] [Thread-1  ]: Began compiling node model.mi_proyecto_dbt.precip_day
+[0m11:09:06.833187 [debug] [Thread-1  ]: Writing injected SQL for node "model.mi_proyecto_dbt.precip_day"
+[0m11:09:06.838428 [debug] [Thread-1  ]: Began executing node model.mi_proyecto_dbt.precip_day
+[0m11:09:06.843884 [debug] [Thread-1  ]: Writing runtime sql for node "model.mi_proyecto_dbt.precip_day"
+[0m11:09:06.849544 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m11:09:06.850572 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: BEGIN
+[0m11:09:06.851445 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m11:09:06.855416 [debug] [Thread-1  ]: SQL status: BEGIN in 0.004 seconds
+[0m11:09:06.856927 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m11:09:06.858197 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+
+  
+    
+
+  create  table "airflow"."pro_raw_api"."precip_day__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+
+WITH base AS (
+    SELECT
+        *
+    FROM "airflow"."pro_raw_api"."daily_weather"  
+)
+
+SELECT
+    *
+FROM base
+WHERE precip_mm > 0
+  );
+  
+[0m11:09:06.870417 [debug] [Thread-1  ]: SQL status: SELECT 2415 in 0.011 seconds
+[0m11:09:06.874978 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m11:09:06.876522 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+alter table "airflow"."pro_raw_api"."precip_day" rename to "precip_day__dbt_backup"
+[0m11:09:06.878642 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.883552 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m11:09:06.884653 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+alter table "airflow"."pro_raw_api"."precip_day__dbt_tmp" rename to "precip_day"
+[0m11:09:06.886086 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m11:09:06.888792 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: COMMIT
+[0m11:09:06.889871 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m11:09:06.890802 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: COMMIT
+[0m11:09:06.897334 [debug] [Thread-1  ]: SQL status: COMMIT in 0.005 seconds
+[0m11:09:06.902823 [debug] [Thread-1  ]: Applying DROP to: "airflow"."pro_raw_api"."precip_day__dbt_backup"
+[0m11:09:06.904694 [debug] [Thread-1  ]: Using postgres connection "model.mi_proyecto_dbt.precip_day"
+[0m11:09:06.905783 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: /* {"app": "dbt", "dbt_version": "1.9.3", "profile_name": "mi_perfil", "target_name": "dev", "node_id": "model.mi_proyecto_dbt.precip_day"} */
+drop table if exists "airflow"."pro_raw_api"."precip_day__dbt_backup" cascade
+[0m11:09:06.911122 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.004 seconds
+[0m11:09:06.913888 [debug] [Thread-1  ]: On model.mi_proyecto_dbt.precip_day: Close
+[0m11:09:06.915252 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '66b879ef-1471-47fc-a985-6582844c67c3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63df52d9a0>]}
+[0m11:09:06.916619 [info ] [Thread-1  ]: 6 of 6 OK created sql table model pro_raw_api.precip_day ....................... [[32mSELECT 2415[0m in 0.09s]
+[0m11:09:06.918575 [debug] [Thread-1  ]: Finished running node model.mi_proyecto_dbt.precip_day
+[0m11:09:06.921233 [debug] [MainThread]: Using postgres connection "master"
+[0m11:09:06.922423 [debug] [MainThread]: On master: BEGIN
+[0m11:09:06.923485 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:09:06.928067 [debug] [MainThread]: SQL status: BEGIN in 0.005 seconds
+[0m11:09:06.929499 [debug] [MainThread]: On master: COMMIT
+[0m11:09:06.930555 [debug] [MainThread]: Using postgres connection "master"
+[0m11:09:06.931503 [debug] [MainThread]: On master: COMMIT
+[0m11:09:06.932694 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m11:09:06.933910 [debug] [MainThread]: On master: Close
+[0m11:09:06.935136 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:09:06.936128 [debug] [MainThread]: Connection 'model.mi_proyecto_dbt.precip_day' was properly closed.
+[0m11:09:06.937293 [info ] [MainThread]: 
+[0m11:09:06.938616 [info ] [MainThread]: Finished running 6 table models in 0 hours 0 minutes and 1.24 seconds (1.24s).
+[0m11:09:06.941550 [debug] [MainThread]: Command end result
+[0m11:09:06.983184 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m11:09:06.988009 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m11:09:07.000519 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dbt_project/target/run_results.json
+[0m11:09:07.001460 [info ] [MainThread]: 
+[0m11:09:07.002767 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m11:09:07.004174 [info ] [MainThread]: 
+[0m11:09:07.005458 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[0m11:09:07.009239 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.4250338, "process_in_blocks": "0", "process_kernel_time": 1.068281, "process_mem_max_rss": "108748", "process_out_blocks": "0", "process_user_time": 3.416484}
+[0m11:09:07.010558 [debug] [MainThread]: Command `dbt run` succeeded at 11:09:07.010386 after 2.43 seconds
+[0m11:09:07.011915 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63e1dfefd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63dfd450d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f63e15e5760>]}
+[0m11:09:07.013001 [debug] [MainThread]: Flushing usage events
+[0m11:09:07.847479 [debug] [MainThread]: An error was encountered while trying to flush usage events

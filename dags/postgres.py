@@ -43,7 +43,7 @@ def main(name):
         df = spark.read.parquet(temp_dir)
         df.show()
 
-        set_data_postgres(df)
+        set_data_postgres(df, "daily_weather")
 
     except Exception as e:
         print("Error:", e)
