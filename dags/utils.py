@@ -5,6 +5,7 @@ import boto3
 from pyspark.sql.functions import *
 from datetime import *
 import requests
+from pyspark.ml.evaluation import RegressionEvaluator
 
 def connect_minio():
     MINIO_ENDPOINT = "http://minio:9000"
@@ -213,3 +214,34 @@ def create_historical(spark, city, latitude, longitude):
 
     set_data_minio(df, bucket, latitude, longitude)
     set_data_postgres(df, "daily_weather")
+
+#Función para calcular los parámetros de fiabilidad de nuestro modelo
+def param_reliability(model, train, column):
+    try:
+        # ---------------------------
+        # Cálculo de parámetros de fiabilidad
+        # ---------------------------
+        # Evaluación sobre el conjunto de entrenamiento (puedes sustituir o complementar con un conjunto de validación)
+        train_predictions = model.transform(train)
+        evaluator_rmse = RegressionEvaluator(labelCol=column, predictionCol="prediction", metricName="rmse")
+        evaluator_mae = RegressionEvaluator(labelCol=column, predictionCol="prediction", metricName="mae")
+        rmse = evaluator_rmse.evaluate(train_predictions)
+        mae = evaluator_mae.evaluate(train_predictions)
+        print(f"Prarámetros de fiabilidad de {column}: RMSE = {rmse}, MAE = {mae}")
+        
+        # Calcular el valor máximo de la variable en el conjunto de entrenamiento
+        max_value = train.agg({column: "max"}).first()[0]
+        
+        if max_value != 0:
+            rmse_error_margin = (rmse / max_value) * 100
+            mae_error_margin = (mae / max_value) * 100
+            rmse_accuracy = 100 - rmse_error_margin
+            mae_accuracy = 100 - mae_error_margin
+            print(f"  Margen de error (RMSE): {rmse_error_margin:.2f} %")
+            print(f"  Acierto (100 - RMSE error margin): {rmse_accuracy:.2f} %")
+            print(f"  Margen de error (MAE): {mae_error_margin:.2f} %")
+            print(f"  Acierto (100 - MAE error margin): {mae_accuracy:.2f} %")
+        else:
+            print(f"El valor máximo de {column} es 0, lo que impide calcular el margen de error porcentual.")
+    except Exception as e:
+        print(f"  No se pudo extraer el resumen del modelo para {column}: {e}")

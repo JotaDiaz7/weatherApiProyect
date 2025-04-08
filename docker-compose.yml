@@ -206,6 +206,20 @@ services:
     depends_on:
       - postgres
 
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    restart: always
+    depends_on:
+      - postgres
+
 volumes:
   postgres-db-volume:
   minio_data:
+  grafana-storage:

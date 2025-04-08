@@ -1,0 +1,104 @@
+[2025-04-08T07:00:18.095+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-08T07:00:18.228+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-04-07T07:00:00+00:00 [queued]>
+[2025-04-08T07:00:18.237+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-04-07T07:00:00+00:00 [queued]>
+[2025-04-08T07:00:18.251+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-08T07:00:18.262+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_minio_script> on 2025-04-07 07:00:00+00:00
+[2025-04-08T07:00:18.267+0000] {standard_task_runner.py:72} INFO - Started process 221 to run task
+[2025-04-08T07:00:18.270+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_minio_script', 'scheduled__2025-04-07T07:00:00+00:00', '--job-id', '236', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmp0pt6c44r']
+[2025-04-08T07:00:18.271+0000] {standard_task_runner.py:105} INFO - Job 236: Subtask run_minio_script
+[2025-04-08T07:00:18.309+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-04-07T07:00:00+00:00 [running]> on host 3c3c1f66214b
+[2025-04-08T07:00:18.403+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_minio_script' AIRFLOW_CTX_EXECUTION_DATE='2025-04-07T07:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-07T07:00:00+00:00'
+[2025-04-08T07:00:18.409+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-08T07:00:18.412+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-08T07:00:18.414+0000] {logging_mixin.py:190} INFO - Current task name:run_minio_script state:running start_date:2025-04-08 07:00:18.229524+00:00
+[2025-04-08T07:00:18.415+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-04-08T07:00:18.416+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-08T07:00:18.417+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-08T07:00:18.418+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/minio.py']
+[2025-04-08T07:00:18.427+0000] {subprocess.py:99} INFO - Output:
+[2025-04-08T07:00:20.606+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-04-08T07:00:20.607+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-04-08T07:00:20.776+0000] {subprocess.py:106} INFO - 25/04/08 07:00:20 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-04-08T07:00:36.945+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 8) / 8]                                                                                +-----+----------+-----+-----------+--------+--------+---------+---------+------+----------------------------------------------+
+[2025-04-08T07:00:36.951+0000] {subprocess.py:106} INFO - |city |date      |time |temperature|wind_kph|humidity|feelslike|precip_mm|text  |icon                                          |
+[2025-04-08T07:00:36.952+0000] {subprocess.py:106} INFO - +-----+----------+-----+-----------+--------+--------+---------+---------+------+----------------------------------------------+
+[2025-04-08T07:00:36.955+0000] {subprocess.py:106} INFO - |elche|2025-04-06|04:00|16.0       |17.6    |50      |16.0     |0.0      |Cloudy|//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-04-08T07:00:36.960+0000] {subprocess.py:106} INFO - |elche|2025-04-06|15:00|24.6       |15.2    |25      |24.6     |0.0      |Sunny |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-04-08T07:00:36.963+0000] {subprocess.py:106} INFO - |elche|2025-04-06|09:00|16.1       |13.1    |51      |16.1     |0.0      |Sunny |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-04-08T07:00:36.965+0000] {subprocess.py:106} INFO - |elche|2025-04-06|22:00|18.1       |0.4     |52      |18.1     |0.0      |Sunny |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-04-08T07:00:36.966+0000] {subprocess.py:106} INFO - +-----+----------+-----+-----------+--------+--------+---------+---------+------+----------------------------------------------+
+[2025-04-08T07:00:36.968+0000] {subprocess.py:106} INFO - 
+[2025-04-08T07:00:36.970+0000] {subprocess.py:106} INFO - +------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-04-08T07:00:36.974+0000] {subprocess.py:106} INFO - |city  |date      |time |temperature|wind_kph|humidity|feelslike|precip_mm|text        |icon                                          |
+[2025-04-08T07:00:36.976+0000] {subprocess.py:106} INFO - +------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-04-08T07:00:36.979+0000] {subprocess.py:106} INFO - |madrid|2025-04-06|09:00|9.4        |3.3     |91      |9.4      |0.0      |Mostly Clear|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-04-08T07:00:36.981+0000] {subprocess.py:106} INFO - |madrid|2025-04-06|22:00|13.5       |7.0     |71      |13.5     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-04-08T07:00:36.983+0000] {subprocess.py:106} INFO - |madrid|2025-04-06|04:00|9.8        |2.9     |87      |9.8      |0.0      |Cloudy      |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-04-08T07:00:36.984+0000] {subprocess.py:106} INFO - |madrid|2025-04-06|15:00|16.9       |2.5     |51      |16.9     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-04-08T07:00:36.985+0000] {subprocess.py:106} INFO - +------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-04-08T07:00:36.986+0000] {subprocess.py:106} INFO - 
+[2025-04-08T07:00:36.987+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-04-08T07:00:36.988+0000] {subprocess.py:106} INFO - |city                |date      |time |temperature|wind_kph|humidity|feelslike|precip_mm|text         |icon                                          |
+[2025-04-08T07:00:36.989+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-04-08T07:00:36.990+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-06|22:00|16.9       |2.1     |56      |16.9     |0.0      |Mostly Clear |//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-04-08T07:00:36.991+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-06|15:00|22.8       |16.8    |30      |22.8     |0.0      |Mostly Clear |//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-04-08T07:00:36.992+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-06|09:00|15.6       |7.6     |50      |15.6     |0.0      |Cloudy       |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-04-08T07:00:36.994+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-06|04:00|14.1       |9.4     |57      |14.1     |0.0      |Partly Cloudy|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-04-08T07:00:36.995+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-04-08T07:00:36.996+0000] {subprocess.py:106} INFO - 
+[2025-04-08T07:00:36.997+0000] {subprocess.py:106} INFO - +----------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-04-08T07:00:36.999+0000] {subprocess.py:106} INFO - |city      |date      |time |temperature|wind_kph|humidity|feelslike|precip_mm|text        |icon                                          |
+[2025-04-08T07:00:37.000+0000] {subprocess.py:106} INFO - +----------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-04-08T07:00:37.001+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-06|22:00|16.7       |8.1     |62      |16.7     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-04-08T07:00:37.002+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-06|09:00|14.8       |17.7    |64      |14.8     |0.0      |Sunny       |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-04-08T07:00:37.002+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-06|15:00|21.6       |15.8    |52      |21.6     |0.0      |Mostly Clear|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-04-08T07:00:37.004+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-06|04:00|15.1       |16.3    |61      |15.1     |0.0      |Cloudy      |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-04-08T07:00:37.004+0000] {subprocess.py:106} INFO - +----------+----------+-----+-----------+--------+--------+---------+---------+------------+----------------------------------------------+
+[2025-04-08T07:00:37.005+0000] {subprocess.py:106} INFO - 
+[2025-04-08T07:00:37.006+0000] {subprocess.py:106} INFO - +--------+----------+-----+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-04-08T07:00:37.007+0000] {subprocess.py:106} INFO - |city    |date      |time |temperature|wind_kph|humidity|feelslike|precip_mm|text         |icon                                          |
+[2025-04-08T07:00:37.008+0000] {subprocess.py:106} INFO - +--------+----------+-----+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-04-08T07:00:37.010+0000] {subprocess.py:106} INFO - |valencia|2025-04-06|09:00|13.4       |10.0    |65      |13.4     |0.0      |Partly Cloudy|//cdn.weatherapi.com/weather/64x64/day/116.png|
+[2025-04-08T07:00:37.011+0000] {subprocess.py:106} INFO - |valencia|2025-04-06|04:00|13.7       |10.6    |63      |13.7     |0.0      |Cloudy       |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-04-08T07:00:37.012+0000] {subprocess.py:106} INFO - |valencia|2025-04-06|15:00|23.8       |8.1     |31      |23.8     |0.0      |Cloudy       |//cdn.weatherapi.com/weather/64x64/day/119.png|
+[2025-04-08T07:00:37.012+0000] {subprocess.py:106} INFO - |valencia|2025-04-06|22:00|17.7       |3.6     |60      |17.7     |0.0      |Sunny        |//cdn.weatherapi.com/weather/64x64/day/113.png|
+[2025-04-08T07:00:37.013+0000] {subprocess.py:106} INFO - +--------+----------+-----+-----------+--------+--------+---------+---------+-------------+----------------------------------------------+
+[2025-04-08T07:00:37.017+0000] {subprocess.py:106} INFO - 
+[2025-04-08T07:00:42.442+0000] {subprocess.py:106} INFO - [Stage 58:>                                                         (0 + 1) / 1]                                                                                +--------------------+----------+-----+-----------+--------+--------+---------+---------+-------------+--------------------+
+[2025-04-08T07:00:42.443+0000] {subprocess.py:106} INFO - |                city|      date| time|temperature|wind_kph|humidity|feelslike|precip_mm|         text|                icon|
+[2025-04-08T07:00:42.444+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+-------------+--------------------+
+[2025-04-08T07:00:42.444+0000] {subprocess.py:106} INFO - |               elche|2025-04-06|04:00|       16.0|    17.6|      50|     16.0|      0.0|       Cloudy|//cdn.weatherapi....|
+[2025-04-08T07:00:42.445+0000] {subprocess.py:106} INFO - |               elche|2025-04-06|09:00|       16.1|    13.1|      51|     16.1|      0.0|        Sunny|//cdn.weatherapi....|
+[2025-04-08T07:00:42.446+0000] {subprocess.py:106} INFO - |               elche|2025-04-06|15:00|       24.6|    15.2|      25|     24.6|      0.0|        Sunny|//cdn.weatherapi....|
+[2025-04-08T07:00:42.447+0000] {subprocess.py:106} INFO - |               elche|2025-04-06|22:00|       18.1|     0.4|      52|     18.1|      0.0|        Sunny|//cdn.weatherapi....|
+[2025-04-08T07:00:42.447+0000] {subprocess.py:106} INFO - |              madrid|2025-04-06|04:00|        9.8|     2.9|      87|      9.8|      0.0|       Cloudy|//cdn.weatherapi....|
+[2025-04-08T07:00:42.448+0000] {subprocess.py:106} INFO - |              madrid|2025-04-06|09:00|        9.4|     3.3|      91|      9.4|      0.0| Mostly Clear|//cdn.weatherapi....|
+[2025-04-08T07:00:42.449+0000] {subprocess.py:106} INFO - |              madrid|2025-04-06|15:00|       16.9|     2.5|      51|     16.9|      0.0|        Sunny|//cdn.weatherapi....|
+[2025-04-08T07:00:42.449+0000] {subprocess.py:106} INFO - |              madrid|2025-04-06|22:00|       13.5|     7.0|      71|     13.5|      0.0|        Sunny|//cdn.weatherapi....|
+[2025-04-08T07:00:42.450+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-06|04:00|       14.1|     9.4|      57|     14.1|      0.0|Partly Cloudy|//cdn.weatherapi....|
+[2025-04-08T07:00:42.451+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-06|09:00|       15.6|     7.6|      50|     15.6|      0.0|       Cloudy|//cdn.weatherapi....|
+[2025-04-08T07:00:42.451+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-06|15:00|       22.8|    16.8|      30|     22.8|      0.0| Mostly Clear|//cdn.weatherapi....|
+[2025-04-08T07:00:42.452+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-06|22:00|       16.9|     2.1|      56|     16.9|      0.0| Mostly Clear|//cdn.weatherapi....|
+[2025-04-08T07:00:42.452+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-06|04:00|       15.1|    16.3|      61|     15.1|      0.0|       Cloudy|//cdn.weatherapi....|
+[2025-04-08T07:00:42.453+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-06|09:00|       14.8|    17.7|      64|     14.8|      0.0|        Sunny|//cdn.weatherapi....|
+[2025-04-08T07:00:42.454+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-06|15:00|       21.6|    15.8|      52|     21.6|      0.0| Mostly Clear|//cdn.weatherapi....|
+[2025-04-08T07:00:42.454+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-06|22:00|       16.7|     8.1|      62|     16.7|      0.0|        Sunny|//cdn.weatherapi....|
+[2025-04-08T07:00:42.455+0000] {subprocess.py:106} INFO - |            valencia|2025-04-06|04:00|       13.7|    10.6|      63|     13.7|      0.0|       Cloudy|//cdn.weatherapi....|
+[2025-04-08T07:00:42.456+0000] {subprocess.py:106} INFO - |            valencia|2025-04-06|09:00|       13.4|    10.0|      65|     13.4|      0.0|Partly Cloudy|//cdn.weatherapi....|
+[2025-04-08T07:00:42.456+0000] {subprocess.py:106} INFO - |            valencia|2025-04-06|15:00|       23.8|     8.1|      31|     23.8|      0.0|       Cloudy|//cdn.weatherapi....|
+[2025-04-08T07:00:42.457+0000] {subprocess.py:106} INFO - |            valencia|2025-04-06|22:00|       17.7|     3.6|      60|     17.7|      0.0|        Sunny|//cdn.weatherapi....|
+[2025-04-08T07:00:42.457+0000] {subprocess.py:106} INFO - +--------------------+----------+-----+-----------+--------+--------+---------+---------+-------------+--------------------+
+[2025-04-08T07:00:42.458+0000] {subprocess.py:106} INFO - 
+[2025-04-08T07:00:42.459+0000] {subprocess.py:106} INFO - Nombre de la carpeta: 2025-04-06
+[2025-04-08T07:00:42.459+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmpe5gu8q5t/2025-04-06/part-00000-d7d98299-26de-499b-ad87-87b47628fd02-c000.snappy.parquet
+[2025-04-08T07:00:42.460+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: 2025-04-06/2025-04-06.parquet
+[2025-04-08T07:00:42.942+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-08T07:00:42.964+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-08T07:00:42.965+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_minio_script, run_id=scheduled__2025-04-07T07:00:00+00:00, execution_date=20250407T070000, start_date=20250408T070018, end_date=20250408T070042
+[2025-04-08T07:00:42.984+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-08T07:00:42.985+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-08T07:00:42.986+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-04-08 07:00:00.191134+00:00
+[2025-04-08T07:00:42.987+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-04-08T07:00:43.004+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-08T07:00:43.025+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-08T07:00:43.028+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

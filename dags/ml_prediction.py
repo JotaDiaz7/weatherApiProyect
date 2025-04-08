@@ -2,9 +2,9 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from pyspark.sql.window import Window
 from pyspark.ml.feature import VectorAssembler,StandardScaler
-from pyspark.ml.regression import LinearRegression
+from pyspark.ml.regression import GBTRegressor
 from datetime import timedelta, date, time as dt_time
-from utils import set_data_minio, set_data_postgres
+from utils import set_data_minio, set_data_postgres, param_reliability
 import math
 from pyspark.ml import Pipeline
 
@@ -31,48 +31,55 @@ def main(name):
         window_spec = Window.partitionBy("city").orderBy("date", "time") #ventana basada en city 
 
         for column in columns:
-            df = df.withColumn("lag_" + column, lag(column, 1).over(window_spec))    
-
+            df = df.withColumn("lag_" + column + "_1", lag(column, 1).over(window_spec)) 
+            df = df.withColumn("lag_" + column + "_2", lag(column, 2).over(window_spec))
+            
         #Representamos la hora de forma cíclica
         df = df.withColumn("hour", hour(col("time")))
         df = df.withColumn("sin_hour", sin(col("hour") * (2 * math.pi / 24)))
         df = df.withColumn("cos_hour", cos(col("hour") * (2 * math.pi / 24)))
         
-        # Eliminar filas con valores nulos en las columnas necesarias
+        # Eliminamos filas con valores nulos en las columnas necesarias
         for column in columns:
-            df = df.na.drop(subset=["lag_" + column, column, "sin_hour", "cos_hour"])
-
-        fecha_corte = "2023-12-31"  # División para especificar el entrenamiento
+            df = df.na.drop(subset=["lag_" + column + "_1", "lag_" + column + "_2", column, "sin_hour", "cos_hour"])
+            
+        fecha_corte = date.today() - timedelta(days=1)  # División para especificar el entrenamiento
 
         cities = [row.city for row in df.select("city").distinct().collect()] #Cogemos todas las ciudades
         hours = [row.time for row in df.select("time").distinct().collect()]
         n_dias = 1
         all_predictions = []
-        ultima_fecha = date.today()
 
         for column in columns:
-            lag_col = "lag_"+column
+            lag1 = "lag_" + column + "_1"
+            lag2 = "lag_" + column + "_2"
+            
             #Filtramos los datos para el entrenamiento
             train = df.filter(col("date") <= lit(fecha_corte))
             
             vector = VectorAssembler(#Combina los datos de las columnas en un vector
-                inputCols=[lag_col, "sin_hour", "cos_hour"], 
+                inputCols=[lag1, lag2, "sin_hour", "cos_hour"], 
                 outputCol="features_unscaled"
             )
             # Escalar las características para que tengan una media cero y varianza uno
             scaler = StandardScaler(inputCol="features_unscaled", outputCol="features")
             
-            lr = LinearRegression(featuresCol="features", labelCol=column)#Predice los datos finales mediante los vectores escalados
-            pipeline = Pipeline(stages=[vector, scaler, lr])#Encadena todas las etapas
+            #Modelo mediante árboles, capaz de capturar relaciones complejas 
+            gbt = GBTRegressor(featuresCol="features", labelCol=column, maxIter=50)            
+            pipeline = Pipeline(stages=[vector, scaler, gbt])#Encadena todas las etapas
             model = pipeline.fit(train)#Entrena al modelo
 
+            #Vamos a comprobar la fiabilidad de nuestro modelo
+            param_reliability(model, train, column)
+            
             for city in cities:
                 df_city = df.filter(col("city") == city)
                 last_data = df_city.orderBy("date", ascending=False).first()
                 if not last_data:
                     continue
                 lag_actual = last_data[column]
-
+                lag_prev = last_data[column]  
+                
                 for i in range(1, n_dias + 1):
                     nueva_fecha = date.today() + timedelta(days=i) 
                     fecha_str = nueva_fecha.strftime("%Y-%m-%d")
@@ -83,8 +90,8 @@ def main(name):
                         cos_hour_val = math.cos(hour_int * (2 * math.pi / 24))
                                                 
                         features_df = spark.createDataFrame(
-                            [(float(lag_actual), sin_hour_val, cos_hour_val)], 
-                            [lag_col, "sin_hour", "cos_hour"]
+                            [(float(lag_actual), float(lag_prev), sin_hour_val, cos_hour_val)],
+                            [lag1, lag2, "sin_hour", "cos_hour"]
                         )
                         
                         prediction = model.transform(features_df).collect()[0]["prediction"]
@@ -94,7 +101,8 @@ def main(name):
                         all_predictions.append((city, fecha_str, time_str, column, prediction))
                         
                         lag_actual = prediction
-
+                        lag_prev = lag_actual
+                        
         df_futuro = spark.createDataFrame(all_predictions, ["city", "date", "time", "target", "prediction"])
         df_futuro = df_futuro.groupBy("city", "date", "time").pivot("target").agg({"prediction": "first"}).orderBy("city","time")
         df_futuro.show(truncate=False)

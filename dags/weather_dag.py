@@ -12,7 +12,7 @@ with DAG(
     dag_id='daily_weather_etl',
     default_args=default_args,
     description='Ejecuta el script main.py una vez al día',
-    schedule_interval='0 7 * * *',  # Ejecutar todos los días a las 9 a.m., pero le restamos una hora porque el horario es en UTC
+    schedule_interval='0 7 * * 1-5',
     start_date=datetime(2025, 3, 21),
     catchup=False,
     tags=['weather'],
@@ -39,3 +39,4 @@ with DAG(
     )
 
     run_script >> run_script_minio >> run_script_postgres >> run_script_prediction
+    # run_script >> run_script_prediction
