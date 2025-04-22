@@ -11,24 +11,34 @@
     
 
 WITH base AS (
-    SELECT *
-    FROM "airflow"."pro_raw_api"."daily_weather"
-    WHERE EXTRACT(MONTH FROM CAST(date AS timestamp)) IN (6, 7, 8)
-),
-max_temp AS (
-    SELECT 
+    SELECT
         city,
-        EXTRACT(YEAR FROM CAST(date AS timestamp)) AS year,
-        MAX(temperature) AS max_temp
+        CAST(local_time AS DATE) AS date,
+        CAST(local_time AS TIMESTAMP) AS ts,
+        temperature
+    FROM "airflow"."pro_raw_api"."daily_weather"
+    WHERE EXTRACT(MONTH FROM CAST(local_time AS TIMESTAMP)) IN (6, 7, 8)
+),
+
+ranked AS (
+    SELECT
+        city,
+        date,
+        temperature,
+        EXTRACT(YEAR FROM ts) AS year,
+        ROW_NUMBER() OVER (
+            PARTITION BY city, EXTRACT(YEAR FROM ts)
+            ORDER BY temperature DESC
+        ) AS rn
     FROM base
-    GROUP BY city, EXTRACT(YEAR FROM CAST(date AS timestamp))
 )
 
-SELECT b.*
-FROM base b
-JOIN max_temp m 
-    ON b.city = m.city 
-    AND EXTRACT(YEAR FROM CAST(b.date AS timestamp)) = m.year
-    AND b.temperature = m.max_temp
+SELECT
+    city,
+    date,
+    temperature
+FROM ranked
+WHERE rn = 1
+ORDER BY city, date
   );
   

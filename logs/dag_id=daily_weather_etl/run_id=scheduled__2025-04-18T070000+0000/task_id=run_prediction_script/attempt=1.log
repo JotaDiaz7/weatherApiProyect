@@ -1,0 +1,82 @@
+[2025-04-22T06:21:41.871+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-22T06:21:42.001+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_prediction_script scheduled__2025-04-18T07:00:00+00:00 [queued]>
+[2025-04-22T06:21:42.012+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_prediction_script scheduled__2025-04-18T07:00:00+00:00 [queued]>
+[2025-04-22T06:21:42.015+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-22T06:21:42.027+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_prediction_script> on 2025-04-18 07:00:00+00:00
+[2025-04-22T06:21:42.033+0000] {standard_task_runner.py:72} INFO - Started process 5765 to run task
+[2025-04-22T06:21:42.037+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_prediction_script', 'scheduled__2025-04-18T07:00:00+00:00', '--job-id', '348', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmp9ek7dxc5']
+[2025-04-22T06:21:42.039+0000] {standard_task_runner.py:105} INFO - Job 348: Subtask run_prediction_script
+[2025-04-22T06:21:42.083+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_prediction_script scheduled__2025-04-18T07:00:00+00:00 [running]> on host 3c3c1f66214b
+[2025-04-22T06:21:42.154+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_prediction_script' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T07:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-18T07:00:00+00:00'
+[2025-04-22T06:21:42.156+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-22T06:21:42.157+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-22T06:21:42.157+0000] {logging_mixin.py:190} INFO - Current task name:run_prediction_script state:running start_date:2025-04-22 06:21:42.002258+00:00
+[2025-04-22T06:21:42.158+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-04-22T06:21:42.159+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-22T06:21:42.160+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-22T06:21:42.162+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/ml_prediction.py']
+[2025-04-22T06:21:42.172+0000] {subprocess.py:99} INFO - Output:
+[2025-04-22T06:21:44.482+0000] {subprocess.py:106} INFO - 25/04/22 06:21:44 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-04-22T06:21:44.641+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-04-22T06:21:44.643+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-04-22T06:22:10.273+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 1) / 1]                                                                                25/04/22 06:22:10 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+[2025-04-22T06:22:10.281+0000] {subprocess.py:106} INFO - 25/04/22 06:22:10 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.VectorBLAS
+[2025-04-22T06:23:19.952+0000] {subprocess.py:106} INFO - [Stage 789:>                                                        (0 + 8) / 8]                                                                                [Stage 3286:>                                                       (0 + 1) / 1]                                                                                Prarámetros de fiabilidad de temperature: RMSE = 2.094654425975761, MAE = 1.5615449289757515
+[2025-04-22T06:23:19.954+0000] {subprocess.py:106} INFO -   Margen de error (RMSE): 4.93 %
+[2025-04-22T06:23:19.954+0000] {subprocess.py:106} INFO -   Acierto (100 - RMSE error margin): 95.07 %
+[2025-04-22T06:23:19.955+0000] {subprocess.py:106} INFO -   Margen de error (MAE): 3.67 %
+[2025-04-22T06:23:19.956+0000] {subprocess.py:106} INFO -   Acierto (100 - MAE error margin): 96.33 %
+[2025-04-22T06:23:19.956+0000] {subprocess.py:106} INFO - Prarámetros de fiabilidad de wind_kph: RMSE = 4.833459537934738, MAE = 3.6504962275972352
+[2025-04-22T06:23:19.957+0000] {subprocess.py:106} INFO -   Margen de error (RMSE): 9.61 %
+[2025-04-22T06:23:19.959+0000] {subprocess.py:106} INFO -   Acierto (100 - RMSE error margin): 90.39 %
+[2025-04-22T06:23:19.960+0000] {subprocess.py:106} INFO -   Margen de error (MAE): 7.26 %
+[2025-04-22T06:23:19.960+0000] {subprocess.py:106} INFO -   Acierto (100 - MAE error margin): 92.74 %
+[2025-04-22T06:23:19.961+0000] {subprocess.py:106} INFO - Prarámetros de fiabilidad de humidity: RMSE = 11.542904887542846, MAE = 8.937436353735192
+[2025-04-22T06:23:19.962+0000] {subprocess.py:106} INFO -   Margen de error (RMSE): 11.54 %
+[2025-04-22T06:23:19.963+0000] {subprocess.py:106} INFO -   Acierto (100 - RMSE error margin): 88.46 %
+[2025-04-22T06:23:19.964+0000] {subprocess.py:106} INFO -   Margen de error (MAE): 8.94 %
+[2025-04-22T06:23:19.965+0000] {subprocess.py:106} INFO -   Acierto (100 - MAE error margin): 91.06 %
+[2025-04-22T06:23:19.966+0000] {subprocess.py:106} INFO - Prarámetros de fiabilidad de precip_mm: RMSE = 0.3946541176160173, MAE = 0.08829170292389373
+[2025-04-22T06:23:19.968+0000] {subprocess.py:106} INFO -   Margen de error (RMSE): 1.77 %
+[2025-04-22T06:23:19.968+0000] {subprocess.py:106} INFO -   Acierto (100 - RMSE error margin): 98.23 %
+[2025-04-22T06:23:19.970+0000] {subprocess.py:106} INFO -   Margen de error (MAE): 0.40 %
+[2025-04-22T06:23:19.971+0000] {subprocess.py:106} INFO -   Acierto (100 - MAE error margin): 99.60 %
+[2025-04-22T06:23:19.972+0000] {subprocess.py:106} INFO - +--------------------+-------------------+------------------+--------------------+------------------+------------------+
+[2025-04-22T06:23:19.973+0000] {subprocess.py:106} INFO - |city                |local_time         |humidity          |precip_mm           |temperature       |wind_kph          |
+[2025-04-22T06:23:19.974+0000] {subprocess.py:106} INFO - +--------------------+-------------------+------------------+--------------------+------------------+------------------+
+[2025-04-22T06:23:19.975+0000] {subprocess.py:106} INFO - |elche               |2025-04-23 04:00:00|58.42279684056441 |0.027653203826005744|13.324448113496674|9.6187515218939   |
+[2025-04-22T06:23:19.975+0000] {subprocess.py:106} INFO - |elche               |2025-04-23 09:00:00|56.53427353626697 |0.021328318780811876|12.83171565120178 |10.012817172024503|
+[2025-04-22T06:23:19.976+0000] {subprocess.py:106} INFO - |elche               |2025-04-23 15:00:00|37.68906224688693 |0.046015006551181716|18.41866275646429 |12.292491496030445|
+[2025-04-22T06:23:19.977+0000] {subprocess.py:106} INFO - |elche               |2025-04-23 22:00:00|59.918686226982814|0.019363620523967454|16.995168267479457|8.478689248765754 |
+[2025-04-22T06:23:19.978+0000] {subprocess.py:106} INFO - |madrid              |2025-04-23 04:00:00|76.28264329907124 |0.027653203826005744|9.161395086038583 |7.430477325335259 |
+[2025-04-22T06:23:19.979+0000] {subprocess.py:106} INFO - |madrid              |2025-04-23 09:00:00|70.72277277831043 |0.021328318780811876|9.26840618485612  |7.675815532163935 |
+[2025-04-22T06:23:19.980+0000] {subprocess.py:106} INFO - |madrid              |2025-04-23 15:00:00|45.65078945339037 |0.046015006551181716|16.95371693792284 |12.623228559324303|
+[2025-04-22T06:23:19.981+0000] {subprocess.py:106} INFO - |madrid              |2025-04-23 22:00:00|70.83156567122538 |0.019363620523967454|14.037409359252608|8.769210599234624 |
+[2025-04-22T06:23:19.982+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-23 04:00:00|59.006582053863   |0.027653203826005744|13.01388844032224 |7.864687899477997 |
+[2025-04-22T06:23:19.983+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-23 09:00:00|56.53427353626697 |0.021328318780811876|12.83171565120178 |8.04361740220091  |
+[2025-04-22T06:23:19.984+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-23 15:00:00|37.68906224688693 |0.046015006551181716|18.41866275646429 |12.030065607130554|
+[2025-04-22T06:23:19.985+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-23 22:00:00|59.918686226982814|0.019363620523967454|16.995168267479457|8.478689248765754 |
+[2025-04-22T06:23:19.985+0000] {subprocess.py:106} INFO - |torrevieja          |2025-04-23 04:00:00|71.97574385022625 |0.027653203826005744|13.01388844032224 |9.971362756043202 |
+[2025-04-22T06:23:19.986+0000] {subprocess.py:106} INFO - |torrevieja          |2025-04-23 09:00:00|67.75508896180864 |0.021328318780811876|12.83171565120178 |9.927513583793866 |
+[2025-04-22T06:23:19.987+0000] {subprocess.py:106} INFO - |torrevieja          |2025-04-23 15:00:00|43.18366232563827 |0.046015006551181716|18.41866275646429 |12.430823953848405|
+[2025-04-22T06:23:19.988+0000] {subprocess.py:106} INFO - |torrevieja          |2025-04-23 22:00:00|67.44288054051717 |0.019363620523967454|16.995168267479457|8.478689248765754 |
+[2025-04-22T06:23:19.988+0000] {subprocess.py:106} INFO - |valencia            |2025-04-23 04:00:00|61.65059449066905 |0.027653203826005744|13.883456260873174|8.369330249833366 |
+[2025-04-22T06:23:19.989+0000] {subprocess.py:106} INFO - |valencia            |2025-04-23 09:00:00|58.507105089172974|0.021328318780811876|13.541511886075451|9.062975910487388 |
+[2025-04-22T06:23:19.990+0000] {subprocess.py:106} INFO - |valencia            |2025-04-23 15:00:00|37.05206378223331 |0.046015006551181716|18.768928149276807|11.680185031032876|
+[2025-04-22T06:23:19.990+0000] {subprocess.py:106} INFO - |valencia            |2025-04-23 22:00:00|59.918686226982814|0.019363620523967454|17.810585299011084|8.847736250168218 |
+[2025-04-22T06:23:19.991+0000] {subprocess.py:106} INFO - +--------------------+-------------------+------------------+--------------------+------------------+------------------+
+[2025-04-22T06:23:19.992+0000] {subprocess.py:106} INFO - 
+[2025-04-22T06:23:19.993+0000] {subprocess.py:106} INFO - Nombre de la carpeta: 2025-04-23
+[2025-04-22T06:23:19.994+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmp84aflf13/2025-04-23/part-00000-2b5ee17f-0ac5-4899-a869-fa5301e7bb23-c000.snappy.parquet
+[2025-04-22T06:23:19.994+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: 2025-04-23/2025-04-23.parquet
+[2025-04-22T06:23:19.996+0000] {subprocess.py:106} INFO - Datos registrados correctamente en la bbdd
+[2025-04-22T06:23:20.495+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-22T06:23:20.515+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-22T06:23:20.516+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_prediction_script, run_id=scheduled__2025-04-18T07:00:00+00:00, execution_date=20250418T070000, start_date=20250422T062142, end_date=20250422T062320
+[2025-04-22T06:23:20.534+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-22T06:23:20.535+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-22T06:23:20.535+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-04-22 06:20:56.552931+00:00
+[2025-04-22T06:23:20.536+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-04-22T06:23:20.552+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-22T06:23:20.564+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-22T06:23:20.566+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

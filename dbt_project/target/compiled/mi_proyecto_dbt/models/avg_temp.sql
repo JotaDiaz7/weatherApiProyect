@@ -4,7 +4,7 @@
 WITH base AS (
     SELECT
         city,
-        CAST(date AS DATE) AS date_day,
+        CAST(local_time AS DATE) AS date_day,
         CAST(temperature AS FLOAT) AS temperature
     FROM "airflow"."pro_raw_api"."daily_weather" 
 )

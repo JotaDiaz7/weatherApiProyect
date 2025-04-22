@@ -38,5 +38,6 @@ with DAG(
         bash_command='python /opt/airflow/dags/ml_prediction.py',
     )
 
+    # run_script
     run_script >> run_script_minio >> run_script_postgres >> run_script_prediction
     # run_script >> run_script_prediction

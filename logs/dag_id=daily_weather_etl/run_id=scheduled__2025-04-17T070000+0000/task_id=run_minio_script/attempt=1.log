@@ -1,0 +1,246 @@
+[2025-04-22T06:20:15.175+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-22T06:20:15.217+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-04-17T07:00:00+00:00 [queued]>
+[2025-04-22T06:20:15.241+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-04-17T07:00:00+00:00 [queued]>
+[2025-04-22T06:20:15.243+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-22T06:20:15.288+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_minio_script> on 2025-04-17 07:00:00+00:00
+[2025-04-22T06:20:15.299+0000] {standard_task_runner.py:72} INFO - Started process 393 to run task
+[2025-04-22T06:20:15.306+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_minio_script', 'scheduled__2025-04-17T07:00:00+00:00', '--job-id', '344', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmpbmnba3rt']
+[2025-04-22T06:20:15.315+0000] {standard_task_runner.py:105} INFO - Job 344: Subtask run_minio_script
+[2025-04-22T06:20:15.397+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-04-17T07:00:00+00:00 [running]> on host 3c3c1f66214b
+[2025-04-22T06:20:15.861+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_minio_script' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T07:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-17T07:00:00+00:00'
+[2025-04-22T06:20:15.864+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-22T06:20:15.865+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-22T06:20:15.868+0000] {logging_mixin.py:190} INFO - Current task name:run_minio_script state:running start_date:2025-04-22 06:20:15.220451+00:00
+[2025-04-22T06:20:15.873+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-04-22T06:20:15.876+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-22T06:20:15.879+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-22T06:20:15.881+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/minio.py']
+[2025-04-22T06:20:15.905+0000] {subprocess.py:99} INFO - Output:
+[2025-04-22T06:20:20.444+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-04-22T06:20:20.449+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-04-22T06:20:20.787+0000] {subprocess.py:106} INFO - 25/04/22 06:20:20 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-04-22T06:20:22.352+0000] {subprocess.py:106} INFO - 25/04/22 06:20:22 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2025-04-22T06:20:49.663+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 8) / 8]                                                                                [Stage 58:>                                                         (0 + 1) / 1]                                                                                +-----+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.665+0000] {subprocess.py:106} INFO - |city |local_time         |temperature|wind_kph|humidity|feelslike|precip_mm|text         |
+[2025-04-22T06:20:49.665+0000] {subprocess.py:106} INFO - +-----+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.666+0000] {subprocess.py:106} INFO - |elche|2025-04-20 04:00:00|12.4       |9.8     |50      |12.4     |0.0      |Sunny        |
+[2025-04-22T06:20:49.667+0000] {subprocess.py:106} INFO - |elche|2025-04-20 09:00:00|13.5       |9.8     |48      |13.5     |0.0      |Partly Cloudy|
+[2025-04-22T06:20:49.668+0000] {subprocess.py:106} INFO - |elche|2025-04-20 15:00:00|14.2       |20.6    |57      |14.2     |1.7      |Light Rain   |
+[2025-04-22T06:20:49.669+0000] {subprocess.py:106} INFO - |elche|2025-04-20 22:00:00|16.2       |12.1    |43      |16.2     |0.0      |Sunny        |
+[2025-04-22T06:20:49.669+0000] {subprocess.py:106} INFO - +-----+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.670+0000] {subprocess.py:106} INFO - 
+[2025-04-22T06:20:49.671+0000] {subprocess.py:106} INFO - +------+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.671+0000] {subprocess.py:106} INFO - |city  |local_time         |temperature|wind_kph|humidity|feelslike|precip_mm|text         |
+[2025-04-22T06:20:49.672+0000] {subprocess.py:106} INFO - +------+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.673+0000] {subprocess.py:106} INFO - |madrid|2025-04-20 04:00:00|6.2        |17.9    |89      |6.2      |0.1      |Light Drizzle|
+[2025-04-22T06:20:49.673+0000] {subprocess.py:106} INFO - |madrid|2025-04-20 09:00:00|6.4        |10.9    |93      |6.4      |0.0      |Mostly Clear |
+[2025-04-22T06:20:49.674+0000] {subprocess.py:106} INFO - |madrid|2025-04-20 15:00:00|13.0       |15.3    |46      |13.0     |0.0      |Cloudy       |
+[2025-04-22T06:20:49.675+0000] {subprocess.py:106} INFO - |madrid|2025-04-20 22:00:00|10.7       |3.2     |71      |10.7     |0.0      |Partly Cloudy|
+[2025-04-22T06:20:49.676+0000] {subprocess.py:106} INFO - +------+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.676+0000] {subprocess.py:106} INFO - 
+[2025-04-22T06:20:49.677+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+----------------+
+[2025-04-22T06:20:49.678+0000] {subprocess.py:106} INFO - |city                |local_time         |temperature|wind_kph|humidity|feelslike|precip_mm|text            |
+[2025-04-22T06:20:49.679+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+----------------+
+[2025-04-22T06:20:49.679+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-20 04:00:00|11.8       |7.7     |54      |11.8     |0.0      |Sunny           |
+[2025-04-22T06:20:49.680+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-20 09:00:00|13.6       |8.3     |50      |13.6     |0.0      |Cloudy          |
+[2025-04-22T06:20:49.681+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-20 15:00:00|14.9       |18.2    |58      |14.9     |0.9      |Moderate Drizzle|
+[2025-04-22T06:20:49.682+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-20 22:00:00|14.8       |6.2     |48      |14.8     |0.0      |Sunny           |
+[2025-04-22T06:20:49.682+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+----------------+
+[2025-04-22T06:20:49.683+0000] {subprocess.py:106} INFO - 
+[2025-04-22T06:20:49.684+0000] {subprocess.py:106} INFO - +----------+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.685+0000] {subprocess.py:106} INFO - |city      |local_time         |temperature|wind_kph|humidity|feelslike|precip_mm|text         |
+[2025-04-22T06:20:49.685+0000] {subprocess.py:106} INFO - +----------+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.686+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-20 04:00:00|12.0       |5.7     |73      |12.0     |0.0      |Sunny        |
+[2025-04-22T06:20:49.687+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-20 09:00:00|13.2       |13.5    |65      |13.2     |0.0      |Cloudy       |
+[2025-04-22T06:20:49.688+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-20 15:00:00|18.4       |13.2    |42      |18.4     |0.2      |Light Drizzle|
+[2025-04-22T06:20:49.688+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-20 22:00:00|15.0       |9.7     |64      |15.0     |0.0      |Sunny        |
+[2025-04-22T06:20:49.689+0000] {subprocess.py:106} INFO - +----------+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.690+0000] {subprocess.py:106} INFO - 
+[2025-04-22T06:20:49.691+0000] {subprocess.py:106} INFO - +--------+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.692+0000] {subprocess.py:106} INFO - |city    |local_time         |temperature|wind_kph|humidity|feelslike|precip_mm|text         |
+[2025-04-22T06:20:49.692+0000] {subprocess.py:106} INFO - +--------+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.693+0000] {subprocess.py:106} INFO - |valencia|2025-04-20 04:00:00|13.2       |13.3    |53      |13.2     |0.0      |Sunny        |
+[2025-04-22T06:20:49.694+0000] {subprocess.py:106} INFO - |valencia|2025-04-20 09:00:00|13.3       |13.5    |51      |13.3     |0.0      |Mostly Clear |
+[2025-04-22T06:20:49.694+0000] {subprocess.py:106} INFO - |valencia|2025-04-20 15:00:00|20.9       |6.7     |28      |20.9     |0.0      |Partly Cloudy|
+[2025-04-22T06:20:49.695+0000] {subprocess.py:106} INFO - |valencia|2025-04-20 22:00:00|16.7       |6.6     |49      |16.7     |0.0      |Mostly Clear |
+[2025-04-22T06:20:49.696+0000] {subprocess.py:106} INFO - +--------+-------------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-22T06:20:49.697+0000] {subprocess.py:106} INFO - 
+[2025-04-22T06:20:49.697+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+----------------+
+[2025-04-22T06:20:49.698+0000] {subprocess.py:106} INFO - |                city|         local_time|temperature|wind_kph|humidity|feelslike|precip_mm|            text|
+[2025-04-22T06:20:49.698+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+----------------+
+[2025-04-22T06:20:49.699+0000] {subprocess.py:106} INFO - |               elche|2025-04-20 04:00:00|       12.4|     9.8|      50|     12.4|      0.0|           Sunny|
+[2025-04-22T06:20:49.700+0000] {subprocess.py:106} INFO - |               elche|2025-04-20 09:00:00|       13.5|     9.8|      48|     13.5|      0.0|   Partly Cloudy|
+[2025-04-22T06:20:49.701+0000] {subprocess.py:106} INFO - |               elche|2025-04-20 15:00:00|       14.2|    20.6|      57|     14.2|      1.7|      Light Rain|
+[2025-04-22T06:20:49.701+0000] {subprocess.py:106} INFO - |               elche|2025-04-20 22:00:00|       16.2|    12.1|      43|     16.2|      0.0|           Sunny|
+[2025-04-22T06:20:49.702+0000] {subprocess.py:106} INFO - |              madrid|2025-04-20 04:00:00|        6.2|    17.9|      89|      6.2|      0.1|   Light Drizzle|
+[2025-04-22T06:20:49.703+0000] {subprocess.py:106} INFO - |              madrid|2025-04-20 09:00:00|        6.4|    10.9|      93|      6.4|      0.0|    Mostly Clear|
+[2025-04-22T06:20:49.704+0000] {subprocess.py:106} INFO - |              madrid|2025-04-20 15:00:00|       13.0|    15.3|      46|     13.0|      0.0|          Cloudy|
+[2025-04-22T06:20:49.704+0000] {subprocess.py:106} INFO - |              madrid|2025-04-20 22:00:00|       10.7|     3.2|      71|     10.7|      0.0|   Partly Cloudy|
+[2025-04-22T06:20:49.705+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-20 04:00:00|       11.8|     7.7|      54|     11.8|      0.0|           Sunny|
+[2025-04-22T06:20:49.706+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-20 09:00:00|       13.6|     8.3|      50|     13.6|      0.0|          Cloudy|
+[2025-04-22T06:20:49.707+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-20 15:00:00|       14.9|    18.2|      58|     14.9|      0.9|Moderate Drizzle|
+[2025-04-22T06:20:49.708+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-20 22:00:00|       14.8|     6.2|      48|     14.8|      0.0|           Sunny|
+[2025-04-22T06:20:49.709+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-20 04:00:00|       12.0|     5.7|      73|     12.0|      0.0|           Sunny|
+[2025-04-22T06:20:49.710+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-20 09:00:00|       13.2|    13.5|      65|     13.2|      0.0|          Cloudy|
+[2025-04-22T06:20:49.711+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-20 15:00:00|       18.4|    13.2|      42|     18.4|      0.2|   Light Drizzle|
+[2025-04-22T06:20:49.712+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-20 22:00:00|       15.0|     9.7|      64|     15.0|      0.0|           Sunny|
+[2025-04-22T06:20:49.713+0000] {subprocess.py:106} INFO - |            valencia|2025-04-20 04:00:00|       13.2|    13.3|      53|     13.2|      0.0|           Sunny|
+[2025-04-22T06:20:49.714+0000] {subprocess.py:106} INFO - |            valencia|2025-04-20 09:00:00|       13.3|    13.5|      51|     13.3|      0.0|    Mostly Clear|
+[2025-04-22T06:20:49.714+0000] {subprocess.py:106} INFO - |            valencia|2025-04-20 15:00:00|       20.9|     6.7|      28|     20.9|      0.0|   Partly Cloudy|
+[2025-04-22T06:20:49.715+0000] {subprocess.py:106} INFO - |            valencia|2025-04-20 22:00:00|       16.7|     6.6|      49|     16.7|      0.0|    Mostly Clear|
+[2025-04-22T06:20:49.716+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+----------------+
+[2025-04-22T06:20:49.717+0000] {subprocess.py:106} INFO - 
+[2025-04-22T06:20:49.717+0000] {subprocess.py:106} INFO - Nombre de la carpeta: 2025-04-20
+[2025-04-22T06:20:49.718+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmpov5mrzur/2025-04-20/part-00000-6eed362e-f9a7-4ace-b633-017add6fb5f1-c000.snappy.parquet
+[2025-04-22T06:20:49.719+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: 2025-04-20/2025-04-20.parquet
+[2025-04-22T06:20:50.215+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-22T06:20:50.223+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 790, in _execute_task
+    task_instance.xcom_push(key=XCOM_RETURN_KEY, value=xcom_value, session=session_or_null)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3645, in xcom_push
+    XCom.set(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/api_internal/internal_api_call.py", line 166, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/xcom.py", line 226, in set
+    raise ValueError(f"DAG run not found on DAG {dag_id!r} with ID {run_id!r}")
+ValueError: DAG run not found on DAG 'daily_weather_etl' with ID 'scheduled__2025-04-17T07:00:00+00:00'
+[2025-04-22T06:20:50.231+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-04-22T06:20:50.232+0000] {logging_mixin.py:190} INFO - Task start:2025-04-22 06:20:15.220451+00:00 end:2025-04-22 06:20:50.230828+00:00 duration:35.010377
+[2025-04-22T06:20:50.233+0000] {logging_mixin.py:190} INFO - Task:<Task(BashOperator): run_minio_script> dag:<DAG: daily_weather_etl> dagrun:<DagRun daily_weather_etl @ 2025-04-17 07:00:00+00:00: scheduled__2025-04-17T07:00:00+00:00, state:running, queued_at: 2025-04-22 06:19:54.148854+00:00. externally triggered: False>
+[2025-04-22T06:20:50.233+0000] {logging_mixin.py:190} INFO - Failure caused by DAG run not found on DAG 'daily_weather_etl' with ID 'scheduled__2025-04-17T07:00:00+00:00'
+[2025-04-22T06:20:50.234+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=daily_weather_etl, task_id=run_minio_script, run_id=scheduled__2025-04-17T07:00:00+00:00, execution_date=20250417T070000, start_date=20250422T062015, end_date=20250422T062050
+[2025-04-22T06:20:50.238+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-22T06:20:50.240+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 344 for task run_minio_script ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(daily_weather_etl, run_minio_script, scheduled__2025-04-17T07:00:00+00:00, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'run_minio_script', 'dag_id': 'daily_weather_etl', 'run_id': 'scheduled__2025-04-17T07:00:00+00:00', 'map_index': -1, 'start_date': datetime.datetime(2025, 4, 22, 6, 20, 15, 220451, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2025, 4, 22, 6, 20, 50, 230828, tzinfo=Timezone('UTC')), 'duration': 35}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 393)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 790, in _execute_task
+    task_instance.xcom_push(key=XCOM_RETURN_KEY, value=xcom_value, session=session_or_null)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3645, in xcom_push
+    XCom.set(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/api_internal/internal_api_call.py", line 166, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/xcom.py", line 226, in set
+    raise ValueError(f"DAG run not found on DAG {dag_id!r} with ID {run_id!r}")
+ValueError: DAG run not found on DAG 'daily_weather_etl' with ID 'scheduled__2025-04-17T07:00:00+00:00'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.ForeignKeyViolation: insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(daily_weather_etl, run_minio_script, scheduled__2025-04-17T07:00:00+00:00, -1) is not present in table "task_instance".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 337, in _run_raw_task
+    ti.handle_failure(e, test_mode, context, session=session)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3434, in handle_failure
+    _handle_failure(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/api_internal/internal_api_call.py", line 166, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 1244, in _handle_failure
+    TaskInstance.save_to_db(task_instance, session)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/api_internal/internal_api_call.py", line 166, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3402, in save_to_db
+    ti.get_dagrun().refresh_from_db()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/usr/local/lib/python3.9/contextlib.py", line 126, in __exit__
+    next(self.gen)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/utils/session.py", line 57, in create_session
+    session.commit()
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 1454, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 832, in commit
+    self._prepare_impl()
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 811, in _prepare_impl
+    self.session.flush()
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3449, in flush
+    self._flush(objects)
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3589, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3549, in _flush
+    flush_context.execute()
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    _emit_insert_statements(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/orm/persistence.py", line 1238, in _emit_insert_statements
+    result = connection._execute_20(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1710, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1577, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/airflow/.local/lib/python3.9/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(daily_weather_etl, run_minio_script, scheduled__2025-04-17T07:00:00+00:00, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'run_minio_script', 'dag_id': 'daily_weather_etl', 'run_id': 'scheduled__2025-04-17T07:00:00+00:00', 'map_index': -1, 'start_date': datetime.datetime(2025, 4, 22, 6, 20, 15, 220451, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2025, 4, 22, 6, 20, 50, 230828, tzinfo=Timezone('UTC')), 'duration': 35}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+[2025-04-22T06:20:50.286+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-22T06:20:50.293+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

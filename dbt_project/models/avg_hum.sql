@@ -4,7 +4,7 @@
 WITH base AS (
     SELECT
         city,
-        CAST(date AS DATE) AS date_day,
+        CAST(local_time AS DATE) AS date_day,
         CAST(humidity AS INT) AS humidity
     FROM {{ source('my_source', 'daily_weather') }}  
 )

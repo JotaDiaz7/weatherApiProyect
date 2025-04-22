@@ -1,0 +1,187 @@
+[2025-04-09T08:34:49.780+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-09T08:34:49.932+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_main_script manual__2025-04-09T08:34:47.655325+00:00 [queued]>
+[2025-04-09T08:34:49.944+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_main_script manual__2025-04-09T08:34:47.655325+00:00 [queued]>
+[2025-04-09T08:34:49.945+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-09T08:34:49.959+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_main_script> on 2025-04-09 08:34:47.655325+00:00
+[2025-04-09T08:34:49.965+0000] {standard_task_runner.py:72} INFO - Started process 5151 to run task
+[2025-04-09T08:34:49.968+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_main_script', 'manual__2025-04-09T08:34:47.655325+00:00', '--job-id', '252', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmpmsdd4sxb']
+[2025-04-09T08:34:49.970+0000] {standard_task_runner.py:105} INFO - Job 252: Subtask run_main_script
+[2025-04-09T08:34:50.017+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_main_script manual__2025-04-09T08:34:47.655325+00:00 [running]> on host 3c3c1f66214b
+[2025-04-09T08:34:50.096+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_main_script' AIRFLOW_CTX_EXECUTION_DATE='2025-04-09T08:34:47.655325+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-09T08:34:47.655325+00:00'
+[2025-04-09T08:34:50.098+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-09T08:34:50.099+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-09T08:34:50.099+0000] {logging_mixin.py:190} INFO - Current task name:run_main_script state:running start_date:2025-04-09 08:34:49.933880+00:00
+[2025-04-09T08:34:50.100+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-04-09T08:34:50.101+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-09T08:34:50.102+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-09T08:34:50.104+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/main.py']
+[2025-04-09T08:34:50.115+0000] {subprocess.py:99} INFO - Output:
+[2025-04-09T08:34:52.975+0000] {subprocess.py:106} INFO - 25/04/09 08:34:52 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-04-09T08:34:53.206+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-04-09T08:34:53.207+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-04-09T08:35:28.386+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 8) / 8][Stage 0:=======>                                                   (1 + 7) / 8]                                                                                [Stage 3:>                                                          (0 + 8) / 8][Stage 5:>                                                          (0 + 1) / 1]                                                                                Ciudades registradas:
+[2025-04-09T08:35:28.388+0000] {subprocess.py:106} INFO - Vamos a crear un histórico de valencia
+[2025-04-09T08:35:28.389+0000] {subprocess.py:106} INFO - +--------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:28.390+0000] {subprocess.py:106} INFO - |city    |time            |temperature|wind_kph|humidity|feelslike|precip_mm|text         |
+[2025-04-09T08:35:28.390+0000] {subprocess.py:106} INFO - +--------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:28.391+0000] {subprocess.py:106} INFO - |valencia|2021-01-01 04:00|7.1        |5.4     |77      |7.1      |0.0      |Partly Cloudy|
+[2025-04-09T08:35:28.392+0000] {subprocess.py:106} INFO - |valencia|2021-01-01 09:00|7.4        |15.6    |73      |7.4      |0.3      |Light Drizzle|
+[2025-04-09T08:35:28.393+0000] {subprocess.py:106} INFO - |valencia|2021-01-01 15:00|12.1       |15.4    |42      |12.1     |0.0      |Partly Cloudy|
+[2025-04-09T08:35:28.394+0000] {subprocess.py:106} INFO - |valencia|2021-01-01 22:00|8.1        |19.7    |50      |8.1      |0.0      |Sunny        |
+[2025-04-09T08:35:28.395+0000] {subprocess.py:106} INFO - |valencia|2021-01-02 04:00|5.7        |14.8    |55      |5.7      |0.0      |Sunny        |
+[2025-04-09T08:35:28.396+0000] {subprocess.py:106} INFO - |valencia|2021-01-02 09:00|4.7        |19.2    |42      |4.7      |0.0      |Sunny        |
+[2025-04-09T08:35:28.396+0000] {subprocess.py:106} INFO - |valencia|2021-01-02 15:00|11.0       |18.2    |33      |11.0     |0.0      |Partly Cloudy|
+[2025-04-09T08:35:28.397+0000] {subprocess.py:106} INFO - |valencia|2021-01-02 22:00|6.4        |14.8    |34      |6.4      |0.0      |Cloudy       |
+[2025-04-09T08:35:28.398+0000] {subprocess.py:106} INFO - |valencia|2021-01-03 04:00|5.3        |12.0    |50      |5.3      |0.0      |Sunny        |
+[2025-04-09T08:35:28.399+0000] {subprocess.py:106} INFO - |valencia|2021-01-03 09:00|3.9        |11.4    |48      |3.9      |0.0      |Sunny        |
+[2025-04-09T08:35:28.400+0000] {subprocess.py:106} INFO - |valencia|2021-01-03 15:00|12.5       |18.0    |31      |12.5     |0.0      |Sunny        |
+[2025-04-09T08:35:28.401+0000] {subprocess.py:106} INFO - |valencia|2021-01-03 22:00|7.4        |15.0    |46      |7.4      |0.0      |Sunny        |
+[2025-04-09T08:35:28.402+0000] {subprocess.py:106} INFO - |valencia|2021-01-04 04:00|5.9        |14.4    |56      |5.9      |0.0      |Sunny        |
+[2025-04-09T08:35:28.403+0000] {subprocess.py:106} INFO - |valencia|2021-01-04 09:00|4.9        |13.6    |66      |4.9      |0.0      |Sunny        |
+[2025-04-09T08:35:28.405+0000] {subprocess.py:106} INFO - |valencia|2021-01-04 15:00|11.9       |19.8    |34      |11.9     |0.0      |Sunny        |
+[2025-04-09T08:35:28.405+0000] {subprocess.py:106} INFO - |valencia|2021-01-04 22:00|6.0        |13.7    |55      |6.0      |0.0      |Sunny        |
+[2025-04-09T08:35:28.406+0000] {subprocess.py:106} INFO - |valencia|2021-01-05 04:00|3.8        |13.1    |60      |3.8      |0.0      |Sunny        |
+[2025-04-09T08:35:28.407+0000] {subprocess.py:106} INFO - |valencia|2021-01-05 09:00|1.1        |9.0     |67      |1.1      |0.0      |Sunny        |
+[2025-04-09T08:35:28.408+0000] {subprocess.py:106} INFO - |valencia|2021-01-05 15:00|11.1       |5.6     |37      |11.1     |0.0      |Sunny        |
+[2025-04-09T08:35:28.409+0000] {subprocess.py:106} INFO - |valencia|2021-01-05 22:00|3.8        |6.5     |71      |3.8      |0.0      |Sunny        |
+[2025-04-09T08:35:28.410+0000] {subprocess.py:106} INFO - +--------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:28.411+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-04-09T08:35:28.412+0000] {subprocess.py:106} INFO - 
+[2025-04-09T08:35:28.413+0000] {subprocess.py:106} INFO - Nombre de la carpeta: valencia__39_47__0_37
+[2025-04-09T08:35:28.414+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmp5i2mpecl/valencia__39_47__0_37/part-00000-42efb61f-6539-4302-a83b-79c4ea1d2e60-c000.snappy.parquet
+[2025-04-09T08:35:28.415+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: valencia__39_47__0_37/valencia__39_47__0_37.parquet
+[2025-04-09T08:35:28.416+0000] {subprocess.py:106} INFO - Datos registrados correctamente en la bbdd
+[2025-04-09T08:35:28.417+0000] {subprocess.py:106} INFO - Vamos a crear un histórico de madrid
+[2025-04-09T08:35:28.418+0000] {subprocess.py:106} INFO - +------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:28.419+0000] {subprocess.py:106} INFO - |city  |time            |temperature|wind_kph|humidity|feelslike|precip_mm|text         |
+[2025-04-09T08:35:28.421+0000] {subprocess.py:106} INFO - +------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:28.422+0000] {subprocess.py:106} INFO - |madrid|2021-01-01 04:00|2.4        |17.5    |88      |2.4      |0.2      |Light Drizzle|
+[2025-04-09T08:35:28.423+0000] {subprocess.py:106} INFO - |madrid|2021-01-01 09:00|1.4        |10.4    |86      |1.4      |0.0      |Partly Cloudy|
+[2025-04-09T08:35:28.424+0000] {subprocess.py:106} INFO - |madrid|2021-01-01 15:00|6.2        |22.9    |49      |6.2      |0.0      |Sunny        |
+[2025-04-09T08:35:28.425+0000] {subprocess.py:106} INFO - |madrid|2021-01-01 22:00|2.8        |15.8    |68      |2.8      |0.0      |Partly Cloudy|
+[2025-04-09T08:35:28.426+0000] {subprocess.py:106} INFO - |madrid|2021-01-02 04:00|1.0        |12.0    |69      |1.0      |0.0      |Mostly Clear |
+[2025-04-09T08:35:28.427+0000] {subprocess.py:106} INFO - |madrid|2021-01-02 09:00|-0.8       |12.8    |72      |-0.8     |0.0      |Mostly Clear |
+[2025-04-09T08:35:28.428+0000] {subprocess.py:106} INFO - |madrid|2021-01-02 15:00|4.6        |17.1    |50      |4.6      |0.0      |Mostly Clear |
+[2025-04-09T08:35:28.429+0000] {subprocess.py:106} INFO - |madrid|2021-01-02 22:00|-0.4       |8.3     |65      |-0.4     |0.0      |Sunny        |
+[2025-04-09T08:35:28.430+0000] {subprocess.py:106} INFO - |madrid|2021-01-03 04:00|-0.8       |9.8     |70      |-0.8     |0.0      |Sunny        |
+[2025-04-09T08:35:28.432+0000] {subprocess.py:106} INFO - |madrid|2021-01-03 09:00|-1.6       |9.9     |81      |-1.6     |0.0      |Cloudy       |
+[2025-04-09T08:35:28.433+0000] {subprocess.py:106} INFO - |madrid|2021-01-03 15:00|7.0        |12.6    |47      |7.0      |0.0      |Partly Cloudy|
+[2025-04-09T08:35:28.434+0000] {subprocess.py:106} INFO - |madrid|2021-01-03 22:00|0.4        |12.2    |80      |0.4      |0.0      |Sunny        |
+[2025-04-09T08:35:28.435+0000] {subprocess.py:106} INFO - |madrid|2021-01-04 04:00|-0.5       |9.3     |88      |-0.5     |0.0      |Mostly Clear |
+[2025-04-09T08:35:28.437+0000] {subprocess.py:106} INFO - |madrid|2021-01-04 09:00|-0.8       |10.9    |83      |-0.8     |0.0      |Mostly Clear |
+[2025-04-09T08:35:28.438+0000] {subprocess.py:106} INFO - |madrid|2021-01-04 15:00|5.5        |17.0    |50      |5.5      |0.1      |Light Drizzle|
+[2025-04-09T08:35:28.440+0000] {subprocess.py:106} INFO - |madrid|2021-01-04 22:00|-0.2       |7.9     |73      |-0.2     |0.0      |Sunny        |
+[2025-04-09T08:35:28.441+0000] {subprocess.py:106} INFO - |madrid|2021-01-05 04:00|-2.5       |7.6     |84      |-2.5     |0.0      |Sunny        |
+[2025-04-09T08:35:28.442+0000] {subprocess.py:106} INFO - |madrid|2021-01-05 09:00|-4.2       |5.2     |90      |-4.2     |0.0      |Sunny        |
+[2025-04-09T08:35:28.443+0000] {subprocess.py:106} INFO - |madrid|2021-01-05 15:00|3.9        |4.7     |59      |3.9      |0.0      |Sunny        |
+[2025-04-09T08:35:28.444+0000] {subprocess.py:106} INFO - |madrid|2021-01-05 22:00|-1.5       |5.5     |80      |-1.5     |0.0      |Sunny        |
+[2025-04-09T08:35:28.446+0000] {subprocess.py:106} INFO - +------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:28.447+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-04-09T08:35:28.448+0000] {subprocess.py:106} INFO - 
+[2025-04-09T08:35:28.449+0000] {subprocess.py:106} INFO - Nombre de la carpeta: madrid__40_41__3_7
+[2025-04-09T08:35:28.450+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmpmv9fqscf/madrid__40_41__3_7/part-00000-31434617-621e-4788-84c2-b7386fb65f4a-c000.snappy.parquet
+[2025-04-09T08:35:28.451+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: madrid__40_41__3_7/madrid__40_41__3_7.parquet
+[2025-04-09T08:35:28.453+0000] {subprocess.py:106} INFO - Datos registrados correctamente en la bbdd
+[2025-04-09T08:35:28.454+0000] {subprocess.py:106} INFO - Vamos a crear un histórico de elche
+[2025-04-09T08:35:28.455+0000] {subprocess.py:106} INFO - +-----+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:28.456+0000] {subprocess.py:106} INFO - |city |time            |temperature|wind_kph|humidity|feelslike|precip_mm|text         |
+[2025-04-09T08:35:28.457+0000] {subprocess.py:106} INFO - +-----+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:28.459+0000] {subprocess.py:106} INFO - |elche|2021-01-01 04:00|5.9        |6.6     |74      |5.9      |0.1      |Light Drizzle|
+[2025-04-09T08:35:28.460+0000] {subprocess.py:106} INFO - |elche|2021-01-01 09:00|6.5        |8.6     |72      |6.5      |0.0      |Mostly Clear |
+[2025-04-09T08:35:28.461+0000] {subprocess.py:106} INFO - |elche|2021-01-01 15:00|13.2       |28.6    |34      |13.2     |0.0      |Sunny        |
+[2025-04-09T08:35:28.463+0000] {subprocess.py:106} INFO - |elche|2021-01-01 22:00|8.8        |16.9    |47      |8.8      |0.0      |Cloudy       |
+[2025-04-09T08:35:28.464+0000] {subprocess.py:106} INFO - |elche|2021-01-02 04:00|5.6        |10.5    |63      |5.6      |0.0      |Sunny        |
+[2025-04-09T08:35:28.465+0000] {subprocess.py:106} INFO - |elche|2021-01-02 09:00|4.9        |23.3    |59      |4.9      |0.0      |Sunny        |
+[2025-04-09T08:35:28.466+0000] {subprocess.py:106} INFO - |elche|2021-01-02 15:00|10.4       |30.5    |34      |10.4     |0.0      |Sunny        |
+[2025-04-09T08:35:28.467+0000] {subprocess.py:106} INFO - |elche|2021-01-02 22:00|7.2        |18.4    |39      |7.2      |0.0      |Sunny        |
+[2025-04-09T08:35:28.470+0000] {subprocess.py:106} INFO - |elche|2021-01-03 04:00|5.7        |26.3    |45      |5.7      |0.0      |Mostly Clear |
+[2025-04-09T08:35:28.475+0000] {subprocess.py:106} INFO - |elche|2021-01-03 09:00|4.9        |25.4    |44      |4.9      |0.0      |Sunny        |
+[2025-04-09T08:35:28.476+0000] {subprocess.py:106} INFO - |elche|2021-01-03 15:00|12.2       |28.9    |29      |12.2     |0.0      |Sunny        |
+[2025-04-09T08:35:28.477+0000] {subprocess.py:106} INFO - |elche|2021-01-03 22:00|6.4        |8.6     |46      |6.4      |0.0      |Sunny        |
+[2025-04-09T08:35:28.498+0000] {subprocess.py:106} INFO - |elche|2021-01-04 04:00|4.5        |8.7     |56      |4.5      |0.0      |Sunny        |
+[2025-04-09T08:35:28.504+0000] {subprocess.py:106} INFO - |elche|2021-01-04 09:00|4.0        |10.1    |64      |4.0      |0.0      |Sunny        |
+[2025-04-09T08:35:28.507+0000] {subprocess.py:106} INFO - |elche|2021-01-04 15:00|13.1       |21.2    |32      |13.1     |0.0      |Mostly Clear |
+[2025-04-09T08:35:28.509+0000] {subprocess.py:106} INFO - |elche|2021-01-04 22:00|8.5        |14.5    |51      |8.5      |0.0      |Sunny        |
+[2025-04-09T08:35:28.511+0000] {subprocess.py:106} INFO - |elche|2021-01-05 04:00|5.2        |12.0    |65      |5.2      |0.0      |Sunny        |
+[2025-04-09T08:35:28.518+0000] {subprocess.py:106} INFO - |elche|2021-01-05 09:00|3.4        |18.7    |72      |3.4      |0.0      |Sunny        |
+[2025-04-09T08:35:28.524+0000] {subprocess.py:106} INFO - |elche|2021-01-05 15:00|12.4       |10.0    |27      |12.4     |0.0      |Sunny        |
+[2025-04-09T08:35:28.525+0000] {subprocess.py:106} INFO - |elche|2021-01-05 22:00|6.8        |7.2     |40      |6.8      |0.0      |Cloudy       |
+[2025-04-09T08:35:28.525+0000] {subprocess.py:106} INFO - +-----+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:28.526+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-04-09T08:35:28.527+0000] {subprocess.py:106} INFO - 
+[2025-04-09T08:35:28.528+0000] {subprocess.py:106} INFO - Nombre de la carpeta: elche__38_26__0_7
+[2025-04-09T08:35:28.529+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmpew0i7pdw/elche__38_26__0_7/part-00000-3b3eab19-2ff0-42ea-a544-c1d4838d143f-c000.snappy.parquet
+[2025-04-09T08:35:28.530+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: elche__38_26__0_7/elche__38_26__0_7.parquet
+[2025-04-09T08:35:28.531+0000] {subprocess.py:106} INFO - Datos registrados correctamente en la bbdd
+[2025-04-09T08:35:28.532+0000] {subprocess.py:106} INFO - Vamos a crear un histórico de san juan de alicante
+[2025-04-09T08:35:35.149+0000] {subprocess.py:106} INFO - +--------------------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:35.150+0000] {subprocess.py:106} INFO - |city                |time            |temperature|wind_kph|humidity|feelslike|precip_mm|text         |
+[2025-04-09T08:35:35.151+0000] {subprocess.py:106} INFO - +--------------------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:35.152+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-01 04:00|6.7        |9.8     |68      |6.7      |0.0      |Partly Cloudy|
+[2025-04-09T08:35:35.153+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-01 09:00|7.4        |13.3    |71      |7.4      |0.0      |Sunny        |
+[2025-04-09T08:35:35.153+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-01 15:00|13.7       |21.4    |34      |13.7     |0.0      |Mostly Clear |
+[2025-04-09T08:35:35.154+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-01 22:00|9.0        |22.1    |46      |9.0      |0.0      |Mostly Clear |
+[2025-04-09T08:35:35.155+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-02 04:00|6.4        |15.0    |59      |6.4      |0.0      |Sunny        |
+[2025-04-09T08:35:35.155+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-02 09:00|5.5        |26.3    |49      |5.5      |0.0      |Sunny        |
+[2025-04-09T08:35:35.156+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-02 15:00|10.7       |32.0    |33      |10.7     |0.0      |Sunny        |
+[2025-04-09T08:35:35.156+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-02 22:00|5.8        |9.2     |46      |5.8      |0.0      |Sunny        |
+[2025-04-09T08:35:35.157+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-03 04:00|5.7        |25.1    |45      |5.7      |0.0      |Cloudy       |
+[2025-04-09T08:35:35.158+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-03 09:00|4.6        |21.3    |45      |4.6      |0.0      |Sunny        |
+[2025-04-09T08:35:35.158+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-03 15:00|12.5       |28.7    |28      |12.5     |0.0      |Sunny        |
+[2025-04-09T08:35:35.159+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-03 22:00|7.4        |11.2    |42      |7.4      |0.0      |Sunny        |
+[2025-04-09T08:35:35.160+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-04 04:00|4.2        |9.1     |56      |4.2      |0.0      |Sunny        |
+[2025-04-09T08:35:35.160+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-04 09:00|4.6        |11.5    |63      |4.6      |0.0      |Sunny        |
+[2025-04-09T08:35:35.161+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-04 15:00|12.4       |24.0    |36      |12.4     |0.0      |Mostly Clear |
+[2025-04-09T08:35:35.162+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-04 22:00|8.5        |18.9    |56      |8.5      |0.0      |Mostly Clear |
+[2025-04-09T08:35:35.163+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-05 04:00|5.1        |9.4     |65      |5.1      |0.0      |Sunny        |
+[2025-04-09T08:35:35.164+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-05 09:00|2.5        |9.8     |65      |2.5      |0.0      |Sunny        |
+[2025-04-09T08:35:35.165+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-05 15:00|12.2       |8.3     |24      |12.2     |0.0      |Sunny        |
+[2025-04-09T08:35:35.166+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-05 22:00|7.5        |6.6     |48      |7.5      |0.0      |Cloudy       |
+[2025-04-09T08:35:35.167+0000] {subprocess.py:106} INFO - +--------------------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:35.168+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-04-09T08:35:35.168+0000] {subprocess.py:106} INFO - 
+[2025-04-09T08:35:35.169+0000] {subprocess.py:106} INFO - Nombre de la carpeta: san_juan_de_alicante__38_4__0_43
+[2025-04-09T08:35:35.170+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmp5jvk6eg2/san_juan_de_alicante__38_4__0_43/part-00000-070f8090-27ed-4a82-86dc-4b73a5acc5e4-c000.snappy.parquet
+[2025-04-09T08:35:35.171+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: san_juan_de_alicante__38_4__0_43/san_juan_de_alicante__38_4__0_43.parquet
+[2025-04-09T08:35:35.172+0000] {subprocess.py:106} INFO - Datos registrados correctamente en la bbdd
+[2025-04-09T08:35:35.172+0000] {subprocess.py:106} INFO - Vamos a crear un histórico de torrevieja
+[2025-04-09T08:35:35.173+0000] {subprocess.py:106} INFO - +----------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:35.174+0000] {subprocess.py:106} INFO - |city      |time            |temperature|wind_kph|humidity|feelslike|precip_mm|text         |
+[2025-04-09T08:35:35.174+0000] {subprocess.py:106} INFO - +----------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:35.175+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-01 04:00|7.1        |8.3     |66      |7.1      |0.0      |Partly Cloudy|
+[2025-04-09T08:35:35.176+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-01 09:00|8.2        |18.1    |75      |8.2      |0.1      |Light Drizzle|
+[2025-04-09T08:35:35.177+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-01 15:00|13.9       |32.4    |35      |13.9     |0.0      |Sunny        |
+[2025-04-09T08:35:35.177+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-01 22:00|9.2        |19.9    |54      |9.2      |0.0      |Mostly Clear |
+[2025-04-09T08:35:35.178+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-02 04:00|7.4        |20.4    |59      |7.4      |0.0      |Mostly Clear |
+[2025-04-09T08:35:35.179+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-02 09:00|5.7        |20.9    |62      |5.7      |0.0      |Sunny        |
+[2025-04-09T08:35:35.180+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-02 15:00|11.7       |32.6    |31      |11.7     |0.0      |Mostly Clear |
+[2025-04-09T08:35:35.181+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-02 22:00|8.0        |21.6    |44      |8.0      |0.0      |Sunny        |
+[2025-04-09T08:35:35.183+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-03 04:00|6.7        |26.8    |47      |6.7      |0.0      |Mostly Clear |
+[2025-04-09T08:35:35.183+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-03 09:00|5.4        |21.5    |49      |5.4      |0.0      |Sunny        |
+[2025-04-09T08:35:35.184+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-03 15:00|12.7       |31.3    |29      |12.7     |0.0      |Sunny        |
+[2025-04-09T08:35:35.185+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-03 22:00|8.4        |10.8    |45      |8.4      |0.0      |Sunny        |
+[2025-04-09T08:35:35.186+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-04 04:00|5.2        |14.3    |51      |5.2      |0.0      |Sunny        |
+[2025-04-09T08:35:35.187+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-04 09:00|4.5        |20.7    |60      |4.5      |0.0      |Sunny        |
+[2025-04-09T08:35:35.187+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-04 15:00|13.5       |10.5    |30      |13.5     |0.0      |Mostly Clear |
+[2025-04-09T08:35:35.189+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-04 22:00|10.1       |4.7     |42      |10.1     |0.0      |Mostly Clear |
+[2025-04-09T08:35:35.189+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-05 04:00|6.2        |11.9    |68      |6.2      |0.0      |Sunny        |
+[2025-04-09T08:35:35.190+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-05 09:00|4.0        |15.5    |76      |4.0      |0.0      |Sunny        |
+[2025-04-09T08:35:35.191+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-05 15:00|13.0       |8.6     |27      |13.0     |0.0      |Sunny        |
+[2025-04-09T08:35:35.192+0000] {subprocess.py:106} INFO - |torrevieja|2021-01-05 22:00|10.2       |3.8     |44      |10.2     |0.0      |Cloudy       |
+[2025-04-09T08:35:35.193+0000] {subprocess.py:106} INFO - +----------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:35:35.193+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-04-09T08:35:35.194+0000] {subprocess.py:106} INFO - 
+[2025-04-09T08:35:35.195+0000] {subprocess.py:106} INFO - Nombre de la carpeta: torrevieja__37_97__0_68
+[2025-04-09T08:35:35.196+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmpdwvu437o/torrevieja__37_97__0_68/part-00000-78d4d752-b19b-48a4-a8f9-4cefcef48ddb-c000.snappy.parquet
+[2025-04-09T08:35:35.197+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: torrevieja__37_97__0_68/torrevieja__37_97__0_68.parquet
+[2025-04-09T08:35:35.199+0000] {subprocess.py:106} INFO - Datos registrados correctamente en la bbdd
+[2025-04-09T08:35:35.682+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-09T08:35:35.704+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-09T08:35:35.705+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_main_script, run_id=manual__2025-04-09T08:34:47.655325+00:00, execution_date=20250409T083447, start_date=20250409T083449, end_date=20250409T083535
+[2025-04-09T08:35:35.726+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-09T08:35:35.727+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-09T08:35:35.728+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-04-09 08:34:47.677354+00:00
+[2025-04-09T08:35:35.729+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-04-09T08:35:35.757+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-09T08:35:35.795+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-09T08:35:35.799+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -25,7 +25,8 @@ def set_data_minio(df, bucket, latitude, longitude):
     connect_minio()
 
     #Vamos a crear el nombre de la carpeta que va a contener nuestro archivo parquet
-    city, date = df.select(lower("city"), "date").first()
+    city, date = df.select(lower("city"), "local_time").first()
+    date = date.date()
     if bucket != "historicalweather":
         folder_name = f"{date}"
     else:
@@ -120,21 +121,20 @@ def df_data(days, spark, city, latitude, longitude, start_date):
     # Construir una lista de diccionarios, cada uno representando un registro
     records = [
         {
-            "date": t.split("T")[0],
-            "time": t.split("T")[1],            
+            "local_time": t,            
             "temperature": temp,
             "humidity": rhum,
             "wind_kph": wspd,
             "precip_mm": precip,
-            "icon": icon
+            "text": text
         }
-        for t, temp, rhum, wspd, precip, icon in zip(
+        for t, temp, rhum, wspd, precip, text in zip(
             hourly["time"],
             hourly["temperature_2m"],
             hourly["relativehumidity_2m"],
             hourly["windspeed_10m"],
             hourly["precipitation"],
-            hourly["weathercode"],
+            hourly["weathercode"]
         )
     ]
     
@@ -142,64 +142,58 @@ def df_data(days, spark, city, latitude, longitude, start_date):
     df = spark.createDataFrame(records)
     
     icon_mapping = {
-        0: {"icon": "113", "description": "Sunny"},
-        1: {"icon": "116", "description": "Mostly Clear"},
-        2: {"icon": "116", "description": "Partly Cloudy"},
-        3: {"icon": "119", "description": "Cloudy"},
-        45: {"icon": "143", "description": "Fog"},
-        48: {"icon": "143", "description": "Freezing Fog"},
-        51: {"icon": "176", "description": "Light Drizzle"},
-        53: {"icon": "176", "description": "Moderate Drizzle"},
-        55: {"icon": "176", "description": "Dense Drizzle"},
-        56: {"icon": "176", "description": "Freezing Drizzle"},
-        57: {"icon": "176", "description": "Freezing Drizzle"},
-        61: {"icon": "293", "description": "Light Rain"},
-        63: {"icon": "296", "description": "Moderate Rain"},
-        65: {"icon": "299", "description": "Heavy Rain"},
-        66: {"icon": "308", "description": "Freezing Rain"},
-        67: {"icon": "308", "description": "Freezing Rain"},
-        71: {"icon": "320", "description": "Light Snow"},
-        73: {"icon": "323", "description": "Moderate Snow"},
-        75: {"icon": "326", "description": "Heavy Snow"},
-        77: {"icon": "326", "description": "Snow Grains"},
-        80: {"icon": "308", "description": "Rain Showers"},
-        81: {"icon": "308", "description": "Moderate Rain Showers"},
-        82: {"icon": "308", "description": "Violent Rain Showers"},
-        85: {"icon": "320", "description": "Snow Showers"},
-        86: {"icon": "320", "description": "Heavy Snow Showers"},
-        95: {"icon": "200", "description": "Thunderstorm"},
-        96: {"icon": "200", "description": "Thunderstorm with Hail"},
-        99: {"icon": "200", "description": "Thunderstorm with Hail"}
+        0: "Sunny",
+        1: "Mostly Clear",
+        2: "Partly Cloudy",
+        3: "Cloudy",
+        45: "Fog",
+        48: "Freezing Fog",
+        51: "Light Drizzle",
+        53: "Moderate Drizzle",
+        55: "Dense Drizzle",
+        56: "Freezing Drizzle",
+        57: "Freezing Drizzle",
+        61: "Light Rain",
+        63: "Moderate Rain",
+        65: "Heavy Rain",
+        66: "Freezing Rain",
+        67: "Freezing Rain",
+        71: "Light Snow",
+        73: "Moderate Snow",
+        75: "Heavy Snow",
+        77: "Snow Grains",
+        80: "Rain Showers",
+        81: "Moderate Rain Showers",
+        82: "Violent Rain Showers",
+        85: "Snow Showers",
+        86: "Heavy Snow Showers",
+        95: "Thunderstorm",
+        96: "Thunderstorm with Hail",
+        99: "Thunderstorm with Hail"
     }
-    
-    # Función para mapear el weathercode a la URL del icono de WeatherAPI
-    def map_to_icon_url(weathercode):
-        return f"//cdn.weatherapi.com/weather/64x64/day/{icon_mapping[weathercode]['icon']}.png"
         
     def map_to_description(weathercode):
-        return icon_mapping[weathercode]['description']
+        return icon_mapping[weathercode]
     
     # Registrar la UDF
-    map_to_icon_url_udf = udf(map_to_icon_url, StringType())
     map_to_description = udf(map_to_description, StringType())
     
-    df = df.filter(col("time").isin("04:00", "09:00", "15:00", "22:00")) \
+    df = df.filter(col("local_time").endswith("04:00")
+                    | col("local_time").endswith("09:00") | col("local_time").endswith("15:00") 
+                    | col("local_time").endswith("22:00")) \
         .withColumn("city", lit(city)) \
         .withColumn("feelslike", col("temperature")) \
-        .withColumn("text", map_to_description(col("icon"))) \
-        .withColumn("icon", map_to_icon_url_udf(col("icon"))) \
+        .withColumn("text", map_to_description(col("text"))) \
         .select(
             col("city"),
-            col("date"),
-            col("time"),            
+            to_timestamp(regexp_replace(col("local_time"), "T", " "), "yyyy-MM-dd HH:mm").alias("local_time"),
             col("temperature"),
             col("wind_kph"),
             col("humidity"),
             col("feelslike"),
             col("precip_mm"),
-            col("text"),
-            col("icon")
-        ).orderBy("date")
+            col("text")
+        ).orderBy("local_time")
     
     # Mostrar el DataFrame
     df.show(truncate=False)

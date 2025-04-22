@@ -1,0 +1,58 @@
+[2025-04-09T09:36:33.978+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-09T09:36:34.112+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_postgres_script manual__2025-04-09T09:35:20.632856+00:00 [queued]>
+[2025-04-09T09:36:34.125+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_postgres_script manual__2025-04-09T09:35:20.632856+00:00 [queued]>
+[2025-04-09T09:36:34.128+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-09T09:36:34.142+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_postgres_script> on 2025-04-09 09:35:20.632856+00:00
+[2025-04-09T09:36:34.148+0000] {standard_task_runner.py:72} INFO - Started process 16287 to run task
+[2025-04-09T09:36:34.152+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_postgres_script', 'manual__2025-04-09T09:35:20.632856+00:00', '--job-id', '267', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmptfbj0ian']
+[2025-04-09T09:36:34.154+0000] {standard_task_runner.py:105} INFO - Job 267: Subtask run_postgres_script
+[2025-04-09T09:36:34.196+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_postgres_script manual__2025-04-09T09:35:20.632856+00:00 [running]> on host 3c3c1f66214b
+[2025-04-09T09:36:34.263+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_postgres_script' AIRFLOW_CTX_EXECUTION_DATE='2025-04-09T09:35:20.632856+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-09T09:35:20.632856+00:00'
+[2025-04-09T09:36:34.264+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-09T09:36:34.266+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-09T09:36:34.267+0000] {logging_mixin.py:190} INFO - Current task name:run_postgres_script state:running start_date:2025-04-09 09:36:34.114263+00:00
+[2025-04-09T09:36:34.267+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-04-09T09:36:34.268+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-09T09:36:34.269+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-09T09:36:34.270+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/postgres.py']
+[2025-04-09T09:36:34.280+0000] {subprocess.py:99} INFO - Output:
+[2025-04-09T09:36:36.571+0000] {subprocess.py:106} INFO - 25/04/09 09:36:36 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-04-09T09:36:36.739+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-04-09T09:36:36.741+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-04-09T09:36:43.476+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+------------+
+[2025-04-09T09:36:43.477+0000] {subprocess.py:106} INFO - |                city|         local_time|temperature|wind_kph|humidity|feelslike|precip_mm|        text|
+[2025-04-09T09:36:43.478+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+------------+
+[2025-04-09T09:36:43.479+0000] {subprocess.py:106} INFO - |               elche|2025-04-07 04:00:00|       15.6|    11.2|      51|     15.6|      0.0|Mostly Clear|
+[2025-04-09T09:36:43.480+0000] {subprocess.py:106} INFO - |               elche|2025-04-07 09:00:00|       16.4|    12.1|      51|     16.4|      0.0|       Sunny|
+[2025-04-09T09:36:43.481+0000] {subprocess.py:106} INFO - |               elche|2025-04-07 15:00:00|       26.2|    12.9|      26|     26.2|      0.0|       Sunny|
+[2025-04-09T09:36:43.482+0000] {subprocess.py:106} INFO - |               elche|2025-04-07 22:00:00|       17.8|     0.8|      54|     17.8|      0.0|       Sunny|
+[2025-04-09T09:36:43.484+0000] {subprocess.py:106} INFO - |              madrid|2025-04-07 04:00:00|        9.0|     2.0|      86|      9.0|      0.0|       Sunny|
+[2025-04-09T09:36:43.485+0000] {subprocess.py:106} INFO - |              madrid|2025-04-07 09:00:00|        8.1|     6.2|      87|      8.1|      0.0|       Sunny|
+[2025-04-09T09:36:43.487+0000] {subprocess.py:106} INFO - |              madrid|2025-04-07 15:00:00|       19.7|     2.2|      46|     19.7|      0.0|       Sunny|
+[2025-04-09T09:36:43.488+0000] {subprocess.py:106} INFO - |              madrid|2025-04-07 22:00:00|       15.0|     4.1|      72|     15.0|      0.0|       Sunny|
+[2025-04-09T09:36:43.489+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-07 04:00:00|       13.5|     7.4|      61|     13.5|      0.0|       Sunny|
+[2025-04-09T09:36:43.490+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-07 09:00:00|       15.8|     2.7|      53|     15.8|      0.0|       Sunny|
+[2025-04-09T09:36:43.491+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-07 15:00:00|       23.7|    11.2|      33|     23.7|      0.0|Mostly Clear|
+[2025-04-09T09:36:43.493+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-07 22:00:00|       17.7|     1.5|      57|     17.7|      0.0|       Sunny|
+[2025-04-09T09:36:43.494+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-07 04:00:00|       15.6|    13.4|      62|     15.6|      0.0|       Sunny|
+[2025-04-09T09:36:43.495+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-07 09:00:00|       15.6|    15.3|      61|     15.6|      0.0|       Sunny|
+[2025-04-09T09:36:43.496+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-07 15:00:00|       22.1|    10.0|      53|     22.1|      0.0|       Sunny|
+[2025-04-09T09:36:43.497+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-07 22:00:00|       15.9|     0.6|      85|     15.9|      0.0|       Sunny|
+[2025-04-09T09:36:43.499+0000] {subprocess.py:106} INFO - |            valencia|2025-04-07 04:00:00|       14.1|     9.6|      70|     14.1|      0.0|       Sunny|
+[2025-04-09T09:36:43.501+0000] {subprocess.py:106} INFO - |            valencia|2025-04-07 09:00:00|       14.1|     8.8|      66|     14.1|      0.0|       Sunny|
+[2025-04-09T09:36:43.503+0000] {subprocess.py:106} INFO - |            valencia|2025-04-07 15:00:00|       22.6|    13.2|      37|     22.6|      0.0|       Sunny|
+[2025-04-09T09:36:43.504+0000] {subprocess.py:106} INFO - |            valencia|2025-04-07 22:00:00|       17.1|     5.4|      69|     17.1|      0.0|       Sunny|
+[2025-04-09T09:36:43.506+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+------------+
+[2025-04-09T09:36:43.507+0000] {subprocess.py:106} INFO - 
+[2025-04-09T09:36:43.508+0000] {subprocess.py:106} INFO - Datos registrados correctamente en la bbdd
+[2025-04-09T09:36:44.021+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-09T09:36:44.062+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-09T09:36:44.064+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_postgres_script, run_id=manual__2025-04-09T09:35:20.632856+00:00, execution_date=20250409T093520, start_date=20250409T093634, end_date=20250409T093644
+[2025-04-09T09:36:44.095+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-09T09:36:44.097+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-09T09:36:44.098+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-04-09 09:35:20.642951+00:00
+[2025-04-09T09:36:44.100+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-04-09T09:36:44.116+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-09T09:36:44.138+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-09T09:36:44.142+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-09T09:36:44.161+0000] {standard_task_runner.py:217} INFO - Process not found (most likely exited), stop collecting metrics

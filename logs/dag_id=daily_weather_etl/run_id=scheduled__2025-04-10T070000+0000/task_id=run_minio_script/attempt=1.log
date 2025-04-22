@@ -1,0 +1,104 @@
+[2025-04-11T07:00:20.006+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-11T07:00:20.175+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-04-10T07:00:00+00:00 [queued]>
+[2025-04-11T07:00:20.196+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-04-10T07:00:00+00:00 [queued]>
+[2025-04-11T07:00:20.199+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-11T07:00:20.220+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_minio_script> on 2025-04-10 07:00:00+00:00
+[2025-04-11T07:00:20.228+0000] {standard_task_runner.py:72} INFO - Started process 215 to run task
+[2025-04-11T07:00:20.234+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_minio_script', 'scheduled__2025-04-10T07:00:00+00:00', '--job-id', '282', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmp3s478433']
+[2025-04-11T07:00:20.237+0000] {standard_task_runner.py:105} INFO - Job 282: Subtask run_minio_script
+[2025-04-11T07:00:20.304+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_minio_script scheduled__2025-04-10T07:00:00+00:00 [running]> on host 3c3c1f66214b
+[2025-04-11T07:00:20.411+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_minio_script' AIRFLOW_CTX_EXECUTION_DATE='2025-04-10T07:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-10T07:00:00+00:00'
+[2025-04-11T07:00:20.413+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-11T07:00:20.415+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-11T07:00:20.416+0000] {logging_mixin.py:190} INFO - Current task name:run_minio_script state:running start_date:2025-04-11 07:00:20.177939+00:00
+[2025-04-11T07:00:20.417+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-04-11T07:00:20.418+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-11T07:00:20.420+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-11T07:00:20.423+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/minio.py']
+[2025-04-11T07:00:20.437+0000] {subprocess.py:99} INFO - Output:
+[2025-04-11T07:00:23.912+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-04-11T07:00:23.914+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-04-11T07:00:24.172+0000] {subprocess.py:106} INFO - 25/04/11 07:00:24 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-04-11T07:00:54.169+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 8) / 8]                                                                                [Stage 58:>                                                         (0 + 1) / 1]                                                                                +-----+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.173+0000] {subprocess.py:106} INFO - |city |local_time         |temperature|wind_kph|humidity|feelslike|precip_mm|text  |
+[2025-04-11T07:00:54.178+0000] {subprocess.py:106} INFO - +-----+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.182+0000] {subprocess.py:106} INFO - |elche|2025-04-09 04:00:00|13.4       |6.1     |67      |13.4     |0.0      |Sunny |
+[2025-04-11T07:00:54.186+0000] {subprocess.py:106} INFO - |elche|2025-04-09 09:00:00|14.0       |9.1     |52      |14.0     |0.0      |Sunny |
+[2025-04-11T07:00:54.191+0000] {subprocess.py:106} INFO - |elche|2025-04-09 15:00:00|23.3       |14.7    |34      |23.3     |0.0      |Cloudy|
+[2025-04-11T07:00:54.195+0000] {subprocess.py:106} INFO - |elche|2025-04-09 22:00:00|16.4       |4.8     |67      |16.4     |0.0      |Sunny |
+[2025-04-11T07:00:54.200+0000] {subprocess.py:106} INFO - +-----+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.205+0000] {subprocess.py:106} INFO - 
+[2025-04-11T07:00:54.209+0000] {subprocess.py:106} INFO - +------+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.213+0000] {subprocess.py:106} INFO - |city  |local_time         |temperature|wind_kph|humidity|feelslike|precip_mm|text  |
+[2025-04-11T07:00:54.218+0000] {subprocess.py:106} INFO - +------+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.222+0000] {subprocess.py:106} INFO - |madrid|2025-04-09 04:00:00|11.8       |5.6     |69      |11.8     |0.0      |Sunny |
+[2025-04-11T07:00:54.225+0000] {subprocess.py:106} INFO - |madrid|2025-04-09 09:00:00|9.5        |7.6     |80      |9.5      |0.0      |Sunny |
+[2025-04-11T07:00:54.229+0000] {subprocess.py:106} INFO - |madrid|2025-04-09 15:00:00|20.9       |3.1     |42      |20.9     |0.0      |Cloudy|
+[2025-04-11T07:00:54.234+0000] {subprocess.py:106} INFO - |madrid|2025-04-09 22:00:00|16.3       |3.5     |63      |16.3     |0.0      |Sunny |
+[2025-04-11T07:00:54.238+0000] {subprocess.py:106} INFO - +------+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.242+0000] {subprocess.py:106} INFO - 
+[2025-04-11T07:00:54.246+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.252+0000] {subprocess.py:106} INFO - |city                |local_time         |temperature|wind_kph|humidity|feelslike|precip_mm|text  |
+[2025-04-11T07:00:54.256+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.260+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-09 04:00:00|13.6       |4.4     |50      |13.6     |0.0      |Sunny |
+[2025-04-11T07:00:54.264+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-09 09:00:00|14.9       |4.2     |44      |14.9     |0.0      |Sunny |
+[2025-04-11T07:00:54.268+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-09 15:00:00|21.5       |13.8    |43      |21.5     |0.0      |Cloudy|
+[2025-04-11T07:00:54.272+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-09 22:00:00|15.9       |4.7     |82      |15.9     |0.0      |Sunny |
+[2025-04-11T07:00:54.276+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.280+0000] {subprocess.py:106} INFO - 
+[2025-04-11T07:00:54.284+0000] {subprocess.py:106} INFO - +----------+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.289+0000] {subprocess.py:106} INFO - |city      |local_time         |temperature|wind_kph|humidity|feelslike|precip_mm|text  |
+[2025-04-11T07:00:54.292+0000] {subprocess.py:106} INFO - +----------+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.296+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-09 04:00:00|14.4       |7.6     |95      |14.4     |0.0      |Sunny |
+[2025-04-11T07:00:54.300+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-09 09:00:00|15.3       |7.2     |68      |15.3     |0.0      |Sunny |
+[2025-04-11T07:00:54.304+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-09 15:00:00|19.6       |14.0    |66      |19.6     |0.0      |Cloudy|
+[2025-04-11T07:00:54.309+0000] {subprocess.py:106} INFO - |torrevieja|2025-04-09 22:00:00|15.6       |7.5     |87      |15.6     |0.0      |Sunny |
+[2025-04-11T07:00:54.313+0000] {subprocess.py:106} INFO - +----------+-------------------+-----------+--------+--------+---------+---------+------+
+[2025-04-11T07:00:54.317+0000] {subprocess.py:106} INFO - 
+[2025-04-11T07:00:54.320+0000] {subprocess.py:106} INFO - +--------+-------------------+-----------+--------+--------+---------+---------+------------+
+[2025-04-11T07:00:54.322+0000] {subprocess.py:106} INFO - |city    |local_time         |temperature|wind_kph|humidity|feelslike|precip_mm|text        |
+[2025-04-11T07:00:54.325+0000] {subprocess.py:106} INFO - +--------+-------------------+-----------+--------+--------+---------+---------+------------+
+[2025-04-11T07:00:54.328+0000] {subprocess.py:106} INFO - |valencia|2025-04-09 04:00:00|13.5       |4.2     |96      |13.5     |0.0      |Sunny       |
+[2025-04-11T07:00:54.330+0000] {subprocess.py:106} INFO - |valencia|2025-04-09 09:00:00|13.2       |3.5     |80      |13.2     |0.0      |Sunny       |
+[2025-04-11T07:00:54.333+0000] {subprocess.py:106} INFO - |valencia|2025-04-09 15:00:00|20.2       |10.0    |54      |20.2     |0.0      |Sunny       |
+[2025-04-11T07:00:54.335+0000] {subprocess.py:106} INFO - |valencia|2025-04-09 22:00:00|16.2       |6.2     |81      |16.2     |0.0      |Mostly Clear|
+[2025-04-11T07:00:54.336+0000] {subprocess.py:106} INFO - +--------+-------------------+-----------+--------+--------+---------+---------+------------+
+[2025-04-11T07:00:54.338+0000] {subprocess.py:106} INFO - 
+[2025-04-11T07:00:54.340+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+------------+
+[2025-04-11T07:00:54.342+0000] {subprocess.py:106} INFO - |                city|         local_time|temperature|wind_kph|humidity|feelslike|precip_mm|        text|
+[2025-04-11T07:00:54.343+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+------------+
+[2025-04-11T07:00:54.346+0000] {subprocess.py:106} INFO - |               elche|2025-04-09 04:00:00|       13.4|     6.1|      67|     13.4|      0.0|       Sunny|
+[2025-04-11T07:00:54.347+0000] {subprocess.py:106} INFO - |               elche|2025-04-09 09:00:00|       14.0|     9.1|      52|     14.0|      0.0|       Sunny|
+[2025-04-11T07:00:54.349+0000] {subprocess.py:106} INFO - |               elche|2025-04-09 15:00:00|       23.3|    14.7|      34|     23.3|      0.0|      Cloudy|
+[2025-04-11T07:00:54.351+0000] {subprocess.py:106} INFO - |               elche|2025-04-09 22:00:00|       16.4|     4.8|      67|     16.4|      0.0|       Sunny|
+[2025-04-11T07:00:54.353+0000] {subprocess.py:106} INFO - |              madrid|2025-04-09 04:00:00|       11.8|     5.6|      69|     11.8|      0.0|       Sunny|
+[2025-04-11T07:00:54.355+0000] {subprocess.py:106} INFO - |              madrid|2025-04-09 09:00:00|        9.5|     7.6|      80|      9.5|      0.0|       Sunny|
+[2025-04-11T07:00:54.357+0000] {subprocess.py:106} INFO - |              madrid|2025-04-09 15:00:00|       20.9|     3.1|      42|     20.9|      0.0|      Cloudy|
+[2025-04-11T07:00:54.359+0000] {subprocess.py:106} INFO - |              madrid|2025-04-09 22:00:00|       16.3|     3.5|      63|     16.3|      0.0|       Sunny|
+[2025-04-11T07:00:54.361+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-09 04:00:00|       13.6|     4.4|      50|     13.6|      0.0|       Sunny|
+[2025-04-11T07:00:54.362+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-09 09:00:00|       14.9|     4.2|      44|     14.9|      0.0|       Sunny|
+[2025-04-11T07:00:54.364+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-09 15:00:00|       21.5|    13.8|      43|     21.5|      0.0|      Cloudy|
+[2025-04-11T07:00:54.365+0000] {subprocess.py:106} INFO - |san juan de alicante|2025-04-09 22:00:00|       15.9|     4.7|      82|     15.9|      0.0|       Sunny|
+[2025-04-11T07:00:54.367+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-09 04:00:00|       14.4|     7.6|      95|     14.4|      0.0|       Sunny|
+[2025-04-11T07:00:54.369+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-09 09:00:00|       15.3|     7.2|      68|     15.3|      0.0|       Sunny|
+[2025-04-11T07:00:54.370+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-09 15:00:00|       19.6|    14.0|      66|     19.6|      0.0|      Cloudy|
+[2025-04-11T07:00:54.371+0000] {subprocess.py:106} INFO - |          torrevieja|2025-04-09 22:00:00|       15.6|     7.5|      87|     15.6|      0.0|       Sunny|
+[2025-04-11T07:00:54.373+0000] {subprocess.py:106} INFO - |            valencia|2025-04-09 04:00:00|       13.5|     4.2|      96|     13.5|      0.0|       Sunny|
+[2025-04-11T07:00:54.374+0000] {subprocess.py:106} INFO - |            valencia|2025-04-09 09:00:00|       13.2|     3.5|      80|     13.2|      0.0|       Sunny|
+[2025-04-11T07:00:54.375+0000] {subprocess.py:106} INFO - |            valencia|2025-04-09 15:00:00|       20.2|    10.0|      54|     20.2|      0.0|       Sunny|
+[2025-04-11T07:00:54.377+0000] {subprocess.py:106} INFO - |            valencia|2025-04-09 22:00:00|       16.2|     6.2|      81|     16.2|      0.0|Mostly Clear|
+[2025-04-11T07:00:54.378+0000] {subprocess.py:106} INFO - +--------------------+-------------------+-----------+--------+--------+---------+---------+------------+
+[2025-04-11T07:00:54.379+0000] {subprocess.py:106} INFO - 
+[2025-04-11T07:00:54.380+0000] {subprocess.py:106} INFO - Nombre de la carpeta: 2025-04-09
+[2025-04-11T07:00:54.382+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmpdowj850d/2025-04-09/part-00000-3d4ddfbc-967b-4829-b284-3a7585fa794f-c000.snappy.parquet
+[2025-04-11T07:00:54.384+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: 2025-04-09/2025-04-09.parquet
+[2025-04-11T07:00:54.900+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-11T07:00:54.935+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-11T07:00:54.937+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_minio_script, run_id=scheduled__2025-04-10T07:00:00+00:00, execution_date=20250410T070000, start_date=20250411T070020, end_date=20250411T070054
+[2025-04-11T07:00:54.971+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-11T07:00:54.973+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-11T07:00:54.974+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-04-11 07:00:01.124303+00:00
+[2025-04-11T07:00:54.976+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-04-11T07:00:55.008+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-11T07:00:55.050+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-11T07:00:55.087+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

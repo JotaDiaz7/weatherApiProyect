@@ -1,0 +1,275 @@
+[2025-04-09T08:40:25.932+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-09T08:40:26.067+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: daily_weather_etl.run_main_script manual__2025-04-09T08:40:23.862126+00:00 [queued]>
+[2025-04-09T08:40:26.076+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: daily_weather_etl.run_main_script manual__2025-04-09T08:40:23.862126+00:00 [queued]>
+[2025-04-09T08:40:26.080+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-04-09T08:40:26.093+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): run_main_script> on 2025-04-09 08:40:23.862126+00:00
+[2025-04-09T08:40:26.099+0000] {standard_task_runner.py:72} INFO - Started process 8156 to run task
+[2025-04-09T08:40:26.103+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'daily_weather_etl', 'run_main_script', 'manual__2025-04-09T08:40:23.862126+00:00', '--job-id', '254', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmp_t7z87dg']
+[2025-04-09T08:40:26.105+0000] {standard_task_runner.py:105} INFO - Job 254: Subtask run_main_script
+[2025-04-09T08:40:26.154+0000] {task_command.py:467} INFO - Running <TaskInstance: daily_weather_etl.run_main_script manual__2025-04-09T08:40:23.862126+00:00 [running]> on host 3c3c1f66214b
+[2025-04-09T08:40:26.227+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='daily_weather_etl' AIRFLOW_CTX_TASK_ID='run_main_script' AIRFLOW_CTX_EXECUTION_DATE='2025-04-09T08:40:23.862126+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-09T08:40:23.862126+00:00'
+[2025-04-09T08:40:26.229+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-09T08:40:26.230+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-09T08:40:26.231+0000] {logging_mixin.py:190} INFO - Current task name:run_main_script state:running start_date:2025-04-09 08:40:26.069081+00:00
+[2025-04-09T08:40:26.231+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl and current dag run status:running
+[2025-04-09T08:40:26.232+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-09T08:40:26.234+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-09T08:40:26.235+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/main.py']
+[2025-04-09T08:40:26.244+0000] {subprocess.py:99} INFO - Output:
+[2025-04-09T08:40:28.846+0000] {subprocess.py:106} INFO - 25/04/09 08:40:28 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-04-09T08:40:28.991+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2025-04-09T08:40:28.993+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-04-09T08:40:43.161+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 8) / 8]                                                                                [Stage 5:>                                                          (0 + 1) / 1]                                                                                25/04/09 08:40:43 ERROR Executor: Exception in task 0.0 in stage 9.0 (TID 49)
+[2025-04-09T08:40:43.162+0000] {subprocess.py:106} INFO - java.sql.BatchUpdateException: Batch entry 0 INSERT INTO pro_raw_api.daily_weather ("city","time","temperature","wind_kph","humidity","feelslike","precip_mm","text") VALUES ('san juan de alicante','2021-01-01 04:00',6.7,9.8,68,6.7,0.0,'Partly Cloudy') was aborted: ERROR: column "time" is of type timestamp without time zone but expression is of type character varying
+[2025-04-09T08:40:43.163+0000] {subprocess.py:106} INFO -   Hint: You will need to rewrite or cast the expression.
+[2025-04-09T08:40:43.164+0000] {subprocess.py:106} INFO -   Position: 133  Call getNextException to see other errors in the batch.
+[2025-04-09T08:40:43.165+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:171)
+[2025-04-09T08:40:43.166+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:862)
+[2025-04-09T08:40:43.167+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:901)
+[2025-04-09T08:40:43.168+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1644)
+[2025-04-09T08:40:43.169+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:748)
+[2025-04-09T08:40:43.170+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:904)
+[2025-04-09T08:40:43.171+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:903)
+[2025-04-09T08:40:43.173+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1039)
+[2025-04-09T08:40:43.174+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1039)
+[2025-04-09T08:40:43.175+0000] {subprocess.py:106} INFO - 	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2433)
+[2025-04-09T08:40:43.176+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2025-04-09T08:40:43.177+0000] {subprocess.py:106} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2025-04-09T08:40:43.178+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2025-04-09T08:40:43.179+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2025-04-09T08:40:43.180+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2025-04-09T08:40:43.181+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2025-04-09T08:40:43.182+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2025-04-09T08:40:43.182+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2025-04-09T08:40:43.183+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2025-04-09T08:40:43.184+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2025-04-09T08:40:43.185+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-04-09T08:40:43.186+0000] {subprocess.py:106} INFO - Caused by: org.postgresql.util.PSQLException: ERROR: column "time" is of type timestamp without time zone but expression is of type character varying
+[2025-04-09T08:40:43.187+0000] {subprocess.py:106} INFO -   Hint: You will need to rewrite or cast the expression.
+[2025-04-09T08:40:43.188+0000] {subprocess.py:106} INFO -   Position: 133
+[2025-04-09T08:40:43.189+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2565)
+[2025-04-09T08:40:43.191+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2297)
+[2025-04-09T08:40:43.192+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+[2025-04-09T08:40:43.192+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:859)
+[2025-04-09T08:40:43.193+0000] {subprocess.py:106} INFO - 	... 19 more
+[2025-04-09T08:40:43.194+0000] {subprocess.py:106} INFO - 25/04/09 08:40:43 WARN TaskSetManager: Lost task 0.0 in stage 9.0 (TID 49) (3c3c1f66214b executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO pro_raw_api.daily_weather ("city","time","temperature","wind_kph","humidity","feelslike","precip_mm","text") VALUES ('san juan de alicante','2021-01-01 04:00',6.7,9.8,68,6.7,0.0,'Partly Cloudy') was aborted: ERROR: column "time" is of type timestamp without time zone but expression is of type character varying
+[2025-04-09T08:40:43.195+0000] {subprocess.py:106} INFO -   Hint: You will need to rewrite or cast the expression.
+[2025-04-09T08:40:43.195+0000] {subprocess.py:106} INFO -   Position: 133  Call getNextException to see other errors in the batch.
+[2025-04-09T08:40:43.196+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:171)
+[2025-04-09T08:40:43.197+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:862)
+[2025-04-09T08:40:43.198+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:901)
+[2025-04-09T08:40:43.199+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1644)
+[2025-04-09T08:40:43.199+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:748)
+[2025-04-09T08:40:43.200+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:904)
+[2025-04-09T08:40:43.201+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:903)
+[2025-04-09T08:40:43.202+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1039)
+[2025-04-09T08:40:43.203+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1039)
+[2025-04-09T08:40:43.203+0000] {subprocess.py:106} INFO - 	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2433)
+[2025-04-09T08:40:43.204+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2025-04-09T08:40:43.205+0000] {subprocess.py:106} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2025-04-09T08:40:43.207+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2025-04-09T08:40:43.208+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2025-04-09T08:40:43.209+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2025-04-09T08:40:43.210+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2025-04-09T08:40:43.211+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2025-04-09T08:40:43.212+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2025-04-09T08:40:43.212+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2025-04-09T08:40:43.213+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2025-04-09T08:40:43.214+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-04-09T08:40:43.215+0000] {subprocess.py:106} INFO - Caused by: org.postgresql.util.PSQLException: ERROR: column "time" is of type timestamp without time zone but expression is of type character varying
+[2025-04-09T08:40:43.215+0000] {subprocess.py:106} INFO -   Hint: You will need to rewrite or cast the expression.
+[2025-04-09T08:40:43.216+0000] {subprocess.py:106} INFO -   Position: 133
+[2025-04-09T08:40:43.217+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2565)
+[2025-04-09T08:40:43.218+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2297)
+[2025-04-09T08:40:43.219+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+[2025-04-09T08:40:43.219+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:859)
+[2025-04-09T08:40:43.220+0000] {subprocess.py:106} INFO - 	... 19 more
+[2025-04-09T08:40:43.221+0000] {subprocess.py:106} INFO - 
+[2025-04-09T08:40:43.222+0000] {subprocess.py:106} INFO - 25/04/09 08:40:43 ERROR TaskSetManager: Task 0 in stage 9.0 failed 1 times; aborting job
+[2025-04-09T08:40:43.520+0000] {subprocess.py:106} INFO - Ciudades registradas:
+[2025-04-09T08:40:43.522+0000] {subprocess.py:106} INFO - Vamos a crear un histórico de san juan de alicante
+[2025-04-09T08:40:43.523+0000] {subprocess.py:106} INFO - +--------------------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:40:43.524+0000] {subprocess.py:106} INFO - |city                |time            |temperature|wind_kph|humidity|feelslike|precip_mm|text         |
+[2025-04-09T08:40:43.525+0000] {subprocess.py:106} INFO - +--------------------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:40:43.526+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-01 04:00|6.7        |9.8     |68      |6.7      |0.0      |Partly Cloudy|
+[2025-04-09T08:40:43.526+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-01 09:00|7.4        |13.3    |71      |7.4      |0.0      |Sunny        |
+[2025-04-09T08:40:43.527+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-01 15:00|13.7       |21.4    |34      |13.7     |0.0      |Mostly Clear |
+[2025-04-09T08:40:43.528+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-01 22:00|9.0        |22.1    |46      |9.0      |0.0      |Mostly Clear |
+[2025-04-09T08:40:43.529+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-02 04:00|6.4        |15.0    |59      |6.4      |0.0      |Sunny        |
+[2025-04-09T08:40:43.530+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-02 09:00|5.5        |26.3    |49      |5.5      |0.0      |Sunny        |
+[2025-04-09T08:40:43.530+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-02 15:00|10.7       |32.0    |33      |10.7     |0.0      |Sunny        |
+[2025-04-09T08:40:43.531+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-02 22:00|5.8        |9.2     |46      |5.8      |0.0      |Sunny        |
+[2025-04-09T08:40:43.532+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-03 04:00|5.7        |25.1    |45      |5.7      |0.0      |Cloudy       |
+[2025-04-09T08:40:43.533+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-03 09:00|4.6        |21.3    |45      |4.6      |0.0      |Sunny        |
+[2025-04-09T08:40:43.534+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-03 15:00|12.5       |28.7    |28      |12.5     |0.0      |Sunny        |
+[2025-04-09T08:40:43.535+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-03 22:00|7.4        |11.2    |42      |7.4      |0.0      |Sunny        |
+[2025-04-09T08:40:43.536+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-04 04:00|4.2        |9.1     |56      |4.2      |0.0      |Sunny        |
+[2025-04-09T08:40:43.537+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-04 09:00|4.6        |11.5    |63      |4.6      |0.0      |Sunny        |
+[2025-04-09T08:40:43.539+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-04 15:00|12.4       |24.0    |36      |12.4     |0.0      |Mostly Clear |
+[2025-04-09T08:40:43.540+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-04 22:00|8.5        |18.9    |56      |8.5      |0.0      |Mostly Clear |
+[2025-04-09T08:40:43.541+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-05 04:00|5.1        |9.4     |65      |5.1      |0.0      |Sunny        |
+[2025-04-09T08:40:43.552+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-05 09:00|2.5        |9.8     |65      |2.5      |0.0      |Sunny        |
+[2025-04-09T08:40:43.553+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-05 15:00|12.2       |8.3     |24      |12.2     |0.0      |Sunny        |
+[2025-04-09T08:40:43.554+0000] {subprocess.py:106} INFO - |san juan de alicante|2021-01-05 22:00|7.5        |6.6     |48      |7.5      |0.0      |Cloudy       |
+[2025-04-09T08:40:43.557+0000] {subprocess.py:106} INFO - +--------------------+----------------+-----------+--------+--------+---------+---------+-------------+
+[2025-04-09T08:40:43.558+0000] {subprocess.py:106} INFO - only showing top 20 rows
+[2025-04-09T08:40:43.559+0000] {subprocess.py:106} INFO - 
+[2025-04-09T08:40:43.560+0000] {subprocess.py:106} INFO - Nombre de la carpeta: san_juan_de_alicante__38_4__0_43
+[2025-04-09T08:40:43.563+0000] {subprocess.py:106} INFO - Archivo Parquet generado: /tmp/tmp5kmd5pjt/san_juan_de_alicante__38_4__0_43/part-00000-bdd56f46-aaf6-4de1-97ed-50b1c7eda11b-c000.snappy.parquet
+[2025-04-09T08:40:43.565+0000] {subprocess.py:106} INFO - Archivo subido correctamente a MinIO en: san_juan_de_alicante__38_4__0_43/san_juan_de_alicante__38_4__0_43.parquet
+[2025-04-09T08:40:43.568+0000] {subprocess.py:106} INFO - Error: An error occurred while calling o120.save.
+[2025-04-09T08:40:43.570+0000] {subprocess.py:106} INFO - : org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 9.0 failed 1 times, most recent failure: Lost task 0.0 in stage 9.0 (TID 49) (3c3c1f66214b executor driver): java.sql.BatchUpdateException: Batch entry 0 INSERT INTO pro_raw_api.daily_weather ("city","time","temperature","wind_kph","humidity","feelslike","precip_mm","text") VALUES ('san juan de alicante','2021-01-01 04:00',6.7,9.8,68,6.7,0.0,'Partly Cloudy') was aborted: ERROR: column "time" is of type timestamp without time zone but expression is of type character varying
+[2025-04-09T08:40:43.572+0000] {subprocess.py:106} INFO -   Hint: You will need to rewrite or cast the expression.
+[2025-04-09T08:40:43.574+0000] {subprocess.py:106} INFO -   Position: 133  Call getNextException to see other errors in the batch.
+[2025-04-09T08:40:43.575+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:171)
+[2025-04-09T08:40:43.576+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:862)
+[2025-04-09T08:40:43.577+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:901)
+[2025-04-09T08:40:43.578+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1644)
+[2025-04-09T08:40:43.580+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:748)
+[2025-04-09T08:40:43.581+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:904)
+[2025-04-09T08:40:43.582+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:903)
+[2025-04-09T08:40:43.583+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1039)
+[2025-04-09T08:40:43.584+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1039)
+[2025-04-09T08:40:43.585+0000] {subprocess.py:106} INFO - 	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2433)
+[2025-04-09T08:40:43.586+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2025-04-09T08:40:43.587+0000] {subprocess.py:106} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2025-04-09T08:40:43.589+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2025-04-09T08:40:43.590+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2025-04-09T08:40:43.591+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2025-04-09T08:40:43.593+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2025-04-09T08:40:43.594+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2025-04-09T08:40:43.595+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2025-04-09T08:40:43.596+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2025-04-09T08:40:43.598+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2025-04-09T08:40:43.599+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-04-09T08:40:43.600+0000] {subprocess.py:106} INFO - Caused by: org.postgresql.util.PSQLException: ERROR: column "time" is of type timestamp without time zone but expression is of type character varying
+[2025-04-09T08:40:43.601+0000] {subprocess.py:106} INFO -   Hint: You will need to rewrite or cast the expression.
+[2025-04-09T08:40:43.603+0000] {subprocess.py:106} INFO -   Position: 133
+[2025-04-09T08:40:43.605+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2565)
+[2025-04-09T08:40:43.607+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2297)
+[2025-04-09T08:40:43.608+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+[2025-04-09T08:40:43.609+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:859)
+[2025-04-09T08:40:43.610+0000] {subprocess.py:106} INFO - 	... 19 more
+[2025-04-09T08:40:43.611+0000] {subprocess.py:106} INFO - 
+[2025-04-09T08:40:43.612+0000] {subprocess.py:106} INFO - Driver stacktrace:
+[2025-04-09T08:40:43.613+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+[2025-04-09T08:40:43.614+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+[2025-04-09T08:40:43.615+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+[2025-04-09T08:40:43.615+0000] {subprocess.py:106} INFO - 	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+[2025-04-09T08:40:43.616+0000] {subprocess.py:106} INFO - 	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+[2025-04-09T08:40:43.617+0000] {subprocess.py:106} INFO - 	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+[2025-04-09T08:40:43.618+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+[2025-04-09T08:40:43.619+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+[2025-04-09T08:40:43.620+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+[2025-04-09T08:40:43.621+0000] {subprocess.py:106} INFO - 	at scala.Option.foreach(Option.scala:407)
+[2025-04-09T08:40:43.622+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+[2025-04-09T08:40:43.624+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+[2025-04-09T08:40:43.625+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+[2025-04-09T08:40:43.626+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+[2025-04-09T08:40:43.626+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+[2025-04-09T08:40:43.627+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+[2025-04-09T08:40:43.628+0000] {subprocess.py:106} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
+[2025-04-09T08:40:43.629+0000] {subprocess.py:106} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2414)
+[2025-04-09T08:40:43.629+0000] {subprocess.py:106} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2433)
+[2025-04-09T08:40:43.631+0000] {subprocess.py:106} INFO - 	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2458)
+[2025-04-09T08:40:43.632+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$1(RDD.scala:1039)
+[2025-04-09T08:40:43.632+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2025-04-09T08:40:43.633+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+[2025-04-09T08:40:43.633+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+[2025-04-09T08:40:43.634+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.foreachPartition(RDD.scala:1037)
+[2025-04-09T08:40:43.635+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$foreachPartition$1(Dataset.scala:3516)
+[2025-04-09T08:40:43.635+0000] {subprocess.py:106} INFO - 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+[2025-04-09T08:40:43.636+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.Dataset.$anonfun$withNewRDDExecutionId$1(Dataset.scala:4310)
+[2025-04-09T08:40:43.637+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2025-04-09T08:40:43.637+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2025-04-09T08:40:43.638+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2025-04-09T08:40:43.640+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2025-04-09T08:40:43.641+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2025-04-09T08:40:43.641+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.Dataset.withNewRDDExecutionId(Dataset.scala:4308)
+[2025-04-09T08:40:43.642+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.Dataset.foreachPartition(Dataset.scala:3516)
+[2025-04-09T08:40:43.643+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.saveTable(JdbcUtils.scala:903)
+[2025-04-09T08:40:43.643+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:70)
+[2025-04-09T08:40:43.644+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.SaveIntoDataSourceCommand.run(SaveIntoDataSourceCommand.scala:48)
+[2025-04-09T08:40:43.644+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:75)
+[2025-04-09T08:40:43.645+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:73)
+[2025-04-09T08:40:43.646+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.command.ExecutedCommandExec.executeCollect(commands.scala:84)
+[2025-04-09T08:40:43.646+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.$anonfun$applyOrElse$1(QueryExecution.scala:107)
+[2025-04-09T08:40:43.647+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2025-04-09T08:40:43.648+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2025-04-09T08:40:43.648+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2025-04-09T08:40:43.649+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2025-04-09T08:40:43.649+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2025-04-09T08:40:43.650+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:107)
+[2025-04-09T08:40:43.651+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$1.applyOrElse(QueryExecution.scala:98)
+[2025-04-09T08:40:43.651+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:461)
+[2025-04-09T08:40:43.652+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:76)
+[2025-04-09T08:40:43.652+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:461)
+[2025-04-09T08:40:43.653+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:32)
+[2025-04-09T08:40:43.654+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:267)
+[2025-04-09T08:40:43.654+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:263)
+[2025-04-09T08:40:43.655+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2025-04-09T08:40:43.656+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:32)
+[2025-04-09T08:40:43.657+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:437)
+[2025-04-09T08:40:43.657+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:98)
+[2025-04-09T08:40:43.658+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted$lzycompute(QueryExecution.scala:85)
+[2025-04-09T08:40:43.658+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:83)
+[2025-04-09T08:40:43.659+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:142)
+[2025-04-09T08:40:43.659+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.DataFrameWriter.runCommand(DataFrameWriter.scala:869)
+[2025-04-09T08:40:43.660+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveToV1Source(DataFrameWriter.scala:391)
+[2025-04-09T08:40:43.661+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.DataFrameWriter.saveInternal(DataFrameWriter.scala:364)
+[2025-04-09T08:40:43.661+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:251)
+[2025-04-09T08:40:43.662+0000] {subprocess.py:106} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2025-04-09T08:40:43.662+0000] {subprocess.py:106} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2025-04-09T08:40:43.663+0000] {subprocess.py:106} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2025-04-09T08:40:43.663+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2025-04-09T08:40:43.664+0000] {subprocess.py:106} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2025-04-09T08:40:43.664+0000] {subprocess.py:106} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2025-04-09T08:40:43.665+0000] {subprocess.py:106} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2025-04-09T08:40:43.666+0000] {subprocess.py:106} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2025-04-09T08:40:43.666+0000] {subprocess.py:106} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2025-04-09T08:40:43.667+0000] {subprocess.py:106} INFO - 	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2025-04-09T08:40:43.667+0000] {subprocess.py:106} INFO - 	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2025-04-09T08:40:43.668+0000] {subprocess.py:106} INFO - 	at java.base/java.lang.Thread.run(Thread.java:840)
+[2025-04-09T08:40:43.668+0000] {subprocess.py:106} INFO - Caused by: java.sql.BatchUpdateException: Batch entry 0 INSERT INTO pro_raw_api.daily_weather ("city","time","temperature","wind_kph","humidity","feelslike","precip_mm","text") VALUES ('san juan de alicante','2021-01-01 04:00',6.7,9.8,68,6.7,0.0,'Partly Cloudy') was aborted: ERROR: column "time" is of type timestamp without time zone but expression is of type character varying
+[2025-04-09T08:40:43.669+0000] {subprocess.py:106} INFO -   Hint: You will need to rewrite or cast the expression.
+[2025-04-09T08:40:43.669+0000] {subprocess.py:106} INFO -   Position: 133  Call getNextException to see other errors in the batch.
+[2025-04-09T08:40:43.670+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:171)
+[2025-04-09T08:40:43.671+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:862)
+[2025-04-09T08:40:43.671+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:901)
+[2025-04-09T08:40:43.672+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1644)
+[2025-04-09T08:40:43.673+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.savePartition(JdbcUtils.scala:748)
+[2025-04-09T08:40:43.674+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1(JdbcUtils.scala:904)
+[2025-04-09T08:40:43.674+0000] {subprocess.py:106} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcUtils$.$anonfun$saveTable$1$adapted(JdbcUtils.scala:903)
+[2025-04-09T08:40:43.675+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2(RDD.scala:1039)
+[2025-04-09T08:40:43.675+0000] {subprocess.py:106} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$foreachPartition$2$adapted(RDD.scala:1039)
+[2025-04-09T08:40:43.676+0000] {subprocess.py:106} INFO - 	at org.apache.spark.SparkContext.$anonfun$runJob$5(SparkContext.scala:2433)
+[2025-04-09T08:40:43.676+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+[2025-04-09T08:40:43.677+0000] {subprocess.py:106} INFO - 	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+[2025-04-09T08:40:43.678+0000] {subprocess.py:106} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:141)
+[2025-04-09T08:40:43.678+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+[2025-04-09T08:40:43.679+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+[2025-04-09T08:40:43.679+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+[2025-04-09T08:40:43.680+0000] {subprocess.py:106} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+[2025-04-09T08:40:43.680+0000] {subprocess.py:106} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+[2025-04-09T08:40:43.681+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+[2025-04-09T08:40:43.682+0000] {subprocess.py:106} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[2025-04-09T08:40:43.682+0000] {subprocess.py:106} INFO - 	... 1 more
+[2025-04-09T08:40:43.683+0000] {subprocess.py:106} INFO - Caused by: org.postgresql.util.PSQLException: ERROR: column "time" is of type timestamp without time zone but expression is of type character varying
+[2025-04-09T08:40:43.684+0000] {subprocess.py:106} INFO -   Hint: You will need to rewrite or cast the expression.
+[2025-04-09T08:40:43.684+0000] {subprocess.py:106} INFO -   Position: 133
+[2025-04-09T08:40:43.685+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2565)
+[2025-04-09T08:40:43.685+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2297)
+[2025-04-09T08:40:43.686+0000] {subprocess.py:106} INFO - 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+[2025-04-09T08:40:43.687+0000] {subprocess.py:106} INFO - 	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:859)
+[2025-04-09T08:40:43.687+0000] {subprocess.py:106} INFO - 	... 19 more
+[2025-04-09T08:40:44.004+0000] {subprocess.py:106} INFO - 
+[2025-04-09T08:40:44.547+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-09T08:40:44.576+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-09T08:40:44.578+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=daily_weather_etl, task_id=run_main_script, run_id=manual__2025-04-09T08:40:23.862126+00:00, execution_date=20250409T084023, start_date=20250409T084026, end_date=20250409T084044
+[2025-04-09T08:40:44.601+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-09T08:40:44.602+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-09T08:40:44.603+0000] {logging_mixin.py:190} INFO - Dag name:daily_weather_etl queued_at:2025-04-09 08:40:23.873783+00:00
+[2025-04-09T08:40:44.605+0000] {logging_mixin.py:190} INFO - Task hostname:3c3c1f66214b operator:BashOperator
+[2025-04-09T08:40:44.616+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-09T08:40:44.629+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-09T08:40:44.631+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
